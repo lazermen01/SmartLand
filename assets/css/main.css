@@ -2181,6 +2181,9 @@ input, select, textarea {
 		position: relative;
 		padding: 8em 0;
 		margin: 4em 0 0 0;
+	
+	/* ДОБАВИ ТОЗИ РЕД, ЗА ДА ТЕСТВАШ: */
+    box-shadow: none !important; background-color: transparent !important;
 	}
 
 		#banner header {
