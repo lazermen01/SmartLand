@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- КОПИРАМЕ СТИЛА ОТ ГЛАВНАТА СТРАНИЦА ЗА ЕДНАКВА ВИЗИЯ --- */
+        /* --- ГЛОБАЛНИ СТИЛОВЕ (Същите като началната страница) --- */
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
@@ -20,14 +20,14 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
         /* HEADER */
         header {
             position: fixed; top: 0; width: 100%; height: 80px;
-            background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 210, 255, 0.1);
             z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%;
         }
@@ -36,68 +36,141 @@
         nav ul { display: flex; gap: 30px; }
         nav a:hover { color: var(--primary); }
         
-        /* --- СТРАНИЦА МАГАЗИН (НОВИ СТИЛОВЕ) --- */
+        /* --- HERO SECTION НА МАГАЗИНА --- */
         .page-header {
             margin-top: 80px;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background: linear-gradient(to bottom, #111, var(--dark-bg));
+            background: linear-gradient(to bottom, #0f0f0f, var(--dark-bg));
+            border-bottom: 1px solid #222;
         }
-        .page-header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
         .page-header p { color: var(--text-dim); font-size: 1.2rem; }
 
+        /* --- ОСНОВНА ИНФОРМАЦИЯ (КАРТА И ВРЕМЕ) --- */
         .info-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
-            padding: 40px 5%;
-            max-width: 1200px;
+            gap: 30px;
+            padding: 50px 5%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .info-card {
             flex: 1;
-            min-width: 300px;
+            min-width: 350px;
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transition: 0.3s;
         }
+        .info-card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        .info-card h2 { color: var(--primary); margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .info-card h2 { color: var(--primary); margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; display: flex; align-items: center; gap: 15px; }
         
         /* Списък с работно време */
         .hours-list li {
             display: flex;
             justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #222;
+            padding: 12px 0;
+            border-bottom: 1px dashed #333;
             font-size: 1.1rem;
+            color: var(--text-dim);
         }
         .hours-list li:last-child { border: none; }
         .closed { color: #ff0055; font-weight: bold; }
         .open-time { color: #00ff88; font-weight: bold; }
+        .current-day { color: #fff; font-weight: bold; }
 
-        /* Адрес и Контакти */
-        .address-box p { margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6; }
-        .address-box i { color: var(--primary); width: 30px; text-align: center; margin-right: 10px; }
-
-        /* Карта */
+        /* Адрес и Карта */
+        .address-box p { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; }
+        .address-box i { color: var(--primary); font-size: 1.2rem; }
+        
         .map-wrapper {
             width: 100%;
-            height: 400px;
-            border-radius: 15px;
+            height: 350px;
+            border-radius: 10px;
             overflow: hidden;
             border: 2px solid #333;
-            margin-top: 20px;
+            margin-top: 30px;
+            filter: grayscale(20%) invert(90%); /* Тъмна карта ефект */
         }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: var(--text-dim); margin-top: 50px; }
+        /* --- НОВА СЕКЦИЯ: ГАЛЕРИЯ/АТМОСФЕРА --- */
+        .gallery-section { padding: 50px 5%; max-width: 1300px; margin: 0 auto; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        /* ТУК МОЖЕ ДА СЛОЖИШ РЕАЛНИ СНИМКИ КАТО background-image */
+        .bg-1 { background: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80') center/cover; }
+        .bg-2 { background: url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80') center/cover; }
+        .bg-3 { background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80') center/cover; }
+
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.4s;
+        }
+        .gallery-item:hover .overlay { opacity: 1; }
+        .overlay h3 { color: #fff; border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
+
+        /* --- НОВА СЕКЦИЯ: ЧЕСТО ЗАДАВАНИ ВЪПРОСИ (FAQ) --- */
+        .faq-section { background: #111; padding: 80px 5%; margin-top: 50px; }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: var(--text-main); }
+        .section-title span { color: var(--primary); }
+
+        .faq-item {
+            background: var(--dark-bg);
+            border: 1px solid #333;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .faq-item:hover { border-color: var(--primary); background: #1a1a1a; }
+        .faq-item h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
+        .faq-item p { color: var(--text-dim); line-height: 1.6; }
+
+        /* --- CTA BANNER --- */
+        .cta-banner {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/images/pcpic1.png') center/cover;
+            background-attachment: fixed;
+        }
+        .cta-banner h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+        .cta-btn:hover { background: #fff; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; background: #050505; color: var(--text-dim); border-top: 1px solid #222; }
 
         @media (max-width: 768px) {
-            .page-header h1 { font-size: 2rem; }
-            nav { display: none; } /* Скриваме менюто на мобилни за по-чисто */
+            .page-header h1 { font-size: 2.2rem; }
+            nav { display: none; }
+            .info-container { padding: 20px 5%; }
         }
     </style>
 </head>
@@ -109,40 +182,24 @@
             <ul>
                 <li><a href="index.html">Начало</a></li>
                 <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#products">Продукти</a></li>
                 <li><a href="#" class="active" style="color: var(--primary);">Магазин</a></li>
-                <li><a href="index.html#contacts">Контакти</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="page-header">
-        <h1>ПОСЕТЕТЕ НИ</h1>
+        <h1>Добре Дошли</h1>
         <p>Вашият IT център в сърцето на Панагюрище</p>
     </div>
 
     <div class="info-container">
         
         <div class="info-card">
-            <h2><i class="far fa-clock"></i> Работно Време</h2>
+            <h2><i class="far fa-clock"></i> Кога сме отворени?</h2>
             <ul class="hours-list">
-                <li>
-                    <span>Понеделник</span>
-                    <span class="open-time">09:00 - 17:30</span>
-                </li>
-                <li>
-                    <span>Вторник</span>
-                    <span class="open-time">09:00 - 17:30</span>
-                </li>
-                <li>
-                    <span>Сряда</span>
-                    <span class="open-time">09:00 - 17:30</span>
-                </li>
-                <li>
-                    <span>Четвъртък</span>
-                    <span class="open-time">09:00 - 17:30</span>
-                </li>
-                <li>
-                    <span>Петък</span>
+                <li class="current-day">
+                    <span>Понеделник - Петък</span>
                     <span class="open-time">09:00 - 17:30</span>
                 </li>
                 <li>
@@ -154,14 +211,16 @@
                     <span class="closed">ПОЧИВЕН ДЕН</span>
                 </li>
             </ul>
+            <br>
+            <p style="color: #888; font-size: 0.9rem;">* Почивка: 12:30 - 13:30</p>
         </div>
 
         <div class="info-card">
-            <h2><i class="fas fa-map-marker-alt"></i> Локация</h2>
+            <h2><i class="fas fa-map-marker-alt"></i> Къде да ни намерите?</h2>
             <div class="address-box">
                 <p><i class="fas fa-city"></i> <strong>гр. Панагюрище</strong></p>
-                <p><i class="fas fa-road"></i> ул. Райна Княгиня 2 (Пример)</p>
-                <p><i class="fas fa-phone"></i> 0889 030 110</p>
+                <p><i class="fas fa-route"></i> Обслужваме и района на Пазарджик</p>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:0889030110" style="color:#fff; font-weight:bold;">0889 030 110</a></p>
             </div>
 
             <div class="map-wrapper">
@@ -171,8 +230,48 @@
                 </iframe>
             </div>
         </div>
-
     </div>
+
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item bg-1">
+                <div class="overlay"><h3>Гейминг Зона</h3></div>
+            </div>
+            <div class="gallery-item bg-2">
+                <div class="overlay"><h3>Сервизен Център</h3></div>
+            </div>
+            <div class="gallery-item bg-3">
+                <div class="overlay"><h3>Шоурум</h3></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Често Задавани <span>Въпроси</span></h2>
+            
+            <div class="faq-item">
+                <h4><i class="fas fa-question-circle"></i> Колко време отнема диагностиката?</h4>
+                <p>Обикновено извършваме пълна диагностика в рамките на 24 часа. За по-леки случаи става и на момента.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-laptop-medical"></i> Ремонтирате ли всички марки лаптопи?</h4>
+                <p>Да, работим с Acer, Asus, Dell, HP, Lenovo, Apple и всички останали популярни марки.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-truck"></i> Идване на адрес?</h4>
+                <p>Да, предлагаме посещение на адрес за фирми и частни клиенти в Панагюрище и Пазарджик след уговорка.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <h2>Имате проблем с компютъра?</h2>
+        <p>Не чакайте проблема да се влоши. Обадете ни се сега.</p>
+        <a href="tel:0889030110" class="cta-btn"><i class="fas fa-phone"></i> 0889 030 110</a>
+    </section>
 
     <footer>
         <p>© 2024 Smartland. Всички права запазени.</p>
