@@ -2064,63 +2064,92 @@ input, select, textarea {
 
 /* Header */
 
-	#header {
-		position: relative;
-		background: #ffffff;
-		border-bottom: solid 1px #ccc;
-		padding: 5em 0 4em 0;
-		text-align: center;
-	}
+	/* --- НОВ МОДЕРЕН ХЕДЪР (SMARTLAND) --- */
 
-		#header h1 {
-			color: #252122;
-			font-weight: 900;
-			font-size: 2.5em;
-			letter-spacing: -0.035em;
-			line-height: 1;
-		}
+/* 1. Настройки на страницата, за да не се крие съдържанието под менюто */
+#page-wrapper {
+    padding-top: 80px; /* Отместваме сайта надолу, защото менюто е фиксирано */
+}
 
-/* Nav */
+/* 2. Самата лента най-горе */
+#header {
+    /* Фиксиране най-горе */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Фиксирана височина */
+    z-index: 10000; /* Да е над всичко останало */
 
-	#nav {
-		margin: 2.5em 0 0 0;
-	}
+    /* Модерен Градиент (Тъмно сиво към черно) */
+    background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
+    
+    /* Сянка за дълбочина */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    
+    /* Подредба (Лого вляво, Меню вдясно) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; /* Разстояние от краищата */
+    text-align: left; /* Връщаме нормалния текст, не центриран */
+    border-bottom: none; /* Махаме старата рамка */
+}
 
-		#nav > ul {
-			margin: 0;
-		}
+/* 3. Логото (Smartland) */
+#header h1 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.8em; /* По-компактен размер */
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ffffff, #d52349); /* Текст с градиент */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-			#nav > ul > li {
-				display: inline-block;
-				font-style: italic;
-				margin: 0 0.35em 0 0.35em;
-			}
+/* 4. Менюто (Навигацията) */
+#nav {
+    margin: 0;
+}
 
-				#nav > ul > li > ul {
-					display: none;
-				}
+#nav > ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
 
-				#nav > ul > li > a {
-					border-radius: 5px;
-					color: #5d5d5d;
-					text-decoration: none;
-					padding: 0.6em 1.2em 0.6em 1.2em;
-					-moz-transition: background-color .25s ease-in-out;
-					-webkit-transition: background-color .25s ease-in-out;
-					-ms-transition: background-color .25s ease-in-out;
-					transition: background-color .25s ease-in-out;
-					outline: 0;
-				}
+#nav > ul > li {
+    margin: 0 0 0 20px; /* Разстояние между бутоните */
+    display: inline-block;
+}
 
-				#nav > ul > li:hover > a, #nav > ul > li.active > a {
-					background: #f3f3f3;
-				}
+#nav > ul > li > a {
+    display: block;
+    color: #e0e0e0; /* Светъл текст */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: transparent; /* Махаме стария фон */
+    transition: all 0.3s ease;
+}
 
-				#nav > ul > li.current > a {
-					background: #d52349;
-					color: #fff !important;
-					font-weight: 700;
-				}
+/* Ефект при минаване с мишката */
+#nav > ul > li:hover > a, 
+#nav > ul > li.current > a {
+    color: #fff !important;
+    background: rgba(213, 35, 73, 0.2); /* Лек червен фон */
+    box-shadow: 0 0 10px rgba(213, 35, 73, 0.5); /* Светещ ефект */
+}
+
+/* 5. Корекция за Банера (защото го извадихме от хедъра) */
+#banner {
+    margin-top: 0; /* Махаме излишното разстояние */
+    padding: 10em 0 8em 0; /* Увеличаваме го малко, за да изглежда добре */
+}
 
 	.dropotron {
 		border-radius: 5px;
