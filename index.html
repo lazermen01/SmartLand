@@ -20,6 +20,47 @@
             --text-dim: #b3b3b3;
         }
 
+
+        /* --- CSS ЗА ВАРИАНТ 2 (ВИДЕО) --- */
+.video-hero {
+    height: 100vh; width: 100%;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    position: relative; overflow: hidden;
+}
+
+.back-video {
+    position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;
+    z-index: -1; object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10,10,10,0.7); /* Тъмен слой над видеото */
+}
+
+.hero h1 { font-size: 3.8rem; text-shadow: 0 0 20px rgba(0,0,0,1); }
+.neon-pink { color: var(--accent); text-shadow: 0 0 20px var(--accent); }
+
+/* Група от бутони */
+.btn-group { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+
+.neon-blue-btn {
+    background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); border: none;
+}
+.neon-blue-btn:hover { background: #fff; box-shadow: 0 0 40px var(--primary); }
+
+.glass-btn {
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); border: 2px solid rgba(255,255,255,0.3); color: #fff;
+}
+.glass-btn:hover { background: rgba(255,255,255,0.2); border-color: var(--primary); }
+
+/* Анимация при зареждане */
+.animate-up { animation: fadeInUp 1s ease-out; }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+        
         * {
             margin: 0;
             padding: 0;
@@ -271,13 +312,22 @@
         <a href="tel:0889030110" class="btn-call">0889 030 110</a>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>БЪДЕЩЕТО НА <br><span>ТВОЯТА ТЕХНИКА</span></h1>
-            <p>Професионален сервиз, къстъм гейминг машини и висококачествена периферия в Панагюрище и региона.</p>
-            <a href="#products" class="cta-btn">РАЗГЛЕДАЙ ПРОДУКТИТЕ</a>
+<section class="hero video-hero">
+    <video autoplay muted loop playsinline class="back-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-background-2892-large.mp4" type="video/mp4">
+    </video>
+    
+    <div class="video-overlay"></div>
+
+    <div class="hero-content animate-up">
+        <h1>БЪДЕЩЕТО НА ТЕХНОЛОГИИТЕ <br>В <span class="neon-pink">ТВОИТЕ РЪЦЕ</span></h1>
+        <p>Smartland: Където високата производителност среща професионалния сервиз. </p>
+        <div class="btn-group">
+            <a href="#products" class="cta-btn neon-blue-btn">МАГАЗИН <i class="fas fa-shopping-cart"></i></a>
+            <a href="#services" class="cta-btn glass-btn">УСЛУГИ <i class="fas fa-tools"></i></a>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="services" class="section">
         <div class="section-title">
@@ -372,4 +422,5 @@
 
 </body>
 </html>
+
 
