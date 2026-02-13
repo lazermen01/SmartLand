@@ -1,262 +1,203 @@
 <!DOCTYPE HTML>
 <html lang="bg">
-	<head>
-		<title>Smartland - Компютри и Сервиз | Панагюрище</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+<head>
+    <title>Smartland - IT Solutions & Gaming | Панагюрище</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
 
-			<section id="header">
-                <div class="header-container">
-                    <h1 id="logo"><a href="index.html">Smartland<span class="dot">.</span></a></h1>
+    <header class="glass-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Smart<span class="highlight">land</span>.</a>
+            </div>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
 
-					<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">Начало</a></li>
-								<li>
-									<a href="#">Услуги</a>
-									<ul>
-										<li><a href="#">Диагностика и Ремонт</a></li>
-										<li><a href="#">Инсталиране на Софтуер</a></li>
-										<li><a href="#">Почистване на лаптопи</a></li>
-                                        <li><a href="#">Мрежови услуги</a></li>
-									</ul>
-								</li>
-                                <li>
-                                    <a href="#">Продукти</a>
-                                    <ul>
-                                        <li><a href="#">Геймърски компютри</a></li>
-                                        <li><a href="#">Офис техника</a></li>
-                                        <li><a href="#">Периферия</a></li>
-                                    </ul>
-                                </li>
-								<li><a href="#footer">Контакти</a></li>
-                                <li><a href="tel:0889030110" class="button-call">0889 030 110</a></li>
-							</ul>
-						</nav>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="active">Начало</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#products">Продукти</a></li>
+                    <li><a href="#about">За Нас</a></li>
+                    <li><a href="#contact" class="btn-contact">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Вашият IT Партньор в <br><span class="text-gradient">Панагюрище & Региона</span></h1>
+            <p>Професионален сервиз, гейминг конфигурации и премиум техника. Ние създаваме решенията, от които имате нужда.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Виж Продуктите <i class="fas fa-arrow-right"></i></a>
+                <a href="tel:0889030110" class="btn btn-outline"><i class="fas fa-phone"></i> 0889 030 110</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fas fa-microchip"></i></div>
+                    <h3>PC Маниаци</h3>
+                    <p>Сглобяваме компютри с внимание към всеки детайл и кабел.</p>
                 </div>
-			</section>
-			
-			<section id="banner">
-                <div class="banner-content">
-                    <header>
-                        <h2>Вашият IT партньор</h2>
-                        <p>Професионален сервиз, гейминг конфигурации и техника в Панагюрище и региона.</p>
-                        <ul class="actions">
-                            <li><a href="#intro" class="button large">Виж услугите</a></li>
-                        </ul>
-                    </header>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fas fa-tools"></i></div>
+                    <h3>Бърз Сервиз</h3>
+                    <p>Диагностика и ремонт в кратки срокове. Знаем, че времето е пари.</p>
                 </div>
-			</section>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Локална Подкрепа</h3>
+                    <p>Базирани в Панагюрище, обслужваме Пазарджик и региона лично.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section id="intro" class="container">
-                <header class="major">
-                    <h2>Защо да изберете нас?</h2>
-                    <p class="subtitle">Ние предлагаме качество, бързина и коректно отношение.</p>
-                </header>
-				<div class="row">
-					<div class="col-4 col-12-medium">
-						<section class="feature-box">
-							<i class="icon solid featured fa-desktop"></i>
-							<header>
-								<h3>PC Конфигурации</h3>
-							</header>
-							<p>Сглобяване на компютри по ваши изисквания. От бюджетни офис машини до мощни геймърски зверове.</p>
-						</section>
-					</div>
-					<div class="col-4 col-12-medium">
-						<section class="feature-box">
-							<i class="icon solid featured fa-wrench"></i>
-							<header>
-								<h3>Експертен Сервиз</h3>
-							</header>
-							<p>Бърза диагностика, почистване, смяна на термопаста и ремонт на лаптопи и компютри.</p>
-						</section>
-					</div>
-					<div class="col-4 col-12-medium">
-						<section class="feature-box">
-							<i class="icon solid featured fa-shipping-fast"></i>
-							<header>
-								<h3>Локална поддръжка</h3>
-							</header>
-							<p>Бърза реакция за Панагюрище и Пазарджик. Не чакайте куриери със седмици.</p>
-						</section>
-					</div>
-				</div>
-			</section>
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Нашите Предложения</h2>
+                <p>Изберете най-доброто за вашия дом или офис</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="card-image" style="background-image: url('images/pic02.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Геймърски PC</h3>
+                        <p>Зверове с RTX видеокарти и мощни процесори за ултра настройки.</p>
+                        <a href="#" class="card-link">Разгледай <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
 
-			<section id="main">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
+                <div class="product-card">
+                    <div class="card-image" style="background-image: url('images/pic03.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Лаптопи</h3>
+                        <p>Леки, тънки и мощни лаптопи за работа, учене и развлечение.</p>
+                        <a href="#" class="card-link">Разгледай <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
 
-							<section>
-								<header class="major">
-									<h2>Нашите предложения</h2>
-								</header>
-								<div class="row">
-                                    <div class="col-4 col-6-medium col-12-small">
-										<section class="box product-card">
-											<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-											<header>
-												<h3>Геймърски PC</h3>
-											</header>
-											<p>Мощни конфигурации с NVIDIA и AMD за максимален FPS.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button alt">Разгледай</a></li>
-												</ul>
-											</footer>
-										</section>
-									</div>
-                                    <div class="col-4 col-6-medium col-12-small">
-										<section class="box product-card">
-											<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-											<header>
-												<h3>Лаптопи</h3>
-											</header>
-											<p>Леки и надеждни лаптопи за работа, училище и дома.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button alt">Разгледай</a></li>
-												</ul>
-											</footer>
-										</section>
-									</div>
-                                    <div class="col-4 col-6-medium col-12-small">
-										<section class="box product-card">
-											<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-											<header>
-												<h3>Сервиз</h3>
-											</header>
-											<p>Профилактика и ремонт. Вдъхнете нов живот на старата техника.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button alt">Цени</a></li>
-												</ul>
-											</footer>
-										</section>
-									</div>
-                                    <div class="col-4 col-6-medium col-12-small">
-										<section class="box product-card">
-											<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-											<header>
-												<h3>Периферия</h3>
-											</header>
-											<p>Мишки, клавиатури, слушалки и монитори за пълно удобство.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button alt">Разгледай</a></li>
-												</ul>
-											</footer>
-										</section>
-									</div>
-                                    <div class="col-4 col-6-medium col-12-small">
-										<section class="box product-card">
-											<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-											<header>
-												<h3>Ъпгрейд</h3>
-											</header>
-											<p>Добавяне на SSD и RAM памет за светкавична скорост.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button alt">Оферта</a></li>
-												</ul>
-											</footer>
-										</section>
-									</div>
-                                    <div class="col-4 col-6-medium col-12-small">
-										<section class="box product-card">
-											<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
-											<header>
-												<h3>Мрежи</h3>
-											</header>
-											<p>Настройка на рутери и изграждане на офисни мрежи.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button alt">Виж още</a></li>
-												</ul>
-											</footer>
-										</section>
-									</div>
-								</div>
-							</section>
+                <div class="product-card">
+                    <div class="card-image" style="background-image: url('images/pic04.jpg');"></div>
+                    <div class="card-content">
+                        <h3>IT Сервиз</h3>
+                        <p>Почистване, преинсталация, хардуерни ремонти и ъпгрейд.</p>
+                        <a href="#" class="card-link">Цени <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
 
-						</div>
-					</div>
-				</div>
-			</section>
+                <div class="product-card">
+                    <div class="card-image" style="background-image: url('images/pic05.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Периферия</h3>
+                        <p>Механични клавиатури, мишки и монитори от топ марки.</p>
+                        <a href="#" class="card-link">Разгледай <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
 
-			<section id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-8 col-12-medium">
-							<section>
-								<header>
-									<h2>За Smartland</h2>
-								</header>
-								<ul class="dates">
-									<li>
-										<span class="date">Локация</span>
-										<h3><a href="#">Базирани в Панагюрище</a></h3>
-										<p>Ние сме местна фирма, която държи на личния контакт. Обслужваме клиенти на място в Панагюрище, както и в Пазарджик и околните населени места.</p>
-									</li>
-									<li>
-										<span class="date">Мисия</span>
-										<h3><a href="#">Качество и коректност</a></h3>
-										<p>Нашата цел е да предоставим работещи IT решения на адекватни цени.</p>
-									</li>
-								</ul>
-							</section>
-						</div>
-						<div class="col-4 col-12-medium">
-							<section>
-								<header>
-									<h2>Контакти</h2>
-								</header>
-                                <ul class="contact">
-                                    <li>
-                                        <h3>Адрес</h3>
-                                        <p>гр. Панагюрище, България</p>
-                                    </li>
-                                    <li>
-                                        <h3>Телефон</h3>
-                                        <p><a href="tel:0889030110" style="color: #fff; font-weight: bold; font-size: 1.2em;">0889 030 110</a></p>
-                                    </li>
-                                    <li>
-                                        <h3>Имейл</h3>
-                                        <p><a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></p>
-                                    </li>
-                                </ul>
-								<ul class="social">
-									<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-									<li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
-								</ul>
-							</section>
-						</div>
-						<div class="col-12">
-							<div id="copyright">
-								<ul class="links">
-									<li>&copy; Smartland. Всички права запазени.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+                <div class="product-card">
+                    <div class="card-image" style="background-image: url('images/pic06.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Мрежи & Wi-Fi</h3>
+                        <p>Изграждане на стабилни офис мрежи и настройка на рутери.</p>
+                        <a href="#" class="card-link">Услуги <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
 
-		</div>
+                <div class="product-card">
+                    <div class="card-image" style="background-image: url('images/pic07.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Софтуер</h3>
+                        <p>Лицензиран Windows, Office пакети и антивирусни решения.</p>
+                        <a href="#" class="card-link">Виж още <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Свържете се с нас</h2>
+                    <p>Готови сме да отговорим на всички ваши въпроси.</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>0889 030 110</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Имейл</h4>
+                            <p>thilsey13542@gmail.com</p>
+                        </div>
+                    </div>
 
-	</body>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Локация</h4>
+                            <p>гр. Панагюрище (Обслужваме и Пазарджик)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47020.73967678512!2d24.15392661858563!3d42.50462747970726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ad3eb90566d6c9%3A0xf63a755866705590!2z0J_QsNC90LDQs9GO0YDQuNGJ0LU!5e0!3m2!1sbg!2sbg!4v1700000000000!5m2!1sbg!2sbg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h3>Smartland.</h3>
+                <p>Вашият надежден IT партньор.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Smartland. Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
 </html>
