@@ -2071,29 +2071,33 @@ input, select, textarea {
     padding-top: 80px; /* Отместваме сайта надолу, защото менюто е фиксирано */
 }
 
-/* 2. Самата лента най-горе */
+/* --- NEW MODERN GLASS HEADER --- */
+
+/* 1. Отместваме целия сайт надолу, за да не се скрие под менюто */
+#page-wrapper {
+    padding-top: 70px; /* Точно колкото е височината на хедъра */
+}
+
+/* 2. Самата лента (Стъклен ефект) */
 #header {
-    /* Фиксиране най-горе */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px; /* Фиксирана височина */
-    z-index: 10000; /* Да е над всичко останало */
-
-    /* Модерен Градиент (Тъмно сиво към черно) */
-    background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
+    height: 70px; /* Фиксирана, тънка височина */
+    z-index: 10000;
     
-    /* Сянка за дълбочина */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    /* Тъмен, полупрозрачен фон с блър ефект */
+    background: rgba(20, 20, 23, 0.85); 
+    backdrop-filter: blur(12px); /* Това прави "магията" на стъклото */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Тънка светеща линия отдолу */
     
-    /* Подредба (Лого вляво, Меню вдясно) */
+    /* Подреждане на един ред (Лого ляво - Меню дясно) */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%; /* Разстояние от краищата */
-    text-align: left; /* Връщаме нормалния текст, не центриран */
-    border-bottom: none; /* Махаме старата рамка */
+    padding: 0 40px; /* Разстояние от краищата */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Сянка */
 }
 
 /* 3. Логото (Smartland) */
@@ -2101,40 +2105,65 @@ input, select, textarea {
     margin: 0;
     padding: 0;
     line-height: 1;
-    font-size: 1.8em; /* По-компактен размер */
+    font-size: 1.6em;
     font-weight: 800;
     letter-spacing: 1px;
-    background: linear-gradient(to right, #ffffff, #d52349); /* Текст с градиент */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    text-transform: uppercase;
+}
+#header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Червена точка след логото за акцент */
+#header h1 a:after {
+    content: '.';
+    color: #d52349;
 }
 
-/* 4. Менюто (Навигацията) */
+/* 4. Навигацията (Менюто) */
 #nav {
     margin: 0;
 }
-
 #nav > ul {
     margin: 0;
-    display: flex;
-    align-items: center;
+    display: flex; /* Подрежда бутоните хоризонтално */
+    gap: 5px; /* Разстояние между бутоните */
+    list-style: none;
 }
-
 #nav > ul > li {
-    margin: 0 0 0 20px; /* Разстояние между бутоните */
-    display: inline-block;
+    display: block;
+    margin: 0;
 }
 
+/* 5. Линковете (Бутоните) */
 #nav > ul > li > a {
     display: block;
-    color: #e0e0e0; /* Светъл текст */
+    color: #cccccc;
+    font-size: 0.85em;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.9em;
-    padding: 10px 15px;
-    border-radius: 4px;
-    background: transparent; /* Махаме стария фон */
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
     transition: all 0.3s ease;
+}
+
+/* Ефект при посочване */
+#nav > ul > li:hover > a,
+#nav > ul > li.current > a {
+    color: #fff !important;
+    background: #d52349; /* Червеният цвят на фирмата */
+    box-shadow: 0 0 15px rgba(213, 35, 73, 0.4); /* Светещ ефект */
+}
+
+/* 6. Корекция на падащото меню (Dropotron) */
+.dropotron {
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin-top: 10px; /* Леко надолу */
+    border-radius: 6px;
 }
 
 /* Ефект при минаване с мишката */
