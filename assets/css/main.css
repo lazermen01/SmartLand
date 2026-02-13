@@ -2174,33 +2174,34 @@ input, select, textarea {
 
 /* Banner */
 
-	#banner {
-		/* Път към снимката */
-		background-image: url('../../images/pcpic1.png');
-		
-		/* Центрира снимката, за да се вижда средата ѝ */
-		background-position: center center;
-		
-		/* ВАЖНО: 'cover' кара снимката да запълни целия екран без да се деформира */
-		background-size: cover;
-		
-		background-repeat: no-repeat;
-		text-align: center;
-		position: relative;
-		padding: 8em 0;
-		margin: 4em 0 0 0;
-		
-		/* Премахваме старите сенки и цветове, за да се вижда снимката чисто */
-		box-shadow: none;
-		background-color: transparent; 
-	}
+	/* Banner - Updated Fix */
+#banner {
+    /* 1. Слагаме снимката */
+    background-image: url('../../images/pcpic1.png') !important;
+    
+    /* 2. Насилваме я да покрие целия екран */
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    
+    /* 3. Настройки на кутията */
+    text-align: center;
+    position: relative;
+    padding: 8em 0;
+    margin: 4em 0 0 0;
+    
+    /* 4. Махаме старите филтри */
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
 
-		#banner header {
-			background-color: rgba(34, 30, 31, 0.98);
-			display: inline-block;
-			padding: 2.5em 5em;
-			border-radius: 5px;
-		}
+/* Това прави черната кутия около текста прозрачна, за да се вижда снимката */
+#banner header {
+    background-color: rgba(0, 0, 0, 0.6) !important; /* 0.6 означава 60% черно, леко прозрачно */
+    border-radius: 10px;
+    padding: 2em;
+    backdrop-filter: blur(5px); /* Модерен ефект на замъглено стъкло само зад текста */
+}
 
 			#banner header h2 {
 				color: #fff;
