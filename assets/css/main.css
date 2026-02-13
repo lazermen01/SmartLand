@@ -2172,18 +2172,27 @@ input, select, textarea {
 
 /* Banner */
 
+/* Banner */
+
 	#banner {
+		/* Път към снимката */
 		background-image: url('../../images/pcpic1.png');
+		
+		/* Центрира снимката, за да се вижда средата ѝ */
 		background-position: center center;
-		background-size: auto 100%;
+		
+		/* ВАЖНО: 'cover' кара снимката да запълни целия екран без да се деформира */
+		background-size: cover;
+		
 		background-repeat: no-repeat;
 		text-align: center;
 		position: relative;
 		padding: 8em 0;
 		margin: 4em 0 0 0;
-	
-	/* ДОБАВИ ТОЗИ РЕД, ЗА ДА ТЕСТВАШ: */
-    box-shadow: none !important; background-color: transparent !important;
+		
+		/* Премахваме старите сенки и цветове, за да се вижда снимката чисто */
+		box-shadow: none;
+		background-color: transparent; 
 	}
 
 		#banner header {
