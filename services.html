@@ -26,21 +26,75 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* HEADER (Идентичен) */
-        header {
-            position: fixed; top: 0; width: 100%; height: 80px;
-            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-            z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%;
-        }
-        .logo { font-size: 24px; font-weight: 700; white-space: nowrap; }
-        .logo span { color: var(--primary); }
-        nav { flex-grow: 1; display: flex; justify-content: center; }
-        nav ul { display: flex; gap: 30px; }
-        nav a { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
-        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .btn-call { padding: 10px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 5px; font-weight: bold; }
+        /* ЕДНАКЪВ СТИЛ ЗА ХЕДЪРА НА ВСИЧКИ СТРАНИЦИ */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
 
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--text-main);
+}
+.logo span { color: var(--primary); }
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.btn-call {
+    white-space: nowrap;
+    padding: 10px 20px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
+}
+
+/* Скрива навигацията на мобилни телефони */
+@media (max-width: 850px) {
+    nav { display: none; }
+}
+        
         /* --- СТИЛОВЕ ЗА СТРАНИЦАТА --- */
         .page-banner {
             margin-top: 80px;
