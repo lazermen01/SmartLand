@@ -33,23 +33,21 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-/* --- ФИКСИРАН И ЦЕНТРИРАН ХЕДЪР --- */
+/* ЕДНАКЪВ СТИЛ ЗА ХЕДЪРА НА ВСИЧКИ СТРАНИЦИ */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    background: rgba(10, 10, 10, 0.95); /* Тъмен фон */
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 210, 255, 0.2);
     z-index: 1000;
-    
-    /* ТОВА ЦЕНТРИРА ЕЛЕМЕНТИТЕ */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5%; 
+    padding: 0 5%;
 }
 
 .logo {
@@ -57,12 +55,14 @@ header {
     font-size: 24px;
     font-weight: 700;
     white-space: nowrap;
+    color: var(--text-main);
 }
+.logo span { color: var(--primary); }
 
 nav {
-    flex-grow: 1; /* Позволява на навигацията да заеме средата */
+    flex-grow: 1;
     display: flex;
-    justify-content: center; /* Центрира менюто спрямо логото и бутона */
+    justify-content: center;
 }
 
 nav ul {
@@ -81,27 +81,27 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
+nav a:hover, nav a.active {
     color: var(--primary);
     text-shadow: 0 0 10px var(--primary);
 }
 
 .btn-call {
-    white-space: nowrap; /* Пречи на номера да се пренесе на нов ред */
+    white-space: nowrap;
     padding: 10px 20px;
     border: 2px solid var(--primary);
     color: var(--primary);
     border-radius: 5px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
+}
+
+/* Скрива навигацията на мобилни телефони */
+@media (max-width: 850px) {
+    nav { display: none; }
 }
         
-        .btn-call:hover {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
-        }
-
         /* --- 3. HERO ЗА МАГАЗИНА (По-нисък от главния) --- */
         .page-header {
             margin-top: 80px; /* Да слезе под менюто */
