@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - Smartland</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- КОПИРАНЕ НА ГЛОБАЛНИТЕ СТИЛОВЕ --- */
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --accent: #ff0055;
+            --dark-bg: #0a0a0a;
+            --card-bg: #131313;
+            --text-main: #ffffff;
+            --text-dim: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* HEADER (Идентичен) */
+        header {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%;
+        }
+        .logo { font-size: 24px; font-weight: 700; white-space: nowrap; }
+        .logo span { color: var(--primary); }
+        nav { flex-grow: 1; display: flex; justify-content: center; }
+        nav ul { display: flex; gap: 30px; }
+        nav a { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .btn-call { padding: 10px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 5px; font-weight: bold; }
+
+        /* --- СТИЛОВЕ ЗА СТРАНИЦАТА --- */
+        .page-banner {
+            margin-top: 80px;
+            padding: 100px 5%;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-detail-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 100px;
+        }
+
+        .service-row:nth-child(even) { flex-direction: row-reverse; }
+
+        .service-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 210, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
+        }
+
+        .service-image img { width: 100%; display: block; }
+
+        .service-text { flex: 1; }
+        .service-text h2 { color: var(--primary); font-size: 2rem; margin-bottom: 20px; }
+        .service-text p { color: var(--text-dim); line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px; }
+        
+        .feature-list { margin-bottom: 30px; }
+        .feature-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: #fff; }
+        .feature-list i { color: var(--primary); font-size: 0.9rem; }
+
+        /* FOOTER (Идентичен) */
+        .main-footer { background: #050505; color: var(--text-main); padding: 60px 5% 20px; border-top: 1px solid rgba(0, 210, 255, 0.1); margin-top: 50px; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.2rem; }
+
+        @media (max-width: 768px) {
+            .service-row, .service-row:nth-child(even) { flex-direction: column; text-align: center; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">SMART<span>LAND</span>.</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="services.html" class="active">Услуги</a></li>
+                <li><a href="shop.html">Магазин</a></li>
+                <li><a href="index.html#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+        <a href="tel:0889030110" class="btn-call">0889 030 110</a>
+    </header>
+
+    <div class="page-banner">
+        <h1>Нашите Услуги</h1>
+        <p style="color: var(--primary); letter-spacing: 2px;">ДЕТАЙЛНА ИНФОРМАЦИЯ ЗА ТОВА, КОЕТО ПРАВИМ НАЙ-ДОБРЕ</p>
+    </div>
+
+    <div class="service-detail-section">
+        
+        <div class="service-row">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=800" alt="Сервиз">
+            </div>
+            <div class="service-text">
+                <h2>Експертен Сервиз</h2>
+                <p>Вашият компютър или лаптоп има нужда от професионална грижа? Ние извършваме пълна гама от ремонтни дейности.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Бърза диагностика до 24 часа</li>
+                    <li><i class="fas fa-check-circle"></i> Професионално почистване от прах</li>
+                    <li><i class="fas fa-check-circle"></i> Смяна на термопаста за по-добро охлаждане</li>
+                    <li><i class="fas fa-check-circle"></i> Ремонт на дънни платки и хардуер</li>
+                    <li><i class="fas fa-check-circle"></i> Софтуерна поддръжка и преинсталация</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=800" alt="Компютри">
+            </div>
+            <div class="service-text">
+                <h2>Компютри & Лаптопи</h2>
+                <p>Предлагаме голямо разнообразие от техника, подходяща както за дома, така и за тежък офис режим или гейминг.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Продажба на нови конфигурации с пълна гаранция</li>
+                    <li><i class="fas fa-check-circle"></i> Проверена техника втора употреба на отлични цени</li>
+                    <li><i class="fas fa-check-circle"></i> Сглобяване на къстъм PC по Ваш избор</li>
+                    <li><i class="fas fa-check-circle"></i> Консултация при избор на компоненти</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800" alt="Принтери">
+            </div>
+            <div class="service-text">
+                <h2>Принтери & Тонери</h2>
+                <p>Осигурете си безпроблемен печат. Ние не само продаваме принтери, но и се грижим за техния дълъг живот.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Продажба на принтери и копирна техника</li>
+                    <li><i class="fas fa-check-circle"></i> Нови тонер касети за всички модели</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Професионално презареждане</strong> на касети</li>
+                    <li><i class="fas fa-check-circle"></i> Сервиз на принтери</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=800" alt="Аксесоари">
+            </div>
+            <div class="service-text">
+                <h2>Аксесоари</h2>
+                <p>Завършете вашето работно или гейминг място с най-добрите аксесоари на пазара.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Геймърски мишки и механични клавиатури</li>
+                    <li><i class="fas fa-check-circle"></i> Кристално чист звук със слушалки от висок клас</li>
+                    <li><i class="fas fa-check-circle"></i> Монитори с висока честота на опресняване</li>
+                    <li><i class="fas fa-check-circle"></i> Кабели, адаптери и периферия</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo">SMART<span>LAND</span>.</div>
+                <p>Вашият надежден партньор в света на технологиите.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Контакти</h3>
+                <p><i class="fas fa-phone"></i> 0889 030 110</p>
+                <p><i class="fas fa-envelope"></i> thilsey13542@gmail.com</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #111; font-size: 0.8rem; color: #444;">
+            &copy; 2024 Smartland. Всички права запазени.
+        </div>
+    </footer>
+
+</body>
+</html>
