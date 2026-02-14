@@ -468,18 +468,7 @@ nav a:hover, nav a.active {
 </head>
 <body>
 
-<header>
-    <div class="logo">SMART<span>LAND</span>.</div>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Начало</a></li>
-            <li><a href="services.html">Услуги</a></li>
-            <li><a href="shop.html">Магазин</a></li>
-            <li><a href="#contacts">Контакти</a></li>
-        </ul>
-    </nav>
-    <a href="tel:0889030110" class="btn-call">0889 030 110</a>
-</header>
+<div id="header-placeholder"></div>
 
 <section class="hero video-hero">
     <video autoplay muted loop playsinline class="back-video">
@@ -624,8 +613,25 @@ nav a:hover, nav a.active {
     </div>
 </footer>
 
+<script>
+    // Зарежда Хедъра
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+    // Зарежда Футъра
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+    
 </body>
 </html>
+
 
 
 
