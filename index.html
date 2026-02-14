@@ -86,48 +86,68 @@
 
         /* --- 2. ХЕДЪР (МЕНЮ) --- */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            background: rgba(10, 10, 10, 0.9); /* Полупрозрачно */
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-        }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+    z-index: 1000;
+    
+    /* ТОВА Е МАГИЯТА ЗА ЦЕНТРИРАНЕ */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Лого вляво, Бутон вдясно */
+    padding: 0 5%;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-        .logo span { color: var(--primary); }
+.logo {
+    flex: 0 0 200px; /* Фиксирана ширина на зоната на логото */
+    font-size: 24px;
+    font-weight: 700;
+}
 
-        nav ul { display: flex; gap: 30px; }
+nav {
+    flex: 1; /* Заема цялото свободно пространство в средата */
+    display: flex;
+    justify-content: center; /* Центрира бутоните точно в средата на екрана */
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-call {
+    flex: 0 0 200px; /* Същата ширина като логото, за да е симетрично средата */
+    text-align: right; /* Подравнява номера вдясно */
+    padding: 10px 20px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 5px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Фикс за мобилни, за да не се чупи центрирането */
+@media (max-width: 980px) {
+    header {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    nav {
+        display: none; /* Скриваме менюто на много малки екрани */
+    }
+    .logo, .btn-call {
+        flex: none;
+    }
+}
         
-        nav a {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-dim);
-            position: relative;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-        }
-
-        .btn-call {
-            padding: 10px 25px;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 5px;
-            font-weight: bold;
-        }
         .btn-call:hover {
             background: var(--primary);
             color: #000;
@@ -419,6 +439,7 @@
 
 </body>
 </html>
+
 
 
 
