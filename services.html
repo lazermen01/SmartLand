@@ -384,5 +384,22 @@ nav a:hover, nav a.active {
     </div>
 </footer>
 
+
+    <script>
+    // Зарежда Хедъра
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+
+    // Зарежда Футъра (Ако решиш да го изнесеш и него)
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+    
 </body>
 </html>
