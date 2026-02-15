@@ -84,23 +84,29 @@
     display: flex;
     flex-direction: column;
     justify-content: center; /* Центрира съдържанието вертикално */
-    align-self: stretch;     /* Разпъва се до височината на 4.9 */
+    align-items: flex-start; /* Подравнява текста наляво (към линията) */
+    align-self: stretch;     /* Разпъва се, за да заеме цялата височина на контейнера */
+    gap: 0;                  /* Премахва автоматичното разстояние между елементите */
 }
 
 .badge-text p {
-    margin: 0;
+    margin: 0 !important;    /* Премахва системния маржин на параграфа */
+    padding: 0;
     font-size: 0.75rem;
     color: #bbb;
-    line-height: 1.1;        /* Намаляваме разстоянието между редовете */
+    line-height: 1;          /* Залепва текста плътно */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .badge-text span {
+    margin: 0 !important;    /* Премахва маржина на спана */
+    padding: 0;
     color: var(--primary);
     font-weight: bold;
-    display: block;          /* Слага го на нов ред */
-    margin-top: 2px;         /* Малко разстояние между заглавието и числото */
+    display: block;
+    line-height: 1;          /* Залепва текста плътно */
+    margin-top: 2px !important; /* ТУК контролираш разстоянието между двата реда */
 }
 
 /* Анимация */
@@ -1062,6 +1068,7 @@ nav a:hover, nav a.active {
 
 </body>
 </html>
+
 
 
 
