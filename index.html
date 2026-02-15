@@ -21,6 +21,84 @@
         }
 
 
+        /* --- СЕКЦИЯ РЕВЮТА (GOOGLE STYLE) --- */
+.reviews-section {
+    padding: 80px 5%;
+    background: linear-gradient(to top, var(--dark-bg), #0f0f0f);
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.15);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.reviewer-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333; /* Ако няма снимка */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2rem;
+    border: 2px solid var(--primary);
+}
+
+.reviewer-info h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.stars {
+    color: #ffd700; /* Златен цвят за звездите */
+    font-size: 0.9rem;
+}
+
+.review-text {
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.google-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 25px;
+    height: 25px;
+}
+        
+        
+        
         /* --- ПОПРАВКА ЗА КОНТАКТНАТА СЕКЦИЯ --- */
 #contacts {
     padding: 80px 5%;
@@ -591,6 +669,58 @@ nav a:hover, nav a.active {
         </div>
     </section>
 
+
+    <section class="reviews-section">
+    <div class="section-title">
+        <p>ДОВОЛНИ КЛИЕНТИ</p>
+        <h2>КАКВО КАЗВАТ ЗА НАС</h2>
+    </div>
+
+    <div class="review-grid">
+        <div class="review-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
+            <div class="review-header">
+                <div class="reviewer-img">И</div>
+                <div class="reviewer-info">
+                    <h4>Иван Петров</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">"Изключително доволен съм от сервиза! Занесох лаптопа си за почистване и смяна на паста, стана като нов. Момчетата са професионалисти и обясняват всичко."</p>
+        </div>
+
+        <div class="review-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
+            <div class="review-header">
+                <div class="reviewer-img" style="background: var(--accent);">M</div>
+                <div class="reviewer-info">
+                    <h4>Maria Georgieva</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">"Поръчах геймърска конфигурация от тях. Помогнаха ми с избора на частите, сглобиха го перфектно и кейбъл мениджмънтът е на топ ниво. Препоръчвам!"</p>
+        </div>
+
+        <div class="review-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
+            <div class="review-header">
+                <div class="reviewer-img">Г</div>
+                <div class="reviewer-info">
+                    <h4>Георги Димитров</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">"Бърза реакция и коректно отношение. Имах проблем с принтера в офиса, дойдоха на място и го оправиха веднага. Най-добрите в Панагюрище!"</p>
+        </div>
+    </div>
+</section>
+    
     <section id="contacts" class="section">
         <div class="contact-wrap">
             <div class="contact-info">
@@ -671,6 +801,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
