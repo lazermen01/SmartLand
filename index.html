@@ -27,6 +27,34 @@
             --text-dim: #b3b3b3;
         }
 
+
+
+        html {
+    scroll-behavior: smooth;
+}
+        
+        /* Ефект на сканиращи линии върху видеото */
+.video-hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Светеща анимация за баджа */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3); }
+    50% { box-shadow: 0 5px 25px rgba(0, 210, 255, 0.6); }
+    100% { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3); }
+}
+.trust-badge-container {
+    animation: slideInLeft 1s ease-out, pulse-glow 3s infinite ease-in-out;
+}
+        
 /* --- КОМПАКТЕН GOOGLE BADGE --- */
 .trust-badge-container {
     position: absolute;
@@ -168,17 +196,23 @@
 }
 
 .review-card {
-    /* Ефект на стъкло/холограма */
-    background: rgba(20, 20, 20, 0.7); /* Полупрозрачен тъмен фон */
-    backdrop-filter: blur(15px);       /* Замъглява фона отзад */
-    padding: 35px;
-    border-radius: 20px;
-    /* Тънка светеща рамка */
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    /* Външно и вътрешно сияние */
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.1), inset 0 0 10px rgba(0, 210, 255, 0.05);
-    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.03); /* По-прозрачно */
+    border: 1px solid rgba(0, 210, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: relative;
+    overflow: hidden;
+}
+
+/* Добавяне на светъл ъгъл за "технологичен" вид */
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40px; height: 40px;
+    background: linear-gradient(225deg, var(--primary) 0%, transparent 50%);
+    opacity: 0.5;
 }
 
 .review-card:hover {
@@ -1068,6 +1102,7 @@ nav a:hover, nav a.active {
 
 </body>
 </html>
+
 
 
 
