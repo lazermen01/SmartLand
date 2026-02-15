@@ -33,6 +33,138 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
+
+        /* --- ГЛОБАЛЕН КИБЕР ФУТЪР --- */
+.main-footer {
+    background: #050505;
+    color: var(--text-main);
+    padding: 60px 0 20px 0;
+    border-top: 1px solid rgba(0, 210, 255, 0.1);
+    position: relative;
+    margin-top: 100px; /* По-голямо разстояние от съдържанието */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 5%;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.footer-col p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #333;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.social-icons a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 10px;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.contact-details i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .footer-container { flex-direction: column; text-align: center; }
+    .footer-col h3::after { left: 50%; transform: translateX(-50%); }
+    .contact-details li { justify-content: center; }
+    .social-icons { justify-content: center; }
+}
+        
+        
 /* ЕДНАКЪВ СТИЛ ЗА ХЕДЪРА НА ВСИЧКИ СТРАНИЦИ */
 header {
     position: fixed;
