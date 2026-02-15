@@ -133,13 +133,15 @@
     font-family: sans-serif;
 }
 
+/* Промени само тази част в CSS-а за ревютата */
 .google-badge {
     position: absolute;
     top: 25px;
     right: 25px;
-    width: 25px;
-    height: 25px;
-    filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+    font-size: 24px;       /* Размер на иконата */
+    color: #fff;           /* Бял цвят */
+    /* Лека сянка, за да изпъква */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     opacity: 0.8;
 }
         
@@ -721,7 +723,7 @@ nav a:hover, nav a.active {
 
     <div class="review-grid">
         <div class="review-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
+            <i class="fab fa-google google-badge"></i>
             <div class="review-header">
                 <div class="reviewer-img">И</div>
                 <div class="reviewer-info">
@@ -735,7 +737,7 @@ nav a:hover, nav a.active {
         </div>
 
         <div class="review-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
+            <i class="fab fa-google google-badge"></i>
             <div class="review-header">
                 <div class="reviewer-img" style="color: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px var(--accent);">M</div>
                 <div class="reviewer-info">
@@ -749,7 +751,7 @@ nav a:hover, nav a.active {
         </div>
 
         <div class="review-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
+            <i class="fab fa-google google-badge"></i>
             <div class="review-header">
                 <div class="reviewer-img">Г</div>
                 <div class="reviewer-info">
@@ -844,6 +846,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
