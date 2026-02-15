@@ -34,14 +34,14 @@
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
 
-        /* --- ГЛОБАЛЕН КИБЕР ФУТЪР --- */
+       /* --- ГЛОБАЛЕН КИБЕР ФУТЪР (ПОДРАВНЕН ВЛЯВО) --- */
 .main-footer {
     background: #050505;
     color: var(--text-main);
     padding: 60px 0 20px 0;
     border-top: 1px solid rgba(0, 210, 255, 0.1);
     position: relative;
-    margin-top: 100px; /* По-голямо разстояние от съдържанието */
+    margin-top: 100px;
 }
 
 .footer-container {
@@ -52,11 +52,15 @@
     justify-content: space-between;
     padding: 0 5%;
     gap: 40px;
+    text-align: left; /* ВАЖНО: Подравнява целия текст в контейнера вляво */
 }
 
 .footer-col {
     flex: 1;
     min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ВАЖНО: Подравнява елементите в колоната вляво */
 }
 
 .footer-col h3 {
@@ -65,12 +69,13 @@
     margin-bottom: 25px;
     position: relative;
     font-family: 'Orbitron', sans-serif;
+    text-align: left; /* Подравняване на заглавието */
 }
 
 .footer-col h3::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 0; /* ВАЖНО: Чертичката започва от левия край */
     bottom: -8px;
     width: 40px;
     height: 2px;
@@ -83,11 +88,13 @@
     font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 20px;
+    text-align: left; /* Подравняване на параграфа */
 }
 
 .social-icons {
     display: flex;
     gap: 15px;
+    justify-content: flex-start; /* ВАЖНО: Иконите започват отляво */
 }
 
 .social-icons a {
@@ -112,6 +119,8 @@
 .footer-links {
     list-style: none;
     padding: 0;
+    text-align: left; /* Подравняване на списъка */
+    width: 100%; /* Уверяваме се, че заема ширината */
 }
 
 .footer-links li {
@@ -122,6 +131,7 @@
     color: var(--text-dim);
     transition: 0.3s;
     font-size: 0.95rem;
+    display: block; /* Прави линка блок, за да слуша подравняването */
 }
 
 .footer-links a:hover {
@@ -132,11 +142,13 @@
 .contact-details {
     list-style: none;
     padding: 0;
+    text-align: left;
 }
 
 .contact-details li {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* ВАЖНО: Елементите в контакта са вляво */
     gap: 12px;
     margin-bottom: 15px;
     color: var(--text-dim);
@@ -146,10 +158,12 @@
 .contact-details i {
     color: var(--primary);
     font-size: 1.1rem;
+    min-width: 20px; /* Фиксирана ширина за иконите за по-добро подравняване */
+    text-align: center;
 }
 
 .footer-bottom {
-    text-align: center;
+    text-align: center; /* Долният надпис обикновено е центриран, но можеш да го направиш left */
     padding-top: 40px;
     margin-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -158,12 +172,27 @@
 }
 
 @media (max-width: 768px) {
-    .footer-container { flex-direction: column; text-align: center; }
-    .footer-col h3::after { left: 50%; transform: translateX(-50%); }
-    .contact-details li { justify-content: center; }
-    .social-icons { justify-content: center; }
+    .footer-container { 
+        flex-direction: column; 
+        text-align: center; /* Центриране само на мобилни */
+    }
+    .footer-col {
+        align-items: center; /* Центриране на колоните на мобилни */
+    }
+    .footer-col h3::after { 
+        left: 50%; 
+        transform: translateX(-50%); 
+    }
+    .contact-details li { 
+        justify-content: center; 
+    }
+    .social-icons { 
+        justify-content: center; 
+    }
+    .footer-links {
+        text-align: center;
+    }
 }
-        
         
 /* ЕДНАКЪВ СТИЛ ЗА ХЕДЪРА НА ВСИЧКИ СТРАНИЦИ */
 header {
