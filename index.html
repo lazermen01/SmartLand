@@ -79,11 +79,19 @@
     gap: 2px;
 }
 
+/* Добави този нов блок тук: */
+.badge-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Това го центрира вертикално спрямо цифрата отляво */
+}
+
+/* След това следват твоите стари стилове, промени само line-height тук: */
 .badge-text p {
     margin: 0;
     font-size: 0.75rem;
     color: #bbb;
-    line-height: 1.2;
+    line-height: 1.4; /* Промени го на 1.4, за да не изглежда "сбито" нагоре */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -91,6 +99,8 @@
 .badge-text span {
     color: var(--primary);
     font-weight: bold;
+    display: block;
+    margin-top: 2px;
 }
 
 /* Анимация */
@@ -1051,6 +1061,7 @@ nav a:hover, nav a.active {
 
 </body>
 </html>
+
 
 
 
