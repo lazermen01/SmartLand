@@ -34,6 +34,84 @@
         html {
     scroll-behavior: smooth;
 }
+
+
+        .faq-section {
+    padding: 80px 5%;
+    background: linear-gradient(to bottom, #0a0a0a, #050505);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 210, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.faq-question {
+    padding: 22px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background: rgba(0, 210, 255, 0.05);
+}
+
+.faq-question h4 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* По-чист шрифт за въпросите */
+    font-size: 1.05rem;
+    color: #fff;
+    text-transform: none; /* Махаме главните букви за по-добра четливост */
+    letter-spacing: 0.5px;
+}
+
+.faq-question i {
+    color: var(--primary);
+    transition: transform 0.4s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.faq-answer p {
+    padding: 0 30px 22px 30px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Стил за отворен въпрос */
+.faq-item.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px; /* Достатъчно място за текста */
+    transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+}
+
+.faq-item.active i {
+    transform: rotate(45deg); /* Плюсът става на Х */
+    color: var(--accent);
+}
+
         
         /* Персонализиран скролер */
 ::-webkit-scrollbar {
@@ -320,6 +398,77 @@
     color: rgba(255, 255, 255, 0.5);
     z-index: 2;
 }
+
+
+        <section class="faq-section">
+    <div class="section-title">
+        <p>ИМАТЕ ВЪПРОСИ?</p>
+        <h2>ЧЕСТО ЗАДАВАНИ</h2>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Колко време отнема диагностиката на компютър или лаптоп?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Стандартната диагностика при нас се извършва в рамките на 24 часа. След нея се свързваме с Вас, за да обясним проблема и да съгласуваме цената за ремонта.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Предлагате ли гаранция за извършените ремонти?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Да, предлагаме гаранция за всеки извършен хардуерен ремонт. Срокът зависи от вложените части (обикновено между 6 и 24 месеца).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Мога ли да донеса собствени части за сглобяване на компютър?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Разбира се. Можем да асемблираме конфигурация с Ваши части или да Ви предложим такива на конкурентни цени с пълна гаранция за съвместимост.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Колко често трябва да почиствам лаптопа си от прах?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>За оптимална работа и дълъг живот на хардуера, препоръчваме професионално почистване и смяна на термопаста веднъж на 12 месеца.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Извършвате ли софтуерни услуги като преинсталация на Windows?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Да, предлагаме пълно софтуерно обслужване: инсталация на операционни системи, драйвери, почистване от вируси и оптимизация на скоростта.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Работите ли с корпоративни клиенти и офиси?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Да, предлагаме абонаментна ИТ поддръжка за офиси в гр. Панагюрище, включваща поддръжка на компютри, принтери и мрежова инфраструктура.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
         
         /* --- ПОПРАВКА ЗА КОНТАКТНАТА СЕКЦИЯ --- */
 #contacts {
@@ -1135,10 +1284,28 @@ nav a:hover, nav a.active {
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
-    </script>
+
+    // ЛОГИКА ЗА FAQ АКОРДЕОН
+document.addEventListener('click', function (e) {
+    if (e.target.closest('.faq-question')) {
+        const item = e.target.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        // Затваряме всички други отворени въпроси (опционално)
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+        
+        // Ако не е бил активен, го отваряме
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    }
+});
+
+</script>
 
 </body>
 </html>
+
 
 
 
