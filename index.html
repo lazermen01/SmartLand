@@ -21,83 +21,127 @@
         }
 
 
-        /* --- СЕКЦИЯ РЕВЮТА (GOOGLE STYLE) --- */
+       /* --- НОВ ДИЗАЙН: ХОЛОГРАМНИ РЕВЮТА --- */
 .reviews-section {
-    padding: 80px 5%;
-    background: linear-gradient(to top, var(--dark-bg), #0f0f0f);
+    padding: 100px 5%;
+    /* Тъмен фон с лек градиент за дълбочина */
+    background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Декоративен светещ елемент зад ревютата */
+.reviews-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background: var(--primary);
+    filter: blur(150px);
+    opacity: 0.15; /* Много слабо синьо сияние в центъра */
+    pointer-events: none;
 }
 
 .review-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .review-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Ефект на стъкло/холограма */
+    background: rgba(20, 20, 20, 0.7); /* Полупрозрачен тъмен фон */
+    backdrop-filter: blur(15px);       /* Замъглява фона отзад */
+    padding: 35px;
+    border-radius: 20px;
+    /* Тънка светеща рамка */
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    /* Външно и вътрешно сияние */
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.1), inset 0 0 10px rgba(0, 210, 255, 0.05);
+    transition: all 0.4s ease;
     position: relative;
-    transition: 0.3s;
 }
 
 .review-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.02); /* Леко повдигане и уголемяване */
     border-color: var(--primary);
-    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.15);
+    /* Засилване на сиянието при ховър */
+    box-shadow: 0 0 40px rgba(0, 210, 255, 0.3), inset 0 0 20px rgba(0, 210, 255, 0.2);
 }
 
 .review-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
 }
 
 .reviewer-img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-color: #333; /* Ако няма снимка */
+    background: linear-gradient(45deg, #111, #222);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #fff;
-    font-size: 1.2rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+    /* Светещ ореол около снимката */
     border: 2px solid var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+    font-family: 'Orbitron', sans-serif;
 }
 
 .reviewer-info h4 {
     color: #fff;
-    font-size: 1rem;
-    margin-bottom: 2px;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
 .stars {
-    color: #ffd700; /* Златен цвят за звездите */
-    font-size: 0.9rem;
+    color: var(--primary); /* Звездите вече са неоново сини, за да пасват */
+    font-size: 1rem;
+    text-shadow: 0 0 5px var(--primary); /* Сияние на звездите */
 }
 
 .review-text {
-    color: var(--text-dim);
+    color: #ccc;
+    line-height: 1.7;
+    font-size: 1rem;
     font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 20px;
+}
+/* Малка декоративна кавичка */
+.review-text::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--primary);
+    opacity: 0.3;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-family: sans-serif;
 }
 
 .google-badge {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 25px;
+    right: 25px;
     width: 25px;
     height: 25px;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+    opacity: 0.8;
 }
-        
-        
         
         /* --- ПОПРАВКА ЗА КОНТАКТНАТА СЕКЦИЯ --- */
 #contacts {
@@ -669,11 +713,10 @@ nav a:hover, nav a.active {
         </div>
     </section>
 
-
-    <section class="reviews-section">
+<section class="reviews-section">
     <div class="section-title">
-        <p>ДОВОЛНИ КЛИЕНТИ</p>
-        <h2>КАКВО КАЗВАТ ЗА НАС</h2>
+        <p style="color: var(--text-dim);">ДОВЕРЕТЕ СЕ НА ДРУГИТЕ</p>
+        <h2>ОТЗИВИ ОТ КЛИЕНТИ</h2>
     </div>
 
     <div class="review-grid">
@@ -688,21 +731,21 @@ nav a:hover, nav a.active {
                     </div>
                 </div>
             </div>
-            <p class="review-text">"Изключително доволен съм от сервиза! Занесох лаптопа си за почистване и смяна на паста, стана като нов. Момчетата са професионалисти и обясняват всичко."</p>
+            <p class="review-text">Изключителен професионализъм! Спасиха ми лаптопа след заливане. Бърза диагностика и ремонт на много добра цена. Препоръчвам горещо на всеки геймър.</p>
         </div>
 
         <div class="review-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="google-badge">
             <div class="review-header">
-                <div class="reviewer-img" style="background: var(--accent);">M</div>
+                <div class="reviewer-img" style="color: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px var(--accent);">M</div>
                 <div class="reviewer-info">
-                    <h4>Maria Georgieva</h4>
+                    <h4>Maria G.</h4>
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
-            <p class="review-text">"Поръчах геймърска конфигурация от тях. Помогнаха ми с избора на частите, сглобиха го перфектно и кейбъл мениджмънтът е на топ ниво. Препоръчвам!"</p>
+            <p class="review-text">Сглобиха ми мечтания компютър. Консултираха ме за всяка част, кейбъл мениджмънтът е произведение на изкуството. Компютърът работи безупречно!</p>
         </div>
 
         <div class="review-card">
@@ -710,13 +753,13 @@ nav a:hover, nav a.active {
             <div class="review-header">
                 <div class="reviewer-img">Г</div>
                 <div class="reviewer-info">
-                    <h4>Георги Димитров</h4>
+                    <h4>Георги Д.</h4>
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
-            <p class="review-text">"Бърза реакция и коректно отношение. Имах проблем с принтера в офиса, дойдоха на място и го оправиха веднага. Най-добрите в Панагюрище!"</p>
+            <p class="review-text">Точни, коректни и разбиращи от работата си. Имах проблем със софтуера на принтера в офиса, оправиха го дистанционно за минути. Отлично обслужване.</p>
         </div>
     </div>
 </section>
@@ -801,6 +844,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
