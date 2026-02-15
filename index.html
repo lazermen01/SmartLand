@@ -20,86 +20,95 @@
             --text-dim: #b3b3b3;
         }
 
-/* --- GOOGLE TRUST BADGE (HERO) --- */
+/* --- КОМПАКТЕН GOOGLE BADGE --- */
 .trust-badge-container {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
-    background: rgba(15, 15, 15, 0.7); /* Тъмно полупрозрачно */
-    backdrop-filter: blur(10px);        /* Ефект на матирано стъкло */
-    padding: 15px 25px;
-    border-radius: 12px;
-    border-left: 4px solid var(--primary); /* Неонова синя линия отляво */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    z-index: 10; /* Да е над видеото */
-    animation: slideInLeft 1s ease-out; /* Анимация при влизане */
-    max-width: 280px;
+    bottom: 30px;           /* Позиция от дъното */
+    left: 30px;             /* Позиция от ляво */
+    
+    display: flex;          /* Подрежда всичко на един ред */
+    align-items: center;    /* Центрира вертикално */
+    gap: 15px;              /* Разстояние между цифрата и текста */
+    
+    background: rgba(10, 10, 10, 0.85); /* По-плътен черен фон */
+    backdrop-filter: blur(5px);
+    padding: 10px 20px;     /* Малко разстояние вътре, за да е тясно */
+    
+    border-radius: 6px;     /* Почти правоъгълно (малко заобляне) */
+    border-left: 3px solid var(--primary); /* Синя линия само отляво */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left-width: 3px;
+    border-left-color: var(--primary);
+    
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 10;
+    animation: slideInLeft 1s ease-out;
 }
 
-.trust-header {
+.badge-rating {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
+    gap: 8px;
+    border-right: 1px solid rgba(255,255,255,0.2); /* Разделителна линия */
+    padding-right: 15px;
 }
 
-.trust-header i.fa-google {
-    font-size: 1.2rem;
-    color: #fff; /* Бяло лого */
-}
-
-.trust-header .rating {
-    font-weight: bold;
+.badge-rating i.fa-google {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1rem;
+}
+
+.badge-rating .score {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
     font-family: 'Orbitron', sans-serif;
 }
 
-.trust-header .stars {
-    color: #ffd700; /* Златен цвят */
-    font-size: 0.9rem;
+.badge-rating .stars {
+    color: #ffd700;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 2px;
 }
 
-.trust-text {
-    font-size: 0.85rem;
-    color: #ccc;
-    line-height: 1.4;
+.badge-text p {
     margin: 0;
+    font-size: 0.75rem;
+    color: #bbb;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.trust-text strong {
-    color: var(--primary); /* Синьо за цифрата */
+.badge-text span {
+    color: var(--primary);
+    font-weight: bold;
 }
 
-/* Анимация за плъзгане отляво */
+/* Анимация */
 @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
+    from { opacity: 0; transform: translateX(-30px); }
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* На мобилни телефони го местим или скриваме, за да не пречи */
+/* Мобилна версия */
 @media (max-width: 768px) {
     .trust-badge-container {
         bottom: 20px;
         left: 50%;
-        transform: translateX(-50%); /* Центрираме го долу */
-        width: 90%;
-        text-align: center;
-        border-left: none;
-        border-bottom: 4px solid var(--primary); /* Линията отива долу */
-    }
-    .trust-header {
-        justify-content: center;
+        transform: translateX(-50%); /* Центрирано долу */
+        width: auto;
+        white-space: nowrap; /* Да не пренася текста */
+        padding: 8px 15px;
     }
     
-    /* Трябва да пренапишем анимацията за мобилни, за да не чупи центрирането */
+    /* Коригираме анимацията за мобилни */
     @keyframes slideInLeft {
         from { opacity: 0; transform: translate(-50%, 20px); }
         to { opacity: 1; transform: translate(-50%, 0); }
     }
 }
-      
         
         /* --- НОВ ДИЗАЙН: ХОЛОГРАМНИ РЕВЮТА --- */
 .reviews-section {
@@ -729,18 +738,20 @@ nav a:hover, nav a.active {
     </div>
 
     <div class="trust-badge-container">
-        <div class="trust-header">
+        <div class="badge-rating">
             <i class="fab fa-google"></i>
-            <span class="rating">5.0</span>
+            <span class="score">4.9</span>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
+                <i class="fas fa-star-half-alt"></i> </div>
         </div>
-        <p class="trust-text">Доверете се на качеството.<br>Над <strong>150+ доволни клиенти</strong>.</p>
+        
+        <div class="badge-text">
+            <p>Доверено качество<br><span>150+ Клиенти</span></p>
+        </div>
     </div>
 
 </section>
@@ -943,6 +954,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
