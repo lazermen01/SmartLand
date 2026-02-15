@@ -20,95 +20,120 @@
             --text-dim: #b3b3b3;
         }
 
-/* --- КОПИРАЙ ТОВА В INDEX.HTML ЗА ДА Е 1:1 С УСЛУГИ --- */
+/* ПЪЛНО УЕДНАКВЯВАНЕ С УСЛУГИ */
 
 .main-footer {
-    background: #050505;
-    color: var(--text-main);
-    padding: 60px 0 20px 0;
-    border-top: 1px solid rgba(0, 210, 255, 0.1);
-    position: relative;
-    margin-top: 100px;
+    background: #050505 !important;
+    color: #ffffff !important;
+    padding: 60px 0 20px 0 !important;
+    border-top: 1px solid rgba(0, 210, 255, 0.1) !important;
+    margin-top: 100px !important;
+    text-align: left !important; /* Текстът вляво */
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Това раздалечава колоните */
-    padding: 0 5%;
-    gap: 40px;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important; /* Разпръсква колоните */
+    padding: 0 5% !important;
+    gap: 40px !important;
 }
 
 .footer-col {
-    flex: 1;
-    min-width: 250px;
-    text-align: left; /* Гарантира подравняване вляво */
+    flex: 1 !important;
+    min-width: 250px !important;
 }
 
 .footer-col h3 {
-    color: var(--primary);
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
+    color: #00d2ff !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 25px !important;
+    position: relative !important;
+    font-family: 'Orbitron', sans-serif !important;
+    text-align: left !important;
 }
 
-/* Линията под заглавието - вляво */
+/* Синята линия точно като в Услуги */
 .footer-col h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 40px;
-    height: 2px;
-    background: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -8px !important;
+    width: 40px !important;
+    height: 2px !important;
+    background: #00d2ff !important;
+    box-shadow: 0 0 10px #00d2ff !important;
+}
+
+.footer-col p {
+    color: #b3b3b3 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    text-align: left !important;
+}
+
+.footer-links {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    text-align: left !important;
+}
+
+.contact-details {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
 }
 
 .contact-details li {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Иконата и текста вляво */
-    gap: 12px;
-    margin-bottom: 15px;
-    color: var(--text-dim);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Иконите вляво */
+    gap: 12px !important;
+    margin-bottom: 15px !important;
+    color: #b3b3b3 !important;
 }
 
 .social-icons {
-    display: flex;
-    justify-content: flex-start; /* Иконите вляво */
-    gap: 15px;
+    display: flex !important;
+    justify-content: flex-start !important; /* Социалките вляво */
+    gap: 15px !important;
 }
 
 .footer-bottom {
-    text-align: center; /* Долният текст обикновено е центриран, но ако искаш вляво, сложи left */
-    padding-top: 40px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.85rem;
-    color: #555;
+    text-align: center !important;
+    padding-top: 40px !important;
+    margin-top: 40px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    font-size: 0.85rem !important;
+    color: #555 !important;
 }
 
-/* МОБИЛНА ВЕРСИЯ - В УСЛУГИ Е ЦЕНТРИРАНА */
+/* МОБИЛНА ВЕРСИЯ - СЪЩАТА КАТО В УСЛУГИ */
 @media (max-width: 768px) {
     .footer-container { 
-        flex-direction: column; 
-        text-align: center; 
+        flex-direction: column !important; 
+        text-align: center !important; 
     }
     .footer-col h3::after { 
-        left: 50%; 
-        transform: translateX(-50%); 
+        left: 50% !important; 
+        transform: translateX(-50%) !important; 
     }
     .contact-details li { 
-        justify-content: center; 
+        justify-content: center !important; 
     }
     .social-icons { 
-        justify-content: center; 
+        justify-content: center !important; 
+    }
+    .footer-col {
+        text-align: center !important;
+    }
+    .footer-col p {
+        text-align: center !important;
     }
 }
-        
         /* --- CSS ЗА ВАРИАНТ 2 (ВИДЕО) --- */
 .video-hero {
     height: 100vh; width: 100%;
@@ -380,34 +405,7 @@ nav a:hover, nav a.active {
             color: #000;
         }
 
-        /* --- 6. КОНТАКТИ & FOOTER --- */
-        .contact-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            background: #111;
-            padding: 50px;
-            border-radius: 20px;
-        }
-        
-        .contact-info div { margin-bottom: 30px; }
-        .contact-info h4 { color: var(--primary); margin-bottom: 5px; }
-        .contact-info p { font-size: 1.1rem; }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #222;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        /* МОБИЛНА ВЕРСИЯ */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; } /* Скриваме менюто за простота на мобилни */
-            .contact-wrap { flex-direction: column; }
-        }
     </style>
 </head>
 <body>
@@ -540,6 +538,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
