@@ -632,7 +632,14 @@
     background: rgba(10,10,10,0.7); /* Тъмен слой над видеото */
 }
 
-.hero h1 { font-size: 3.8rem; text-shadow: 0 0 20px rgba(0,0,0,1); }
+.hero h1 {
+    /* Използваме clamp, за да кажем: минимума е 2rem, оптималното е 8vw, максимума е 3.5rem */
+    font-size: clamp(2rem, 8vw, 3.5rem); 
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    word-wrap: break-word; /* Гарантира, че ако все пак е дълга, ще се пренесе */
+}
 .neon-pink { color: var(--accent); text-shadow: 0 0 20px var(--accent); }
 
 /* Група от бутони */
@@ -1308,6 +1315,7 @@ document.addEventListener('click', function (e) {
 
 </body>
 </html>
+
 
 
 
