@@ -20,7 +20,8 @@
             --text-dim: #b3b3b3;
         }
 
-/* --- ГЛОБАЛЕН КИБЕР ФУТЪР --- */
+/* --- КОПИРАЙ ТОВА В INDEX.HTML ЗА ДА Е 1:1 С УСЛУГИ --- */
+
 .main-footer {
     background: #050505;
     color: var(--text-main);
@@ -35,18 +36,15 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Бута колоните вляво */
+    justify-content: space-between; /* Това раздалечава колоните */
     padding: 0 5%;
     gap: 40px;
-    text-align: left;            /* Подравнява текста вляво */
 }
 
 .footer-col {
     flex: 1;
     min-width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;    /* Подравнява съдържанието на колоната вляво */
+    text-align: left; /* Гарантира подравняване вляво */
 }
 
 .footer-col h3 {
@@ -57,11 +55,11 @@
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Чертичката под заглавието - фиксирана вляво */
+/* Линията под заглавието - вляво */
 .footer-col h3::after {
     content: '';
     position: absolute;
-    left: 0;                    /* Винаги вляво */
+    left: 0;
     bottom: -8px;
     width: 40px;
     height: 2px;
@@ -72,11 +70,10 @@
 .contact-details li {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Иконите и текста вляво */
+    justify-content: flex-start; /* Иконата и текста вляво */
     gap: 12px;
     margin-bottom: 15px;
     color: var(--text-dim);
-    font-size: 0.95rem;
 }
 
 .social-icons {
@@ -86,29 +83,29 @@
 }
 
 .footer-bottom {
-    text-align: left;            /* Текстът най-долу вляво */
-    padding: 40px 5% 20px 5%;
+    text-align: center; /* Долният текст обикновено е центриран, но ако искаш вляво, сложи left */
+    padding-top: 40px;
     margin-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     font-size: 0.85rem;
     color: #555;
 }
 
-/* МАХАМЕ ЦЕНТРИРАНЕТО ПРИ МОБИЛНИ ВЕРСИИ */
+/* МОБИЛНА ВЕРСИЯ - В УСЛУГИ Е ЦЕНТРИРАНА */
 @media (max-width: 768px) {
     .footer-container { 
         flex-direction: column; 
-        text-align: left; /* Остава вляво и на телефон */
+        text-align: center; 
     }
     .footer-col h3::after { 
-        left: 0; 
-        transform: none; 
+        left: 50%; 
+        transform: translateX(-50%); 
     }
     .contact-details li { 
-        justify-content: flex-start; 
+        justify-content: center; 
     }
     .social-icons { 
-        justify-content: flex-start; 
+        justify-content: center; 
     }
 }
         
@@ -543,6 +540,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
