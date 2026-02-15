@@ -534,11 +534,16 @@ header {
 }
 
 .logo {
-    font-family: 'Orbitron', sans-serif;
+    /* Тези редове са задължителни, за да се клика: */
+    position: relative; 
+    z-index: 1001;      /* Гарантира, че е над всичко друго */
+    cursor: pointer;    /* Прави мишката на ръчичка */
+    text-decoration: none; /* Маха подчертаването */
+    
+    /* Твоите стари стилове си остават тук (цвят, шрифт и т.н.) */
+    color: #fff; 
     font-size: 24px;
     font-weight: 700;
-    white-space: nowrap;
-    color: var(--text-main);
 }
 .logo span { color: var(--primary); }
 
@@ -963,6 +968,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
