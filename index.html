@@ -83,15 +83,15 @@
 .badge-text {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Това го центрира вертикално спрямо цифрата отляво */
+    justify-content: center; /* Центрира съдържанието вертикално */
+    align-self: stretch;     /* Разпъва се до височината на 4.9 */
 }
 
-/* След това следват твоите стари стилове, промени само line-height тук: */
 .badge-text p {
     margin: 0;
     font-size: 0.75rem;
     color: #bbb;
-    line-height: 1.4; /* Промени го на 1.4, за да не изглежда "сбито" нагоре */
+    line-height: 1.1;        /* Намаляваме разстоянието между редовете */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -99,8 +99,8 @@
 .badge-text span {
     color: var(--primary);
     font-weight: bold;
-    display: block;
-    margin-top: 2px;
+    display: block;          /* Слага го на нов ред */
+    margin-top: 2px;         /* Малко разстояние между заглавието и числото */
 }
 
 /* Анимация */
@@ -825,8 +825,9 @@ nav a:hover, nav a.active {
         </div>
         
         <div class="badge-text">
-            <p>Доверено качество<br><span>150+ Клиенти</span></p>
-        </div>
+    <p>Доверено качество</p>
+    <span>150+ Клиенти</span>
+</div>
     </div>
 
 </section>
@@ -1061,6 +1062,7 @@ nav a:hover, nav a.active {
 
 </body>
 </html>
+
 
 
 
