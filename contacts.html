@@ -4,57 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакти | SmartLand</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --dark-bg: #0a0a0a;
+            --card-bg: #131313;
+            --text-main: #ffffff;
+            --text-dim: #b3b3b3;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Roboto', sans-serif;
+            padding-top: 100px; /* Място за фикснатия хедър */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Хедър на страницата */
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-main);
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .elegant-line {
+            width: 200px;
+            height: 2px;
+            margin: 0 auto 20px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Основна мрежа */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* Карти с информация */
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+        }
+
+        .card i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .card p, .card a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin: 0;
+        }
+
+        /* Контейнер на формата */
+        .contact-form-container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .submit-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 30px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Мобилна версия */
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            body { padding-top: 60px; }
+        }
+    </style>
+</head>
 <body>
 
-<section class="contact-page">
-    <div class="container">
-        
-        <header class="contact-header">
-            <h1>Контакти</h1>
-            <div class="elegant-line"></div>
-            <p>Ние сме тук, за да отговорим на вашите въпроси</p>
-        </header>
+<div class="container">
+    <header class="contact-header">
+        <h1>СВЪРЖЕТЕ СЕ С НАС</h1>
+        <div class="elegant-line"></div>
+        <p style="color: var(--text-dim);">Екипът на SmartLand е на ваше разположение</p>
+    </header>
 
-        <div class="contact-wrapper">
-            <div class="contact-cards">
-                <div class="card">
-                    <div class="card-icon">📍</div>
-                    <h3>Адрес</h3>
-                    <p>гр. Пазарджик, <br>ул. "Промишлена" №12</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">📞</div>
-                    <h3>Телефон</h3>
-                    <p><a href="tel:070045155">0700 45 155</a></p>
-                    <p><a href="tel:+359888123456">+359 888 123 456</a></p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">✉️</div>
-                    <h3>Имейл</h3>
-                    <p><a href="mailto:office@smartland.bg">office@smartland.bg</a></p>
+    <div class="contact-wrapper">
+        <div class="contact-cards">
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>АДРЕС</h3>
+                    <p>гр. Панагюрище, България</p>
                 </div>
             </div>
 
-            <div class="contact-form-container">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Вашето име" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Вашият Имейл" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Вашето съобщение" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Изпрати запитване</button>
-                </form>
+            <div class="card">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>ТЕЛЕФОН</h3>
+                    <p><a href="tel:0988835555">098 883 5555</a></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>ИМЕЙЛ</h3>
+                    <p><a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h3>РАБОТНО ВРЕМЕ</h3>
+                    <p>Пон - Пет: 09:00 - 18:00</p>
+                </div>
             </div>
         </div>
+
+        <div class="contact-form-container">
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Вашето име" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Вашият Имейл" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Как можем да помогнем?" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">ИЗПРАТИ СЪОБЩЕНИЕ</button>
+            </form>
+        </div>
     </div>
-</section>
+</div>
 
 </body>
 </html>
