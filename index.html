@@ -195,100 +195,90 @@
     z-index: 2;
 }
 
+/* --- ФИНАЛНА КИБЕР ХОЛОГРАМА ЗА РЕВЮТА --- */
 .review-card {
-    background: rgba(255, 255, 255, 0.03); /* По-прозрачно */
-    border: 1px solid rgba(0, 210, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05); /* Малко по-плътно, за да се вижда стъклото */
+    backdrop-filter: blur(15px);           /* Силно замъгляване */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 210, 255, 0.2); /* По-видима неонова рамка */
+    border-radius: 20px;
+    padding: 35px;
     position: relative;
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+                inset 0 0 15px rgba(0, 210, 255, 0.05); /* Вътрешно сияние */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Добавяне на светъл ъгъл за "технологичен" вид */
+/* Светещият технологичен ъгъл */
 .review-card::before {
     content: '';
     position: absolute;
     top: 0; right: 0;
-    width: 40px; height: 40px;
-    background: linear-gradient(225deg, var(--primary) 0%, transparent 50%);
-    opacity: 0.5;
+    width: 60px; height: 60px;
+    background: linear-gradient(225deg, var(--primary) 0%, transparent 70%);
+    opacity: 0.4;
+    z-index: 1;
 }
 
+/* Ефект при посочване с мишката */
 .review-card:hover {
-    transform: translateY(-10px) scale(1.02); /* Леко повдигане и уголемяване */
+    transform: translateY(-12px) scale(1.02);
     border-color: var(--primary);
-    /* Засилване на сиянието при ховър */
-    box-shadow: 0 0 40px rgba(0, 210, 255, 0.3), inset 0 0 20px rgba(0, 210, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2), 
+                0 0 20px rgba(0, 210, 255, 0.1);
 }
 
 .review-header {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .reviewer-img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #111, #222);
+    background: #111;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     color: var(--primary);
-    font-size: 1.5rem;
-    /* Светещ ореол около снимката */
     border: 2px solid var(--primary);
-    box-shadow: 0 0 15px var(--primary);
+    box-shadow: 0 0 10px var(--primary);
     font-family: 'Orbitron', sans-serif;
 }
 
-.reviewer-info h4 {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-}
-
 .stars {
-    color: var(--primary); /* Звездите вече са неоново сини, за да пасват */
-    font-size: 1rem;
-    text-shadow: 0 0 5px var(--primary); /* Сияние на звездите */
+    color: #ffcc00; /* Звездите е по-добре да са златисто-жълти за контраст */
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
 }
 
 .review-text {
-    color: #ccc;
-    line-height: 1.7;
-    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 0.95rem;
     font-style: italic;
-}
-/* Малка декоративна кавичка */
-.review-text::before {
-    content: '"';
-    font-size: 3rem;
-    color: var(--primary);
-    opacity: 0.3;
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    font-family: sans-serif;
+    position: relative;
+    z-index: 2;
 }
 
-/* Промени само тази част в CSS-а за ревютата */
 .google-badge {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    font-size: 24px;       /* Размер на иконата */
-    color: #fff;           /* Бял цвят */
-    /* Лека сянка, за да изпъква */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    opacity: 0.8;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 2;
 }
         
         /* --- ПОПРАВКА ЗА КОНТАКТНАТА СЕКЦИЯ --- */
@@ -1102,6 +1092,7 @@ nav a:hover, nav a.active {
 
 </body>
 </html>
+
 
 
 
