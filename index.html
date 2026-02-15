@@ -950,12 +950,28 @@ nav a:hover, nav a.active {
 </footer>
 
     
+
     <script>
     // Зарежда Хедъра
     fetch('header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
+            
+            // ЛОГИКА ЗА АКТИВЕН БУТОН
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            navLinks.forEach(link => {
+                // Проверява дали сме на началната страница (/) или на index.html
+                if ((currentPath === "/" || currentPath.includes("index.html")) && link.getAttribute('href') === "/") {
+                    link.classList.add('active');
+                } 
+                // За останалите страници (services.html, shop.html)
+                else if (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== "/") {
+                    link.classList.add('active');
+                }
+            });
         });
 
     // Зарежда Футъра
@@ -968,6 +984,7 @@ nav a:hover, nav a.active {
     
 </body>
 </html>
+
 
 
 
