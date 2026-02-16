@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ (ОТ INDEX.HTML) --- */
+        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ --- */
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
@@ -58,11 +58,8 @@
         .btn-call { white-space: nowrap; padding: 10px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 5px; font-weight: bold; transition: 0.3s; }
         .btn-call:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6); }
 
-        /* МОБИЛНО МЕНЮ CSS */
-        .mobile-menu-btn { display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s; position: relative; z-index: 1002; }
-        
-        /* --- ТОВА Е ЛИПСВАЩИЯТ РЕД, КОЙТО ОПРАВЯ ПОДРЕДБАТА --- */
         .header-right { display: flex; align-items: center; gap: 15px; }
+        .mobile-menu-btn { display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s; position: relative; z-index: 1002; }
 
         @media (max-width: 980px) {
             header { padding: 0 20px; }
@@ -83,18 +80,19 @@
             background: linear-gradient(to bottom, rgba(10,10,10,0.6), var(--dark-bg)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
             background-size: cover; background-position: center; border-bottom: 1px solid rgba(0, 210, 255, 0.1);
         }
+        .page-banner h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
 
         .service-detail-section { padding: 60px 5%; max-width: 1400px; width: 100%; margin: 0 auto; }
 
-        /* ТОВА ОПРАВЯ СКРИВАНЕТО НА ХЕДЪРА ПРИ СКРОЛ */
         .service-row { 
             display: flex; align-items: center; gap: 60px; margin-bottom: 120px;
-            scroll-margin-top: 100px; /* Важно за линковете от началната страница */
+            scroll-margin-top: 100px; 
         }
         .service-row:nth-child(even) { flex-direction: row-reverse; }
         
         .service-image { flex: 1; min-width: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 210, 255, 0.15); }
-        .service-image img { width: 100%; height: auto; display: block; }
+        .service-image img { width: 100%; height: auto; display: block; transition: 0.5s ease; }
+        .service-image:hover img { transform: scale(1.05); }
 
         .service-text { flex: 1; padding: 40px; background: rgba(255, 255, 255, 0.03); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
         .service-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 25px; position: relative; }
@@ -102,26 +100,39 @@
         .service-text p { color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; margin-bottom: 25px; text-align: justify; }
         
         .feature-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; color: #fff; line-height: 1.5; }
-        .feature-list i { color: var(--primary); font-size: 1.2rem; }
+        .feature-list i { color: var(--primary); font-size: 1.2rem; margin-top: 3px; }
 
         @media (max-width: 960px) {
             .service-row { flex-direction: column !important; gap: 30px; margin-bottom: 80px; }
             .service-text { padding: 20px; background: transparent; border: none; }
         }
 
-        /* --- 4. ФУТЪР CSS --- */
+        /* --- 4. ФУТЪР --- */
         .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); margin-top: 100px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%; gap: 40px; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-col h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 25px; position: relative; font-family: 'Orbitron', sans-serif; }
         .footer-col h3::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .footer-col p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+        
         .social-icons { display: flex; gap: 15px; }
-        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; color: #fff; }
+        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; transition: 0.3s; color: #fff; }
         .social-icons a:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        
         .footer-links li { margin-bottom: 12px; }
         .footer-links a:hover { color: var(--primary); padding-left: 10px; }
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #555; }
+        .contact-details i { color: var(--primary); font-size: 1.1rem; }
+        
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
+
+        /* ЦЕНТРИРАНЕ НА ФУТЪРА ЗА МОБИЛНИ (КАТО В INDEX) */
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-col h3::after { left: 50%; transform: translateX(-50%); }
+            .contact-details li { justify-content: center; }
+            .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -148,7 +159,7 @@
                 </p>
                 <ul class="feature-list">
                     <li><i class="fas fa-search"></i><div><strong>Пълна диагностика до 24 часа:</strong> Бързо установяване на проблема и комуникация с клиента преди ремонт.</div></li>
-                    <li><i class="fas fa-wind"></i><div><strong>Профилактика и почистване:</strong> Пълно разглобяване, почистване на охладителната система и смяна на термопаста (Arctic MX).</div></li>
+                    <li><i class="fas fa-wind"></i><div><strong>Профилактика и почистване:</strong> Пълно разглобяване, почистване на охладителната система и смяна на термопаста (Arctic MX) за по-ниски температури.</div></li>
                     <li><i class="fas fa-microchip"></i><div><strong>Хардуерен ремонт:</strong> Смяна на дисплеи (матрици), клавиатури, букси за зареждане, ремонт на панти и възстановяване на писти.</div></li>
                     <li><i class="fab fa-windows"></i><div><strong>Софтуерна поддръжка:</strong> Инсталация на Windows, драйвери, премахване на вируси и запазване на ценна информация.</div></li>
                 </ul>
@@ -162,7 +173,7 @@
             <div class="service-text">
                 <h2>Компютри & Лаптопи</h2>
                 <p>
-                    Изборът на правилния компютър може да бъде сложен процес. В Smartland предлагаме не просто кутии с части, а решения, съобразени с вашия бюджет и нужди. От бюджетни офис машини до върхови гейминг "чудовища" с водно охлаждане – ние гарантираме качеството на всеки компонент.
+                    Изборът на правилния компютър може да бъде сложен процес. В Smartland предлагаме не просто кутии with parts, а решения, съобразени с вашия бюджет и нужди. От бюджетни офис машини до върхови гейминг "чудовища" с водно охлаждане – ние гарантираме качеството на всеки компонент.
                     <br><br>
                     Освен нови машини, предлагаме и внимателно подбрана и тествана техника втора употреба (Business Class) от марки като Dell, HP и Lenovo, която често превъзхожда новите бюджетни лаптопи като качество на изработка.
                 </p>
@@ -197,14 +208,14 @@
 
         <div class="service-row" id="service-accessories">
             <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=1200" alt="Гейминг Аксесоари">
+                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=1200" alt="Аксесоари">
             </div>
             <div class="service-text">
                 <h2>Периферия & Аксесоари</h2>
                 <p>
                     Удобството при работа и предимството в игрите зависят от периферията. В нашия магазин ще откриете всичко необходимо, за да завършите сетъпа си. Ние подбираме продукти, които предлагат най-доброто съотношение цена-качество.
                     <br><br>
-                    От механични клавиатури с бързи суичове за геймъри, до ергономични мишки за офис работа, които предотвратяват болката в китката. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
+                    От механични клавиатури with fast switches for gamers, до ергономични мишки за офис работа. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
                 </p>
                 <ul class="feature-list">
                     <li><i class="fas fa-keyboard"></i><div><strong>Гейминг периферия:</strong> Механични клавиатури, мишки с прецизни сензори и падове с голям размер.</div></li>
@@ -228,14 +239,12 @@
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
                 
-                // Намираме бутона чрез неговия клас (точно както в INDEX)
                 const menuBtn = document.querySelector('.mobile-menu-btn');
                 const navMenu = document.querySelector('nav');
 
                 if(menuBtn && navMenu) {
                     menuBtn.addEventListener('click', () => {
                         navMenu.classList.toggle('active');
-                        
                         const icon = menuBtn.querySelector('i');
                         if(icon) {
                             icon.classList.toggle('fa-bars');
