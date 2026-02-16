@@ -34,7 +34,7 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- 2. ХЕДЪР (СЪЩИЯТ КАТО В SERVICES) --- */
+        /* --- 2. ХЕДЪР --- */
         header {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 80px;
@@ -85,16 +85,15 @@
             nav a { font-size: 1.2rem; }
         }
 
-        /* --- 3. HERO СЕКЦИЯ (СЪС СНИМКАТА НА МАГАЗИНА) --- */
+        /* --- 3. HERO СЕКЦИЯ --- */
         .shop-hero {
-            height: 70vh; /* Заема 70% от екрана */
+            height: 70vh;
             margin-top: 80px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Използваме pic10.jpg както поиска */
             background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--dark-bg)), url('pic10.jpg');
             background-size: cover;
             background-position: center;
@@ -105,7 +104,7 @@
             z-index: 2;
             padding: 20px;
             max-width: 800px;
-            background: rgba(0,0,0,0.6); /* Тъмен фон зад текста за четимост */
+            background: rgba(0,0,0,0.6);
             backdrop-filter: blur(5px);
             border-radius: 15px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -114,10 +113,11 @@
         .shop-hero h1 { font-size: 3rem; margin-bottom: 15px; color: #fff; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
         .shop-hero p { color: var(--primary); font-size: 1.2rem; letter-spacing: 1px; }
 
-        /* --- 4. КАТЕГОРИИ ПРОДУКТИ (ЗА ДА ИЗГЛЕЖДА ПЪЛНО) --- */
+        /* --- 4. КАТЕГОРИИ ПРОДУКТИ --- */
         .shop-categories {
             padding: 80px 5%;
-            max-width: 1400px;
+            /* Увеличих малко ширината на контейнера, за да се съберат 4 карти */
+            max-width: 1600px; 
             margin: 0 auto;
         }
         
@@ -127,8 +127,22 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            /* ПРОМЯНА: Фиксирани 4 колони за десктоп */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+        }
+
+        /* АДАПТИВНОСТ ЗА ПО-МАЛКИ ЕКРАНИ */
+        @media (max-width: 1200px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 на ред за таблети/лаптопи */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .categories-grid {
+                grid-template-columns: 1fr; /* 1 на ред за телефони */
+            }
         }
 
         .cat-card {
@@ -140,6 +154,10 @@
             transition: 0.3s;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* За да са с еднаква височина */
         }
 
         .cat-card:hover {
@@ -150,8 +168,8 @@
 
         .cat-icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
         .cat-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
-        .cat-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
-        .brand-list { margin-top: 15px; font-size: 0.85rem; color: var(--accent); font-weight: bold; }
+        .cat-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+        .brand-list { margin-top: auto; font-size: 0.85rem; color: var(--accent); font-weight: bold; }
 
         /* --- 5. ЛОКАЦИЯ И ВРЕМЕ --- */
         .location-section {
@@ -179,7 +197,6 @@
 
         .info-box h3 { color: var(--primary); margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         
-        /* Списък часове */
         .hours-list li {
             display: flex; justify-content: space-between; padding: 12px 0;
             border-bottom: 1px dashed #333; font-size: 1rem; color: var(--text-dim);
@@ -188,7 +205,6 @@
         .open-time { color: #00ff88; font-weight: bold; }
         .closed { color: var(--accent); font-weight: bold; }
 
-        /* Адрес и карта */
         .address-item { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; color: #fff; }
         .address-item i { color: var(--primary); font-size: 1.2rem; width: 25px; text-align: center; }
         
@@ -285,11 +301,12 @@
         </div>
 
         <div class="categories-grid">
+            
             <div class="cat-card">
-                <i class="fas fa-headset cat-icon"></i>
-                <h3>Гейминг Периферия</h3>
-                <p>Механични клавиатури, мишки с висок DPI, слушалки със 7.1 звук и падове. Всичко за победата.</p>
-                <div class="brand-list">RAZER • LOGITECH • GENESIS</div>
+                <i class="fas fa-laptop cat-icon"></i>
+                <h3>Лаптопи & Монитори</h3>
+                <p>Нови и реновирани лаптопи (бизнес клас) с гаранция. Геймърски монитори с висока честота.</p>
+                <div class="brand-list">DELL • HP • LENOVO • ACER</div>
             </div>
 
             <div class="cat-card">
@@ -300,18 +317,19 @@
             </div>
 
             <div class="cat-card">
-                <i class="fas fa-laptop cat-icon"></i>
-                <h3>Лаптопи & Монитори</h3>
-                <p>Нови и реновирани лаптопи (бизнес клас) с гаранция. Геймърски монитори с висока честота.</p>
-                <div class="brand-list">DELL • HP • LENOVO • ACER</div>
-            </div>
-
-            <div class="cat-card">
                 <i class="fas fa-print cat-icon"></i>
                 <h3>Консумативи</h3>
                 <p>Тонери, мастила, кабели (HDMI, LAN, USB-C), адаптери и почистващи препарати.</p>
                 <div class="brand-list">CANON • BROTHER • HAMA</div>
             </div>
+
+            <div class="cat-card">
+                <i class="fas fa-headset cat-icon"></i>
+                <h3>Гейминг Периферия</h3>
+                <p>Механични клавиатури, мишки с висок DPI, слушалки със 7.1 звук и падове. Всичко за победата.</p>
+                <div class="brand-list">RAZER • LOGITECH • GENESIS</div>
+            </div>
+
         </div>
     </section>
 
