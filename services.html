@@ -34,7 +34,7 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- 2. ХЕДЪР CSS (ТОЧНО КОПИЕ ОТ INDEX) --- */
+        /* --- 2. ХЕДЪР CSS (ТОЧНО КАКТО ТИ ХАРЕСВА) --- */
         header {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 80px;
@@ -107,28 +107,25 @@
             .service-text { padding: 20px; background: transparent; border: none; }
         }
 
-        /* --- 4. ФУТЪР --- */
+        /* --- 4. ФУТЪР CSS С ЦЕНТРИРАНЕ --- */
         .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); margin-top: 100px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%; gap: 40px; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-col h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 25px; position: relative; font-family: 'Orbitron', sans-serif; }
         .footer-col h3::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
         .footer-col p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
-        
         .social-icons { display: flex; gap: 15px; }
-        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; transition: 0.3s; color: #fff; }
+        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; color: #fff; }
         .social-icons a:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary); }
-        
         .footer-links li { margin-bottom: 12px; }
         .footer-links a:hover { color: var(--primary); padding-left: 10px; }
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); }
         .contact-details i { color: var(--primary); font-size: 1.1rem; }
-        
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #555; }
 
-        /* ЦЕНТРИРАНЕ НА ФУТЪРА ЗА МОБИЛНИ (КАТО В INDEX) */
         @media (max-width: 768px) {
             .footer-container { flex-direction: column; text-align: center; }
+            .footer-col { display: flex; flex-direction: column; align-items: center; }
             .footer-col h3::after { left: 50%; transform: translateX(-50%); }
             .contact-details li { justify-content: center; }
             .social-icons { justify-content: center; }
@@ -173,7 +170,7 @@
             <div class="service-text">
                 <h2>Компютри & Лаптопи</h2>
                 <p>
-                    Изборът на правилния компютър може да бъде сложен процес. В Smartland предлагаме не просто кутии with parts, а решения, съобразени с вашия бюджет и нужди. От бюджетни офис машини до върхови гейминг "чудовища" с водно охлаждане – ние гарантираме качеството на всеки компонент.
+                    Изборът на правилния компютър може да бъде сложен процес. В Smartland предлагаме не просто кутии с части, а решения, съобразени с вашия бюджет и нужди. От бюджетни офис машини до върхови гейминг "чудовища" с водно охлаждане – ние гарантираме качеството на всеки компонент.
                     <br><br>
                     Освен нови машини, предлагаме и внимателно подбрана и тествана техника втора употреба (Business Class) от марки като Dell, HP и Lenovo, която често превъзхожда новите бюджетни лаптопи като качество на изработка.
                 </p>
@@ -215,7 +212,7 @@
                 <p>
                     Удобството при работа и предимството в игрите зависят от периферията. В нашия магазин ще откриете всичко необходимо, за да завършите сетъпа си. Ние подбираме продукти, които предлагат най-доброто съотношение цена-качество.
                     <br><br>
-                    От механични клавиатури with fast switches for gamers, до ергономични мишки за офис работа. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
+                    От механични клавиатури с бързи суичове за геймъри, до ергономични мишки за офис работа, които предотвратяват болката в китката. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
                 </p>
                 <ul class="feature-list">
                     <li><i class="fas fa-keyboard"></i><div><strong>Гейминг периферия:</strong> Механични клавиатури, мишки с прецизни сензори и падове с голям размер.</div></li>
@@ -233,7 +230,7 @@
     </footer>
 
     <script>
-        // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И ПОПРАВКА НА ХАМБУРГЕРА
+        // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И ЛОГИКА ЗА МЕНЮТО
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
@@ -245,6 +242,7 @@
                 if(menuBtn && navMenu) {
                     menuBtn.addEventListener('click', () => {
                         navMenu.classList.toggle('active');
+                        
                         const icon = menuBtn.querySelector('i');
                         if(icon) {
                             icon.classList.toggle('fa-bars');
