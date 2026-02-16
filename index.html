@@ -276,34 +276,49 @@
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* Мобилна версия - ФИНАЛНА КОРЕКЦИЯ */
+/* --- ФИНАЛНА КОРЕКЦИЯ ЗА ТЕЛЕФОН --- */
 @media (max-width: 768px) {
+    /* 1. Центриране на баджа долу */
     .trust-badge-container {
         bottom: 20px;
-        left: 50%; /* Връщаме го в центъра */
+        left: 50%;
         transform: translateX(-50%);
         width: auto;
         white-space: nowrap;
-        padding: 8px 20px;
-        gap: 25px; /* УВЕЛИЧЕНО: Прави по-голяма дупка между звездите и текста */
+        padding: 8px 15px;
+        gap: 0; /* Махаме разстоянието тук, за да го контролираме с padding долу */
     }
 
-    /* Това е новото: Избутва текста още надясно */
+    /* 2. Линията и звездите */
+    .badge-rating {
+        padding-right: 15px; /* Разстояние от звездите до чертата */
+        border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* 3. ТУК Е ПРОМЯНАТА: Избутваме целия текст надясно от чертата */
     .badge-text {
-        padding-left: 10px !important; 
+        padding-left: 25px !important; /* Това ще го премести видимо надясно */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Подравняване вляво */
+    }
+
+    /* 4. Ако искаш САМО "32 Google Отзива" да е още по-надясно от горния надпис */
+    .badge-text span {
+        margin-left: 5px !important; /* Леко отместване само на долния ред */
     }
     
-    /* Коригираме анимацията за мобилни */
+    /* Анимация */
     @keyframes slideInLeft {
         from { opacity: 0; transform: translate(-50%, 20px); }
         to { opacity: 1; transform: translate(-50%, 0); }
     }
 
+    /* Оправяне на заглавието */
     .hero h1 {
         font-size: 2.2rem !important;
         letter-spacing: 1px;
     }
-    
     .hero p {
         font-size: 1rem;
         padding: 0 10px;
@@ -1363,6 +1378,7 @@ document.addEventListener('click', function (e) {
 
 </body>
 </html>
+
 
 
 
