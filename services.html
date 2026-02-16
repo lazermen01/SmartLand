@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Услуги | SmartLand</title>
+    
     <link rel="icon" type="image/png" href="favicon.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="favicon-192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="favicon-192.png">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ --- */
+        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ (ОТ INDEX.HTML) --- */
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
             --accent: #ff0055;
             --dark-bg: #0a0a0a;
+            --card-bg: #131313;
             --text-main: #ffffff;
             --text-dim: #b3b3b3;
-            --card-bg: #131313;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,106 +37,251 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- 2. ХЕДЪР (ТОЧНО КОПИЕ ОТ INDEX) --- */
+        /* --- 2. ХЕДЪР (ТОЧНО КОПИЕ ОТ INDEX.HTML) --- */
         header {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 80px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
             background: rgba(10, 10, 10, 0.75) !important;
             backdrop-filter: blur(15px) saturate(180%);
             -webkit-backdrop-filter: blur(15px) saturate(180%);
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
             z-index: 1000;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%; 
         }
 
         .logo {
-            position: relative; z-index: 1001; cursor: pointer; text-decoration: none;
-            color: #fff; font-size: 24px; font-weight: 700;
+            position: relative;
+            z-index: 1001;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
         }
         .logo span { color: var(--primary); }
 
-        nav { flex-grow: 1; display: flex; justify-content: center; }
-        
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
         nav ul {
-            display: flex; gap: 30px; margin: 0; padding: 0; list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
         nav a {
-            font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; transition: 0.3s;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
         nav a:hover, nav a.active {
-            color: var(--primary); text-shadow: 0 0 10px var(--primary);
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
         }
 
         .btn-call {
-            white-space: nowrap; padding: 10px 20px; border: 2px solid var(--primary);
-            color: var(--primary); border-radius: 5px; font-weight: bold;
-            font-family: 'Roboto', sans-serif; transition: 0.3s;
+            white-space: nowrap;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            transition: 0.3s;
         }
 
         .btn-call:hover {
-            background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
         }
 
-        /* --- МОБИЛНО МЕНЮ (ТОЧНО КОПИЕ ОТ INDEX) --- */
+        /* --- СТИЛОВЕ ЗА МОБИЛНОТО МЕНЮ (ТОЧНО КОПИЕ ОТ INDEX.HTML) --- */
         .mobile-menu-btn {
-            display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s;
+            display: none; /* Скрито на компютър */
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+            /* Добавено за сигурност */
+            position: relative; 
+            z-index: 1002;
         }
 
-        .header-right { display: flex; align-items: center; gap: 15px; }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
         @media (max-width: 980px) {
             header { padding: 0 20px; }
+
+            /* Показваме иконата на "чертичките" */
             .mobile-menu-btn { display: block; }
 
+            /* Превръщаме навигацията в падащ панел */
             nav {
-                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
-                background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important;
-                padding-top: 50px; z-index: 999;
+                position: fixed;
+                top: 80px;
+                left: -100%; /* Скрито извън екрана вляво */
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(15px);
+                transition: 0.4s ease-in-out;
+                flex-direction: column;
+                justify-content: flex-start !important;
+                padding-top: 50px;
+                z-index: 999;
             }
 
-            nav.active { left: 0; }
+            /* Когато добавим клас .active чрез JS, менюто се плъзва на екрана */
+            nav.active {
+                left: 0;
+            }
 
-            nav ul { flex-direction: column; gap: 30px !important; align-items: center; }
-            nav a { font-size: 20px !important; width: 100%; text-align: center; }
+            nav ul {
+                flex-direction: column;
+                gap: 30px !important;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 20px !important;
+                width: 100%;
+                text-align: center;
+            }
         }
 
-        /* --- СЪДЪРЖАНИЕ УСЛУГИ --- */
+        /* --- СЪДЪРЖАНИЕ НА СТРАНИЦАТА "УСЛУГИ" --- */
         .page-banner {
-            margin-top: 80px; padding: 120px 5%; text-align: center;
+            margin-top: 80px;
+            padding: 120px 5%;
+            text-align: center;
             background: linear-gradient(to bottom, rgba(10,10,10,0.6), var(--dark-bg)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover; background-position: center; border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
         }
-        .page-banner h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
-        
-        .service-detail-section { padding: 60px 5%; max-width: 1400px; width: 100%; margin: 0 auto; }
-        .service-row { display: flex; align-items: center; gap: 60px; margin-bottom: 120px; }
+
+        .page-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .service-detail-section {
+            padding: 60px 5%;
+            max-width: 1400px; 
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center; 
+            gap: 60px;
+            margin-bottom: 120px;
+        }
+
         .service-row:nth-child(even) { flex-direction: row-reverse; }
-        
+
         .service-image {
-            flex: 1; min-width: 0; position: relative; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 210, 255, 0.15); align-self: center;
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 210, 255, 0.15);
+            align-self: center; 
         }
-        .service-image img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+
+        .service-image img {
+            width: 100%;
+            height: auto; 
+            display: block; 
+            transition: transform 0.5s ease;
+        }
+
         .service-image:hover img { transform: scale(1.05); }
 
         .service-text {
-            flex: 1; display: flex; flex-direction: column; justify-content: center;
-            background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03); 
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
         }
-        .service-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 25px; position: relative; display: inline-block; }
-        .service-text h2::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 3px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
-        .service-text p { color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; margin-bottom: 25px; text-align: justify; }
+
+        .service-text h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
         
-        .feature-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; color: #fff; font-size: 1rem; line-height: 1.5; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .service-text h2::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -10px;
+            width: 60px; height: 3px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .service-text p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
         .feature-list li:last-child { border-bottom: none; }
-        .feature-list i { color: var(--primary); font-size: 1.2rem; margin-top: 3px; }
+
+        .feature-list i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
 
         @media (max-width: 960px) {
+            .page-banner { padding: 80px 20px; }
+            .page-banner h1 { font-size: 2rem; }
+            .service-detail-section { padding: 40px 20px; }
             .service-row { flex-direction: column !important; gap: 30px; margin-bottom: 80px; }
             .service-text { padding: 20px 0; background: transparent; border: none; backdrop-filter: none; }
             .service-image { width: 100%; height: auto; }
@@ -140,25 +289,60 @@
             .service-text p { text-align: left; }
         }
 
-        /* --- ФУТЪР --- */
-        .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); margin-top: 100px; }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%; gap: 40px; }
+        /* --- ФУТЪР (ТОЧНО КОПИЕ ОТ INDEX.HTML) --- */
+        .main-footer {
+            background: #050505;
+            color: var(--text-main);
+            padding: 60px 0 20px 0;
+            border-top: 1px solid rgba(0, 210, 255, 0.1);
+            position: relative;
+            margin-top: 100px; 
+        }
+
+        .footer-container {
+            max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap;
+            justify-content: space-between; padding: 0 5%; gap: 40px;
+        }
+
         .footer-col { flex: 1; min-width: 250px; }
-        .footer-col h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 25px; position: relative; font-family: 'Orbitron', sans-serif; }
-        .footer-col h3::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        
+        .footer-col h3 { 
+            color: var(--primary); font-size: 1.2rem; margin-bottom: 25px; 
+            position: relative; font-family: 'Orbitron', sans-serif;
+        }
+        
+        .footer-col h3::after {
+            content: ''; position: absolute; left: 0; bottom: -8px;
+            width: 40px; height: 2px; background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
         .footer-col p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+
         .social-icons { display: flex; gap: 15px; }
-        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; transition: 0.3s; color: #fff; }
-        .social-icons a:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .social-icons a {
+            width: 35px; height: 35px; background: #111; 
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 5px; border: 1px solid #333; transition: 0.3s; color: #fff;
+        }
+        .social-icons a:hover {
+            border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary);
+        }
+
         .footer-links { list-style: none; padding: 0; }
         .footer-links li { margin-bottom: 12px; }
         .footer-links a { color: var(--text-dim); transition: 0.3s; font-size: 0.95rem; }
         .footer-links a:hover { color: var(--primary); padding-left: 10px; }
+
         .contact-details { list-style: none; padding: 0; }
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); font-size: 0.95rem; }
         .contact-details i { color: var(--primary); font-size: 1.1rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
         
+        .footer-bottom { 
+            text-align: center; padding-top: 40px; margin-top: 40px; 
+            border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; 
+        }
+
         @media (max-width: 768px) {
             .footer-container { flex-direction: column; text-align: center; }
             .footer-col h3::after { left: 50%; transform: translateX(-50%); }
@@ -183,12 +367,28 @@
             </div>
             <div class="service-text">
                 <h2>Сервиз & Диагностика</h2>
-                <p>В Smartland разбираме, че повредената техника не е просто неудобство, а пречка пред вашата работа и забавление. Нашият сервизен център е оборудван с професионална апаратура за прецизна диагностика на хардуерни проблеми.</p>
+                <p>
+                    В Smartland разбираме, че повредената техника не е просто неудобство, а пречка пред вашата работа и забавление. Нашият сервизен център е оборудван с професионална апаратура за прецизна диагностика на хардуерни проблеми. Ние не просто "поправяме" компютри, ние възстановяваме тяхната фабрична производителност.
+                    <br><br>
+                    Независимо дали става въпрос за лаптоп, който е бил залят с течност, настолен компютър, който прегрява, или дънна платка, която се нуждае от ремонт на ниво компонент – нашите техници имат опита да се справят.
+                </p>
                 <ul class="feature-list">
-                    <li><i class="fas fa-search"></i><div><strong>Пълна диагностика до 24 часа:</strong> Бързо установяване на проблема.</div></li>
-                    <li><i class="fas fa-wind"></i><div><strong>Профилактика:</strong> Почистване и смяна на термопаста (Arctic MX).</div></li>
-                    <li><i class="fas fa-microchip"></i><div><strong>Хардуерен ремонт:</strong> Смяна на дисплеи, клавиатури и букси.</div></li>
-                    <li><i class="fab fa-windows"></i><div><strong>Софтуер:</strong> Инсталация на Windows, драйвери и премахване на вируси.</div></li>
+                    <li>
+                        <i class="fas fa-search"></i>
+                        <div><strong>Пълна диагностика до 24 часа:</strong> Бързо установяване на проблема и комуникация с клиента преди ремонт.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-wind"></i>
+                        <div><strong>Профилактика и почистване:</strong> Пълно разглобяване, почистване на охладителната система и смяна на термопаста (Arctic MX) за по-ниски температури.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-microchip"></i>
+                        <div><strong>Хардуерен ремонт:</strong> Смяна на дисплеи (матрици), клавиатури, букси за зареждане, ремонт на панти и възстановяване на писти.</div>
+                    </li>
+                    <li>
+                        <i class="fab fa-windows"></i>
+                        <div><strong>Софтуерна поддръжка:</strong> Инсталация на Windows, драйвери, премахване на вируси и запазване на ценна информация.</div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -199,52 +399,123 @@
             </div>
             <div class="service-text">
                 <h2>Компютри & Лаптопи</h2>
-                <p>Изборът на правилния компютър може да бъде сложен процес. В Smartland предлагаме не просто кутии с части, а решения, съобразени с вашия бюджет и нужди.</p>
+                <p>
+                    Изборът на правилния компютър може да бъде сложен процес. В Smartland предлагаме не просто кутии с части, а решения, съобразени с вашия бюджет и нужди. От бюджетни офис машини до върхови гейминг "чудовища" с водно охлаждане – ние гарантираме качеството на всеки компонент.
+                    <br><br>
+                    Освен нови машини, предлагаме и внимателно подбрана и тествана техника втора употреба (Business Class) от марки като Dell, HP и Lenovo, която често превъзхожда новите бюджетни лаптопи като качество на изработка.
+                </p>
                 <ul class="feature-list">
-                    <li><i class="fas fa-gamepad"></i><div><strong>Custom Gaming PC:</strong> Сглобяване на конфигурации по поръчка.</div></li>
-                    <li><i class="fas fa-laptop-medical"></i><div><strong>Втора употреба с гаранция:</strong> Реновирана техника висок клас.</div></li>
-                    <li><i class="fas fa-rocket"></i><div><strong>Ъпгрейд:</strong> SSD и RAM памет за по-добра скорост.</div></li>
+                    <li>
+                        <i class="fas fa-gamepad"></i>
+                        <div><strong>Custom Gaming PC:</strong> Сглобяване на конфигурации по поръчка с перфектен кейбъл мениджмънт и RGB синхронизация.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-laptop-medical"></i>
+                        <div><strong>Втора употреба с гаранция:</strong> Реновирани лаптопи и компютри, преминали през 12-степенен тест за качество.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-rocket"></i>
+                        <div><strong>Ъпгрейд:</strong> Вдъхнете нов живот на стария компютър чрез добавяне на SSD диск и RAM памет.</div>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <div class="service-row">
             <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=1200" alt="Принтери">
+                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=1200" alt="Принтери и Тонери">
             </div>
             <div class="service-text">
                 <h2>Принтери & Тонери</h2>
-                <p>Цялостни решения за печат. Разполагаме със специализирана техника за презареждане на тонер касети.</p>
+                <p>
+                    Печатът е критична част от всеки офис и дом. Ние предлагаме цялостни решения за принтиране, които пестят пари, без да правят компромис с качеството. Забравете за бледите копия и черните линии по листата.
+                    <br><br>
+                    Разполагаме със специализирана техника за презареждане на тонер касети, която гарантира същия брой копия и наситеност като при оригиналните консумативи, но на цена, която е в пъти по-ниска.
+                </p>
                 <ul class="feature-list">
-                    <li><i class="fas fa-print"></i><div><strong>Продажба:</strong> Принтери Canon, HP, Brother, Kyocera.</div></li>
-                    <li><i class="fas fa-fill-drip"></i><div><strong>Презареждане:</strong> Висококачествен тонер прах и чипове.</div></li>
-                    <li><i class="fas fa-wrench"></i><div><strong>Ремонт:</strong> Смяна на барабани и изпичащи модули.</div></li>
+                    <li>
+                        <i class="fas fa-print"></i>
+                        <div><strong>Продажба на техника:</strong> Лазерни и мастиленоструйни принтери от водещи марки (Canon, HP, Brother, Kyocera).</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-fill-drip"></i>
+                        <div><strong>Професионално презареждане:</strong> Използваме висококачествен тонер прах и сменяме чиповете на касетите.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-wrench"></i>
+                        <div><strong>Ремонт на принтери:</strong> Смяна на барабани, изпичащи модули, поемащи ролки и отстраняване на засядания.</div>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <div class="service-row">
             <div class="service-image">
-                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=1200" alt="Аксесоари">
+                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=1200" alt="Гейминг Аксесоари">
             </div>
             <div class="service-text">
                 <h2>Периферия & Аксесоари</h2>
-                <p>В нашия магазин ще откриете всичко необходимо, за да завършите сетъпа си.</p>
+                <p>
+                    Удобството при работа и предимството в игрите зависят от периферията. В нашия магазин ще откриете всичко необходимо, за да завършите сетъпа си. Ние подбираме продукти, които предлагат най-доброто съотношение цена-качество.
+                    <br><br>
+                    От механични клавиатури с бързи суичове за геймъри, до ергономични мишки за офис работа, които предотвратяват болката в китката. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
+                </p>
                 <ul class="feature-list">
-                    <li><i class="fas fa-keyboard"></i><div><strong>Гейминг:</strong> Механични клавиатури и мишки.</div></li>
-                    <li><i class="fas fa-headphones"></i><div><strong>Аудио:</strong> Слушалки с кристален звук.</div></li>
-                    <li><i class="fas fa-network-wired"></i><div><strong>Мрежа:</strong> Рутери, суичове и кабели.</div></li>
+                    <li>
+                        <i class="fas fa-keyboard"></i>
+                        <div><strong>Гейминг периферия:</strong> Механични клавиатури, мишки с прецизни сензори и падове с голям размер.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-headphones"></i>
+                        <div><strong>Аудио:</strong> Слушалки с кристален микрофон и 7.1 Surround Sound за пълно потапяне.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-network-wired"></i>
+                        <div><strong>Мрежово оборудване:</strong> Рутери, суичове, LAN кабели и удължители за обхват на Wi-Fi.</div>
+                    </li>
                 </ul>
             </div>
         </div>
+
     </div>
 
     <footer class="main-footer">
-        <div id="footer-placeholder"></div>
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="/" class="logo">SMART<span>LAND</span></a>
+                <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Навигация</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Начало</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="shop.html">Магазин</a></li>
+                    <li><a href="/#contacts">Контакти</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Контакти</h3>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
+                    <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Smartland. Всички права запазени. | Дизайн и разработка: Smartland</p>
+        </div>
     </footer>
 
     <script>
-        // ЗАРЕЖДАНЕ НА ХЕДЪРА И СКРИПТ ЗА ХАМБУРГЕР МЕНЮТО (ТОЧНО КАТО В INDEX)
+        // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И ЛОГИКА ЗА МЕНЮТО (ТОЧНО КАТО В INDEX)
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
@@ -267,7 +538,7 @@
                     });
                 }
 
-                // СВЕТЕНЕ НА БУТОНИТЕ
+                // --- ТУК СЛАГАМЕ И ЛОГИКАТА ЗА СВЕТЕНЕТО НА БУТОНИТЕ ---
                 const currentPath = window.location.pathname;
                 const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -276,13 +547,6 @@
                         link.classList.add('active');
                     }
                 });
-            });
-
-        // ФУТЪР
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.querySelector('.main-footer').innerHTML = data;
             });
     </script>
 </body>
