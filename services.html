@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. ОСНОВНИ НАСТРОЙКИ (ОТ INDEX) --- */
+        /* --- 1. ОСНОВНИ НАСТРОЙКИ --- */
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
@@ -27,20 +27,19 @@
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- 2. ХЕДЪР CSS (ДИРЕКТНО ОТ INDEX) --- */
+        /* --- 2. ХЕДЪР CSS (ФИКСИРАН И НЕБЪГВАЩ СЕ) --- */
         header {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 80px;
-            background: rgba(10, 10, 10, 0.85) !important;
-            backdrop-filter: blur(15px) saturate(180%);
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            background: rgba(10, 10, 10, 0.9) !important;
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-            z-index: 1000;
+            z-index: 2000; /* Много висок за да е над всичко */
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 5%;
         }
 
-        .logo { position: relative; z-index: 1001; cursor: pointer; color: #fff; font-size: 24px; font-weight: 700; }
+        .logo { position: relative; z-index: 2001; cursor: pointer; color: #fff; font-size: 24px; font-weight: 700; }
         .logo span { color: var(--primary); }
 
         nav { flex-grow: 1; display: flex; justify-content: center; }
@@ -48,42 +47,37 @@
         nav a { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
         nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* ГРУПИРАНЕ НА БУТОНА И БУРГЕРА */
         .header-right { 
             display: flex; 
             align-items: center; 
-            gap: 15px; 
+            gap: 20px; 
+            position: relative;
+            z-index: 2002;
         }
 
         .btn-call { 
-            white-space: nowrap; 
-            padding: 10px 20px; 
-            border: 2px solid var(--primary); 
-            color: var(--primary); 
-            border-radius: 5px; 
-            font-weight: bold; 
-            font-size: 14px;
-            transition: 0.3s; 
+            white-space: nowrap; padding: 10px 18px; border: 2px solid var(--primary); 
+            color: var(--primary); border-radius: 5px; font-weight: bold; font-size: 14px;
         }
-        .btn-call:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6); }
 
+        /* КРИТИЧНО: Хамбургер бутон */
         .mobile-menu-btn { 
             display: none; 
             color: var(--primary); 
-            font-size: 24px; 
+            font-size: 28px; 
             cursor: pointer; 
         }
 
         @media (max-width: 980px) {
-            .mobile-menu-btn { display: block; }
+            .mobile-menu-btn { display: block !important; }
             nav {
                 position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
                 background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important; padding-top: 50px; z-index: 999;
+                transition: 0.4s; flex-direction: column; justify-content: flex-start; padding-top: 50px; z-index: 1999;
             }
             nav.active { left: 0; }
             nav ul { flex-direction: column; align-items: center; gap: 30px; }
-            nav a { font-size: 20px !important; }
+            nav a { font-size: 20px; }
         }
 
         /* --- 3. СЪДЪРЖАНИЕ УСЛУГИ --- */
@@ -92,18 +86,20 @@
             background: linear-gradient(to bottom, rgba(10,10,10,0.6), var(--dark-bg)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
             background-size: cover; background-position: center; border-bottom: 1px solid rgba(0, 210, 255, 0.1);
         }
-        .page-banner h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        .page-banner h1 { font-size: 3rem; margin-bottom: 15px; }
 
         .service-detail-section { padding: 60px 5%; max-width: 1400px; width: 100%; margin: 0 auto; }
 
+        /* Оправя закриването на заглавието от хедъра */
         .service-row { 
             display: flex; align-items: center; gap: 60px; margin-bottom: 120px;
-            scroll-margin-top: 100px; 
+            scroll-margin-top: 120px; 
         }
         .service-row:nth-child(even) { flex-direction: row-reverse; }
         
         .service-image { flex: 1; min-width: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 210, 255, 0.15); }
-        .service-image img { width: 100%; height: auto; display: block; }
+        .service-image img { width: 100%; height: auto; display: block; transition: 0.5s; }
+        .service-image:hover img { transform: scale(1.05); }
 
         .service-text { flex: 1; padding: 40px; background: rgba(255, 255, 255, 0.03); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
         .service-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 25px; position: relative; }
@@ -127,12 +123,15 @@
         .footer-col p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
         .social-icons { display: flex; gap: 15px; }
         .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; color: #fff; }
-        .social-icons a:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary); }
         .footer-links li { margin-bottom: 12px; }
-        .footer-links a:hover { color: var(--primary); padding-left: 10px; }
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #555; }
-        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; } .footer-col h3::after { left: 50%; transform: translateX(-50%); } }
+        .footer-bottom { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #555; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-col h3::after { left: 50%; transform: translateX(-50%); }
+            .contact-details li, .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -149,7 +148,7 @@
     </nav>
     <div class="header-right">
         <a href="tel:0988835555" class="btn-call">098 883 5555</a>
-        <div class="mobile-menu-btn" id="burger-trigger">
+        <div class="mobile-menu-btn" id="burger-btn">
             <i class="fas fa-bars"></i>
         </div>
     </div>
@@ -195,7 +194,7 @@
                 </p>
                 <ul class="feature-list">
                     <li><i class="fas fa-gamepad"></i><div><strong>Custom Gaming PC:</strong> Сглобяване на конфигурации по поръчка с перфектен кейбъл мениджмънт и RGB синхронизация.</div></li>
-                    <li><i class="fas fa-laptop-medical"></i><div><strong>Втора употреба с гаранция:</strong> Реновирани лаптопи и компютри, преминали през 12-степенен тест за качество.</div></li>
+                    <li><i class="fas fa-laptop-medical"></i><div><strong>Втора употреба с гаранция:</strong> Реновирани лаптопи и компютри, преминали през тест за качество.</div></li>
                     <li><i class="fas fa-rocket"></i><div><strong>Ъпгрейд:</strong> Вдъхнете нов живот на стария компютър чрез добавяне на SSD диск и RAM памет.</div></li>
                     <li><i class="fas fa-comments"></i><div><strong>Безплатна консултация:</strong> Помагаме ви да изберете точно това, което ви трябва, без да плащате за излишни екстри.</div></li>
                 </ul>
@@ -231,13 +230,12 @@
                 <p>
                     Удобството при работа и предимството в игрите зависят от периферията. В нашия магазин ще откриете всичко необходимо, за да завършите сетъпа си. Ние подбираме продукти, които предлагат най-доброто съотношение цена-качество.
                     <br><br>
-                    От механични клавиатури с бързи суичове за геймъри, до ергономични мишки за офис работа, които предотвратяват болката в китката. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
+                    От механични клавиатури with fast switches for gamers, до ергономични мишки за офис работа. Не правим компромис и с кабелите – предлагаме само сертифицирани адаптери и връзки.
                 </p>
                 <ul class="feature-list">
                     <li><i class="fas fa-keyboard"></i><div><strong>Гейминг периферия:</strong> Механични клавиатури, мишки с прецизни сензори и падове с голям размер.</div></li>
                     <li><i class="fas fa-headphones"></i><div><strong>Аудио:</strong> Слушалки с кристален микрофон и 7.1 Surround Sound за пълно потапяне.</div></li>
                     <li><i class="fas fa-tv"></i><div><strong>Монитори:</strong> Широка гама от дисплеи – IPS за дизайнери и 144Hz/165Hz за геймъри.</div></li>
-                    <li><i class="fas fa-network-wired"></i><div><strong>Мрежово оборудване:</strong> Рутери, суичове, LAN кабели и удължители за обхват на Wi-Fi.</div></li>
                 </ul>
             </div>
         </div>
@@ -248,7 +246,7 @@
         <div class="footer-container">
             <div class="footer-col">
                 <a href="index.html" class="logo">SMART<span>LAND.</span></a>
-                <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
+                <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище.</p>
                 <div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
             </div>
             <div class="footer-col">
@@ -263,10 +261,9 @@
             <div class="footer-col">
                 <h3>Контакти</h3>
                 <ul class="contact-details">
-                    <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
+                    <li><i class="fas fa-phone-alt"></i> 098 883 5555</li>
+                    <li><i class="fas fa-envelope"></i> thilsey13542@gmail.com</li>
                     <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
-                    <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
                 </ul>
             </div>
         </div>
@@ -274,18 +271,12 @@
     </footer>
 
     <script>
-        // ЛОГИКА ЗА МЕНЮТО
-        const btn = document.getElementById('burger-trigger');
-        const menu = document.getElementById('nav-menu');
-
-        if(btn && menu) {
-            btn.onclick = function() {
-                menu.classList.toggle('active');
-                const icon = btn.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        }
+        // ЛОГИКА ЗА МЕНЮТО - СЕГА ВЕЧЕ ЩЕ РАБОТИ
+        document.getElementById('burger-btn').onclick = function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        };
     </script>
 </body>
 </html>
