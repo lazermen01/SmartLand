@@ -70,7 +70,7 @@
             nav a { font-size: 1.2rem; }
         }
 
-        /* --- 3. НОВИ СТИЛОВЕ ЗА УСЛУГИТЕ (ПО-ШИРОКИ И ПОДРЕДЕНИ) --- */
+        /* --- 3. СТИЛОВЕ ЗА УСЛУГИТЕ --- */
         
         .page-banner {
             margin-top: 80px;
@@ -90,14 +90,15 @@
 
         .service-detail-section {
             padding: 60px 5%;
-            max-width: 1400px; /* Увеличено от 1200px за повече ширина */
+            max-width: 1400px; 
             width: 100%;
             margin: 0 auto;
         }
 
         .service-row {
             display: flex;
-            align-items: stretch; /* Разпъва елементите да са с еднаква височина */
+            /* ПРОМЯНА ТУК: Центрираме ги вертикално, вместо да ги разпъваме */
+            align-items: center; 
             gap: 60px;
             margin-bottom: 120px;
         }
@@ -105,21 +106,25 @@
         /* Обръщане на реда за всяка втора услуга (само на десктоп) */
         .service-row:nth-child(even) { flex-direction: row-reverse; }
 
-        /* КАРТИНКА */
+        /* КАРТИНКА - ПОПРАВКА НА ЗУУМ-А */
         .service-image {
             flex: 1;
-            min-width: 0; /* Важно за flexbox да не прелива */
+            min-width: 0;
             position: relative;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(0, 210, 255, 0.15);
+            /* Премахваме фиксираната височина или разпъването */
+            align-self: center; 
         }
 
         .service-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Гарантира, че снимката запълва всичко без изкривяване */
+            /* ПРОМЯНА ТУК: Височината е автоматична, за да се види цялата снимка */
+            height: auto; 
+            display: block; /* Премахва малък луфт под снимката */
+            /* object-fit: cover;  <-- ТОВА БЕШЕ ПРИЧИНАТА ЗА ЗУУМА - ПРЕМАХНАТО Е */
             transition: transform 0.5s ease;
         }
 
@@ -133,7 +138,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.03); /* Лек "стъклен" фон */
+            background: rgba(255, 255, 255, 0.03); 
             padding: 40px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -162,7 +167,7 @@
             line-height: 1.8;
             font-size: 1.05rem;
             margin-bottom: 25px;
-            text-align: justify; /* За по-подреден вид на дългия текст */
+            text-align: justify;
         }
         
         /* Списък с предимства */
@@ -183,10 +188,10 @@
         .feature-list i {
             color: var(--primary);
             font-size: 1.2rem;
-            margin-top: 3px; /* Изравняване с текста */
+            margin-top: 3px;
         }
 
-        /* --- МОБИЛНА ОПТИМИЗАЦИЯ (КЛЮЧОВА ПРОМЯНА) --- */
+        /* --- МОБИЛНА ОПТИМИЗАЦИЯ --- */
         @media (max-width: 960px) {
             .page-banner { padding: 80px 20px; }
             .page-banner h1 { font-size: 2rem; }
@@ -194,12 +199,11 @@
             .service-detail-section { padding: 40px 20px; }
 
             .service-row {
-                flex-direction: column !important; /* Принудително едно под друго */
+                flex-direction: column !important; 
                 gap: 30px;
                 margin-bottom: 80px;
             }
 
-            /* Премахваме ефекта на стъклен панел на мобилни, за да е по-чисто, или го намаляваме */
             .service-text {
                 padding: 20px 0;
                 background: transparent;
@@ -209,11 +213,13 @@
 
             .service-image {
                 width: 100%;
-                height: 300px; /* Фиксирана височина за мобилни */
+                /* ПРОМЯНА ТУК: Махаме фиксираната височина и на мобилно */
+                /* height: 300px;  <- БЕШЕ ТОВА */
+                height: auto; /* СТАВА ТОВА */
             }
             
             .service-text h2 { font-size: 1.8rem; }
-            .service-text p { text-align: left; } /* На телефон оправданият текст се чете трудно */
+            .service-text p { text-align: left; }
         }
 
         /* --- ФУТЪР (Същия) --- */
