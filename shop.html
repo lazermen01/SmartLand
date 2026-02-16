@@ -116,7 +116,6 @@
         /* --- 4. КАТЕГОРИИ ПРОДУКТИ --- */
         .shop-categories {
             padding: 80px 5%;
-            /* Увеличих малко ширината на контейнера, за да се съберат 4 карти */
             max-width: 1600px; 
             margin: 0 auto;
         }
@@ -127,21 +126,19 @@
 
         .categories-grid {
             display: grid;
-            /* ПРОМЯНА: Фиксирани 4 колони за десктоп */
             grid-template-columns: repeat(4, 1fr); 
             gap: 20px;
         }
 
-        /* АДАПТИВНОСТ ЗА ПО-МАЛКИ ЕКРАНИ */
         @media (max-width: 1200px) {
             .categories-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 на ред за таблети/лаптопи */
+                grid-template-columns: repeat(2, 1fr); 
             }
         }
 
         @media (max-width: 600px) {
             .categories-grid {
-                grid-template-columns: 1fr; /* 1 на ред за телефони */
+                grid-template-columns: 1fr; 
             }
         }
 
@@ -157,7 +154,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%; /* За да са с еднаква височина */
+            height: 100%;
         }
 
         .cat-card:hover {
@@ -209,8 +206,13 @@
         .address-item i { color: var(--primary); font-size: 1.2rem; width: 25px; text-align: center; }
         
         .map-frame {
-            width: 100%; height: 250px; border-radius: 10px; border: 1px solid var(--primary);
-            margin-top: 25px; overflow: hidden; filter: grayscale(100%) invert(100%) contrast(90%);
+            width: 100%; 
+            height: 250px; 
+            border-radius: 10px; 
+            border: 1px solid var(--primary);
+            margin-top: 25px; 
+            overflow: hidden;
+            /* МАХНАХ ФИЛТЪРА ЗА ЧЕРНО-БЯЛО ТУК */
         }
 
         @media (max-width: 768px) {
