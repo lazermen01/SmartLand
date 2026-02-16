@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- ГЛОБАЛНИ И ХЕДЪР СТИЛОВЕ (ОТ INDEX.HTML) --- */
+        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ --- */
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
@@ -19,65 +19,115 @@
             --text-dim: #b3b3b3;
             --card-bg: #131313;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); overflow-x: hidden; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
         a { text-decoration: none; transition: 0.3s; color: inherit; }
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* HEADER CSS */
+        /* --- 2. ХЕДЪР (ТОЧНО КОПИЕ ОТ INDEX) --- */
         header {
-            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 80px;
             background: rgba(10, 10, 10, 0.75) !important;
             backdrop-filter: blur(15px) saturate(180%);
             -webkit-backdrop-filter: blur(15px) saturate(180%);
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
             z-index: 1000;
-            display: flex; align-items: center; justify-content: space-between; padding: 0 5%; 
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%;
         }
-        .logo { position: relative; z-index: 1001; cursor: pointer; text-decoration: none; color: #fff; font-size: 24px; font-weight: 700; }
+
+        .logo {
+            position: relative; z-index: 1001; cursor: pointer; text-decoration: none;
+            color: #fff; font-size: 24px; font-weight: 700;
+        }
         .logo span { color: var(--primary); }
+
         nav { flex-grow: 1; display: flex; justify-content: center; }
-        nav ul { display: flex; gap: 30px; margin: 0; padding: 0; list-style: none; }
-        nav a { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; transition: 0.3s; }
-        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .btn-call { white-space: nowrap; padding: 10px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 5px; font-weight: bold; font-family: 'Roboto', sans-serif; transition: 0.3s; }
-        .btn-call:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6); }
         
-        /* МОБИЛНО МЕНЮ */
-        .mobile-menu-btn { display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s; }
+        nav ul {
+            display: flex; gap: 30px; margin: 0; padding: 0; list-style: none;
+        }
+
+        nav a {
+            font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary); text-shadow: 0 0 10px var(--primary);
+        }
+
+        .btn-call {
+            white-space: nowrap; padding: 10px 20px; border: 2px solid var(--primary);
+            color: var(--primary); border-radius: 5px; font-weight: bold;
+            font-family: 'Roboto', sans-serif; transition: 0.3s;
+        }
+
+        .btn-call:hover {
+            background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+        }
+
+        /* --- МОБИЛНО МЕНЮ (ТОЧНО КОПИЕ ОТ INDEX) --- */
+        .mobile-menu-btn {
+            display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s;
+        }
+
         .header-right { display: flex; align-items: center; gap: 15px; }
 
         @media (max-width: 980px) {
             header { padding: 0 20px; }
             .mobile-menu-btn { display: block; }
+
             nav {
                 position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
                 background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important; padding-top: 50px; z-index: 999;
+                transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important;
+                padding-top: 50px; z-index: 999;
             }
+
             nav.active { left: 0; }
+
             nav ul { flex-direction: column; gap: 30px !important; align-items: center; }
             nav a { font-size: 20px !important; width: 100%; text-align: center; }
         }
 
-        /* --- СЪДЪРЖАНИЕ НА СТРАНИЦАТА --- */
+        /* --- СЪДЪРЖАНИЕ УСЛУГИ --- */
         .page-banner {
             margin-top: 80px; padding: 120px 5%; text-align: center;
             background: linear-gradient(to bottom, rgba(10,10,10,0.6), var(--dark-bg)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
             background-size: cover; background-position: center; border-bottom: 1px solid rgba(0, 210, 255, 0.1);
         }
         .page-banner h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        
         .service-detail-section { padding: 60px 5%; max-width: 1400px; width: 100%; margin: 0 auto; }
         .service-row { display: flex; align-items: center; gap: 60px; margin-bottom: 120px; }
         .service-row:nth-child(even) { flex-direction: row-reverse; }
-        .service-image { flex: 1; min-width: 0; position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 210, 255, 0.15); align-self: center; }
+        
+        .service-image {
+            flex: 1; min-width: 0; position: relative; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 210, 255, 0.15); align-self: center;
+        }
         .service-image img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
         .service-image:hover img { transform: scale(1.05); }
-        .service-text { flex: 1; display: flex; flex-direction: column; justify-content: center; background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
+
+        .service-text {
+            flex: 1; display: flex; flex-direction: column; justify-content: center;
+            background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px);
+        }
         .service-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 25px; position: relative; display: inline-block; }
         .service-text h2::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 3px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
         .service-text p { color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; margin-bottom: 25px; text-align: justify; }
+        
         .feature-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; color: #fff; font-size: 1rem; line-height: 1.5; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .feature-list li:last-child { border-bottom: none; }
         .feature-list i { color: var(--primary); font-size: 1.2rem; margin-top: 3px; }
@@ -90,7 +140,7 @@
             .service-text p { text-align: left; }
         }
 
-        /* FOOTER */
+        /* --- ФУТЪР --- */
         .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); margin-top: 100px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%; gap: 40px; }
         .footer-col { flex: 1; min-width: 250px; }
@@ -108,6 +158,7 @@
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); font-size: 0.95rem; }
         .contact-details i { color: var(--primary); font-size: 1.1rem; }
         .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
+        
         @media (max-width: 768px) {
             .footer-container { flex-direction: column; text-align: center; }
             .footer-col h3::after { left: 50%; transform: translateX(-50%); }
@@ -125,6 +176,7 @@
     </div>
 
     <div class="service-detail-section">
+        
         <div class="service-row">
             <div class="service-image">
                 <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1200" alt="Компютърен Сервиз">
@@ -192,20 +244,21 @@
     </footer>
 
     <script>
-        // СЪЩИЯТ СКРИПТ КАТО В INDEX.HTML ЗА РАБОТЕЩО МЕНЮ
+        // ЗАРЕЖДАНЕ НА ХЕДЪРА И СКРИПТ ЗА ХАМБУРГЕР МЕНЮТО (ТОЧНО КАТО В INDEX)
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
                 
-                // Намираме елементите СЛЕД като хедърът е зареден
+                // Намираме елементите СЛЕД като хедърът е зареден в страницата
                 const menuBtn = document.getElementById('mobile-menu-trigger');
                 const navMenu = document.getElementById('nav-menu');
 
                 if(menuBtn && navMenu) {
                     menuBtn.addEventListener('click', () => {
-                        navMenu.classList.toggle('active'); 
+                        navMenu.classList.toggle('active'); // Отваря панела
                         
+                        // Сменя иконата (чертички към Х)
                         const icon = menuBtn.querySelector('i');
                         if(icon) {
                             icon.classList.toggle('fa-bars');
