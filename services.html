@@ -12,99 +12,170 @@
     <meta property="og:title" content="Експертен сервиз за твоята техника - Smartland">
     <meta property="og:description" content="Бърза диагностика и качествен ремонт на компютри и периферия.">
     <meta property="og:image" content="https://smartlandpc.com/assets/images/pcpic1.png">
-    <meta property="og:url" content="https://smartlandpc.com/services.html"> <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlandpc.com/services.html">
+    <meta property="og:type" content="website">
     
+    <link rel="icon" type="image/png" href="favicon.png" sizes="64x64">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- КОПИРАНЕ НА ГЛОБАЛНИТЕ СТИЛОВЕ --- */
+        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ (ОТ INDEX.HTML) --- */
         :root {
-            --primary: #00d2ff;
-            --secondary: #3a7bd5;
-            --accent: #ff0055;
-            --dark-bg: #0a0a0a;
-            --card-bg: #131313;
+            --primary: #00d2ff; /* Неоново синьо */
+            --secondary: #3a7bd5; /* Тъмно синьо */
+            --accent: #ff0055; /* Неоново червено/розово за акцент */
+            --dark-bg: #0a0a0a; /* Почти черно */
+            --card-bg: #131313; /* Тъмно сиво за картите */
             --text-main: #ffffff;
             --text-dim: #b3b3b3;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
         ul { list-style: none; }
-        h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* ЕДНАКЪВ СТИЛ ЗА ХЕДЪРА НА ВСИЧКИ СТРАНИЦИ */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-}
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    white-space: nowrap;
-    color: var(--text-main);
-}
-.logo span { color: var(--primary); }
+        /* --- 2. ХЕДЪР (СЪЩИЯТ КАТО В INDEX.HTML) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(10, 10, 10, 0.75) !important;
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%; 
+        }
 
-nav {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
+        .logo {
+            position: relative; 
+            z-index: 1001;      
+            cursor: pointer;    
+            text-decoration: none; 
+            color: #fff; 
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .logo span { color: var(--primary); }
 
-nav ul {
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-nav a {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    transition: 0.3s;
-}
+        nav ul {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
-nav a:hover, nav a.active {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary);
-}
+        nav a {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
 
-.btn-call {
-    white-space: nowrap;
-    padding: 10px 20px;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    transition: 0.3s;
-}
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
 
-/* Скрива навигацията на мобилни телефони */
-@media (max-width: 850px) {
-    nav { display: none; }
-}
+        .btn-call {
+            white-space: nowrap;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            transition: 0.3s;
+        }
+
+        .btn-call:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+        }
+
+        /* МОБИЛНО МЕНЮ СТИЛОВЕ */
+        .mobile-menu-btn {
+            display: none;
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        @media (max-width: 980px) {
+            header { padding: 0 20px; }
+            .mobile-menu-btn { display: block; }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(15px);
+                transition: 0.4s ease-in-out;
+                flex-direction: column;
+                justify-content: flex-start !important;
+                padding-top: 50px;
+                z-index: 999;
+            }
+
+            nav.active { left: 0; }
+
+            nav ul {
+                flex-direction: column;
+                gap: 30px !important;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 20px !important;
+                width: 100%;
+                text-align: center;
+            }
+        }
         
-        /* --- СТИЛОВЕ ЗА СТРАНИЦАТА --- */
+        /* --- 3. СПЕЦИФИЧНИ СТИЛОВЕ ЗА СТРАНИЦА УСЛУГИ --- */
         .page-banner {
             margin-top: 80px;
             padding: 100px 5%;
@@ -146,136 +217,140 @@ nav a:hover, nav a.active {
         .feature-list { margin-bottom: 30px; }
         .feature-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: #fff; }
         .feature-list i { color: var(--primary); font-size: 0.9rem; }
+        
+        @media (max-width: 768px) {
+            .service-row { flex-direction: column !important; gap: 30px; }
+        }
 
-        /* --- ГЛОБАЛЕН КИБЕР ФУТЪР --- */
-.main-footer {
-    background: #050505;
-    color: var(--text-main);
-    padding: 60px 0 20px 0;
-    border-top: 1px solid rgba(0, 210, 255, 0.1);
-    position: relative;
-    margin-top: 100px; /* По-голямо разстояние от съдържанието */
-}
+        /* --- 4. ФУТЪР (СЪЩИЯТ КАТО В INDEX.HTML) --- */
+        .main-footer {
+            background: #050505;
+            color: var(--text-main);
+            padding: 60px 0 20px 0;
+            border-top: 1px solid rgba(0, 210, 255, 0.1);
+            position: relative;
+            margin-top: 100px; 
+        }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 5%;
-    gap: 40px;
-}
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 5%;
+            gap: 40px;
+        }
 
-.footer-col {
-    flex: 1;
-    min-width: 250px;
-}
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
 
-.footer-col h3 {
-    color: var(--primary);
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
-}
+        .footer-col h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+        }
 
-.footer-col h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 40px;
-    height: 2px;
-    background: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
-}
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
 
-.footer-col p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
+        .footer-col p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
 
-.social-icons a {
-    width: 35px;
-    height: 35px;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #333;
-    transition: 0.3s;
-    color: #fff;
-}
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            border: 1px solid #333;
+            transition: 0.3s;
+            color: #fff;
+        }
 
-.social-icons a:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
-}
+        .social-icons a:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
 
-.footer-links li {
-    margin-bottom: 12px;
-}
+        .footer-links li {
+            margin-bottom: 12px;
+        }
 
-.footer-links a {
-    color: var(--text-dim);
-    transition: 0.3s;
-    font-size: 0.95rem;
-}
+        .footer-links a {
+            color: var(--text-dim);
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
 
-.footer-links a:hover {
-    color: var(--primary);
-    padding-left: 10px;
-}
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
 
-.contact-details {
-    list-style: none;
-    padding: 0;
-}
+        .contact-details {
+            list-style: none;
+            padding: 0;
+        }
 
-.contact-details li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
 
-.contact-details i {
-    color: var(--primary);
-    font-size: 1.1rem;
-}
+        .contact-details i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 40px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.85rem;
-    color: #555;
-}
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #555;
+        }
 
-@media (max-width: 768px) {
-    .footer-container { flex-direction: column; text-align: center; }
-    .footer-col h3::after { left: 50%; transform: translateX(-50%); }
-    .contact-details li { justify-content: center; }
-    .social-icons { justify-content: center; }
-}
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-col h3::after { left: 50%; transform: translateX(-50%); }
+            .contact-details li { justify-content: center; }
+            .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -356,56 +431,79 @@ nav a:hover, nav a.active {
 
     </div>
 
-   <footer class="main-footer">
-    <div class="footer-container">
-        <div class="footer-col">
-            <div class="logo">SMART<span>LAND</span>.</div>
-            <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="/" class="logo">SMART<span>LAND</span></a>
+                <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Навигация</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Начало</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="shop.html">Магазин</a></li>
+                    <li><a href="/#contacts">Контакти</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Контакти</h3>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
+                    <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
+                </ul>
             </div>
         </div>
-
-        <div class="footer-col">
-            <h3>Навигация</h3>
-            <ul class="footer-links">
-                <li><a href="index.html">Начало</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="shop.html">Магазин</a></li>
-                <li><a href="index.html#contacts">Контакти</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>© 2026 Smartland. Всички права запазени. | Дизайн и разработка: Smartland</p>
         </div>
+    </footer>
 
-        <div class="footer-col">
-            <h3>Контакти</h3>
-            <ul class="contact-details">
-                <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
-                <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
-                <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
-                <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2026 Smartland. Всички права запазени. | Дизайн и разработка: Smartland</p>
-    </div>
-</footer>
-
-
-
-    <script>
-    // Зарежда Хедъра
+<script>
+    // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И ЛОГИКА ЗА МЕНЮТО
     fetch('header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-        });
+            
+            // Намираме елементите СЛЕД като хедърът е зареден в страницата
+            const menuBtn = document.getElementById('mobile-menu-trigger');
+            const navMenu = document.getElementById('nav-menu');
 
-    // Зарежда Футъра (Ако решиш да го изнесеш и него)
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
+            if(menuBtn && navMenu) {
+                menuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active'); // Отваря панела
+                    
+                    // Сменя иконата (чертички към Х)
+                    const icon = menuBtn.querySelector('i');
+                    if(icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
+
+            // --- ТУК СЛАГАМЕ И ЛОГИКАТА ЗА СВЕТЕНЕТО НА БУТОНИТЕ ---
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            navLinks.forEach(link => {
+                // Ако сме на services.html, светни бутона за услуги
+                if (currentPath.includes('services.html') && link.getAttribute('href').includes('services.html')) {
+                    link.classList.add('active');
+                }
+                // Проверка за другите страници
+                else if (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== "/") {
+                    link.classList.add('active');
+                }
+            });
         });
 </script>
     
