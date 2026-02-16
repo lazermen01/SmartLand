@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ (ОТ INDEX.HTML) --- */
+        /* --- 1. ГЛОБАЛНИ НАСТРОЙКИ (ОТ INDEX) --- */
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
@@ -22,23 +22,16 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
-
+        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); overflow-x: hidden; }
         a { text-decoration: none; transition: 0.3s; color: inherit; }
         ul { list-style: none; }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- 2. ХЕДЪР CSS (ДИРЕКТНО ОТ ТВОЯ INDEX) --- */
+        /* --- 2. ХЕДЪР CSS (ФИКСИРАН И ПРАВИЛНО ПОДРЕДЕН) --- */
         header {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 80px;
-            background: rgba(10, 10, 10, 0.75) !important;
+            background: rgba(10, 10, 10, 0.85) !important;
             backdrop-filter: blur(15px) saturate(180%);
             -webkit-backdrop-filter: blur(15px) saturate(180%);
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
@@ -47,7 +40,7 @@
             padding: 0 5%;
         }
 
-        .logo { position: relative; z-index: 1001; cursor: pointer; text-decoration: none; color: #fff; font-size: 24px; font-weight: 700; }
+        .logo { position: relative; z-index: 1001; cursor: pointer; color: #fff; font-size: 24px; font-weight: 700; }
         .logo span { color: var(--primary); }
 
         nav { flex-grow: 1; display: flex; justify-content: center; }
@@ -55,16 +48,39 @@
         nav a { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; transition: 0.3s; }
         nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        .header-right { display: flex; align-items: center; gap: 15px; }
+        /* ГРУПИРАНЕ НА БУТОНА И БУРГЕРА */
+        .header-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            z-index: 1001;
+        }
 
-        .btn-call { white-space: nowrap; padding: 10px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 5px; font-weight: bold; font-family: 'Roboto', sans-serif; transition: 0.3s; }
+        .btn-call { 
+            white-space: nowrap; 
+            padding: 10px 20px; 
+            border: 2px solid var(--primary); 
+            color: var(--primary); 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 14px;
+            transition: 0.3s; 
+        }
         .btn-call:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6); }
 
-        .mobile-menu-btn { display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s; position: relative; z-index: 1002; }
+        /* ХАМБУРГЕР БУТОН */
+        .mobile-menu-btn { 
+            display: none; 
+            color: var(--primary); 
+            font-size: 26px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
 
         @media (max-width: 980px) {
             header { padding: 0 20px; }
-            .mobile-menu-btn { display: block; }
+            .mobile-menu-btn { display: block !important; } /* Силно принуждаване да се вижда */
+            
             nav {
                 position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
                 background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
@@ -75,7 +91,7 @@
             nav a { font-size: 20px !important; width: 100%; text-align: center; }
         }
 
-        /* --- 3. СЪДЪРЖАНИЕ УСЛУГИ --- */
+        /* --- 3. СЪДЪРЖАНИЕ УСЛУГИ (ПЪЛЕН ТЕКСТ) --- */
         .page-banner {
             margin-top: 80px; padding: 120px 5%; text-align: center;
             background: linear-gradient(to bottom, rgba(10,10,10,0.6), var(--dark-bg)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop');
@@ -87,7 +103,7 @@
 
         .service-row { 
             display: flex; align-items: center; gap: 60px; margin-bottom: 120px;
-            scroll-margin-top: 100px; /* Фикс за правилен скрол от началната страница */
+            scroll-margin-top: 120px; /* Фикс за скрола */
         }
         .service-row:nth-child(even) { flex-direction: row-reverse; }
         
@@ -106,27 +122,22 @@
         @media (max-width: 960px) {
             .service-row { flex-direction: column !important; gap: 30px; margin-bottom: 80px; }
             .service-text { padding: 20px; background: transparent; border: none; }
-            .service-image { width: 100%; }
         }
 
-        /* --- 4. ФУТЪР CSS (ТОЧНО КОПИЕ ОТ INDEX) --- */
-        .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); position: relative; margin-top: 100px; }
+        /* --- 4. ФУТЪР --- */
+        .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); margin-top: 100px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%; gap: 40px; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-col h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 25px; position: relative; font-family: 'Orbitron', sans-serif; }
         .footer-col h3::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
         .footer-col p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
         .social-icons { display: flex; gap: 15px; }
-        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; transition: 0.3s; color: #fff; }
+        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; color: #fff; }
         .social-icons a:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary); }
-        .footer-links { list-style: none; padding: 0; }
         .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: var(--text-dim); transition: 0.3s; font-size: 0.95rem; }
         .footer-links a:hover { color: var(--primary); padding-left: 10px; }
-        .contact-details { list-style: none; padding: 0; }
-        .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); font-size: 0.95rem; }
-        .contact-details i { color: var(--primary); font-size: 1.1rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
+        .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #555; }
 
         @media (max-width: 768px) {
             .footer-container { flex-direction: column; text-align: center; }
@@ -137,7 +148,23 @@
 </head>
 <body>
 
-<div id="header-placeholder"></div>
+<header>
+    <a href="index.html" class="logo">SMART<span>LAND.</span></a>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Начало</a></li>
+            <li><a href="services.html" class="active">Услуги</a></li>
+            <li><a href="shop.html">Магазин</a></li>
+            <li><a href="index.html#contacts">Контакти</a></li>
+        </ul>
+    </nav>
+    <div class="header-right">
+        <a href="tel:0988835555" class="btn-call">098 883 5555</a>
+        <div class="mobile-menu-btn" id="mobile-menu-trigger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
 
     <div class="page-banner">
         <h1>Професионални Услуги</h1>
@@ -179,7 +206,7 @@
                 </p>
                 <ul class="feature-list">
                     <li><i class="fas fa-gamepad"></i><div><strong>Custom Gaming PC:</strong> Сглобяване на конфигурации по поръчка с перфектен кейбъл мениджмънт и RGB синхронизация.</div></li>
-                    <li><i class="fas fa-laptop-medical"></i><div><strong>Втора употреба с гаранция:</strong> Реновирани лаптопи и компютри, преминали през тест за качество.</div></li>
+                    <li><i class="fas fa-laptop-medical"></i><div><strong>Втора употреба с гаранция:</strong> Реновирани лаптопи и компютри, преминали през 12-степенен тест за качество.</div></li>
                     <li><i class="fas fa-rocket"></i><div><strong>Ъпгрейд:</strong> Вдъхнете нов живот на стария компютър чрез добавяне на SSD диск и RAM памет.</div></li>
                     <li><i class="fas fa-comments"></i><div><strong>Безплатна консултация:</strong> Помагаме ви да изберете точно това, което ви трябва, без да плащате за излишни екстри.</div></li>
                 </ul>
@@ -229,48 +256,53 @@
     </div>
 
     <footer class="main-footer">
-        <div id="footer-placeholder"></div>
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">SMART<span>LAND.</span></a>
+                <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Навигация</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Начало</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="shop.html">Магазин</a></li>
+                    <li><a href="index.html#contacts">Контакти</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Контакти</h3>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
+                    <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Smartland. Всички права запазени. | Дизайн и разработка: Smartland</p>
+        </div>
     </footer>
 
     <script>
-        // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И ПОПРАВКА НА МЕНЮТО
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                
-                // Намираме бутона чрез неговия клас (точно както в INDEX)
-                const menuBtn = document.querySelector('.mobile-menu-btn');
-                const navMenu = document.querySelector('nav');
+        // ЛОГИКА ЗА МОБИЛНОТО МЕНЮ
+        const menuBtn = document.getElementById('mobile-menu-trigger');
+        const navMenu = document.getElementById('nav-menu');
 
-                if(menuBtn && navMenu) {
-                    menuBtn.addEventListener('click', () => {
-                        navMenu.classList.toggle('active');
-                        
-                        const icon = menuBtn.querySelector('i');
-                        if(icon) {
-                            icon.classList.toggle('fa-bars');
-                            icon.classList.toggle('fa-times');
-                        }
-                    });
+        if(menuBtn && navMenu) {
+            menuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = menuBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
                 }
-
-                // СВЕТЕНЕ НА БУТОНА УСЛУГИ
-                const currentPath = window.location.pathname;
-                const navLinks = document.querySelectorAll('nav ul li a');
-                navLinks.forEach(link => {
-                    if (currentPath.includes('services.html') && link.getAttribute('href').includes('services.html')) {
-                        link.classList.add('active');
-                    }
-                });
             });
-
-        // 2. ЗАРЕЖДАНЕ НА ФУТЪРА
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+        }
     </script>
 </body>
 </html>
