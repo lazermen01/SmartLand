@@ -7,25 +7,26 @@
     <meta name="description" content="Професионален сервиз за компютри и лаптопи в Панагюрище. Геймърски конфигурации, периферия, ремонт на хардуер и софтуерна поддръжка от Smartland.">
     <meta name="keywords" content="сервиз компютри Панагюрище, ремонт лаптопи, гейминг магазин, Smartland, почистване компютър, преинсталация, PC части">
     <meta name="author" content="Smartland Team">
-    <meta name="robots" content="index, follow"> <meta property="og:title" content="Smartland - Твоят гейминг партньор в Панагюрище">
+    <meta name="robots" content="index, follow"> 
+    <meta property="og:title" content="Smartland - Твоят гейминг партньор в Панагюрище">
     <meta property="og:description" content="Качествена диагностика, ремонт и продажба на компютърна техника.">
-    <meta property="og:image" content="https://smartlandpc.com/assets/images/pcpic1.png"> <meta property="og:url" content="https://smartlandpc.com">
+    <meta property="og:image" content="https://smartlandpc.com/assets/images/pcpic1.png"> 
+    <meta property="og:url" content="https://smartlandpc.com">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "SmartLandPC",
-  "alternateName": ["SmartLand PC"],
-  "url": "https://smartlandpc.com/"
-}
-</script>
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SmartLandPC",
+      "alternateName": ["SmartLand PC"],
+      "url": "https://smartlandpc.com/"
+    }
+    </script>
 
     <meta property="og:site_name" content="SmartLand">
     
     <link rel="icon" type="image/png" href="favicon.png" sizes="64x64">
-
     <link rel="icon" type="image/png" href="favicon-192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="favicon-192.png">
     
@@ -35,1458 +36,525 @@
     <style>
         /* --- 1. ОСНОВНИ НАСТРОЙКИ (RESET) --- */
         :root {
-            --primary: #00d2ff; /* Неоново синьо */
-            --secondary: #3a7bd5; /* Тъмно синьо */
-            --accent: #ff0055; /* Неоново червено/розово за акцент */
-            --dark-bg: #0a0a0a; /* Почти черно */
-            --card-bg: #131313; /* Тъмно сиво за картите */
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --accent: #ff0055;
+            --dark-bg: #0a0a0a;
+            --card-bg: #131313;
             --text-main: #ffffff;
             --text-dim: #b3b3b3;
         }
 
+        html { scroll-behavior: smooth; }
 
+        .faq-section { padding: 80px 5%; background: linear-gradient(to bottom, #0a0a0a, #050505); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 210, 255, 0.1); border-radius: 12px; margin-bottom: 15px; overflow: hidden; transition: 0.3s; }
+        .faq-question { padding: 22px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
+        .faq-question:hover { background: rgba(0, 210, 255, 0.05); }
+        .faq-question h4 { margin: 0; font-family: 'Roboto', sans-serif; font-size: 1.05rem; color: #fff; text-transform: none; letter-spacing: 0.5px; }
+        .faq-question i { color: var(--primary); transition: transform 0.4s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); background: rgba(0, 0, 0, 0.2); }
+        .faq-answer p { padding: 0 30px 22px 30px; color: var(--text-dim); line-height: 1.7; margin: 0; }
+        .faq-item.active { border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 210, 255, 0.1); }
+        .faq-item.active .faq-answer { max-height: 500px; transition: max-height 0.4s cubic-bezier(1, 0, 1, 0); }
+        .faq-item.active i { transform: rotate(45deg); color: var(--accent); }
 
-        html {
-    scroll-behavior: smooth;
-}
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; box-shadow: 0 0 10px var(--primary); }
+        ::-webkit-scrollbar-thumb:hover { background: #fff; }
 
+        .card:hover i, .product-card:hover i { transform: scale(1.2) rotate(5deg); color: #fff !important; text-shadow: 0 0 15px var(--primary); }
+        .card i, .product-card i { transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
-        .faq-section {
-    padding: 80px 5%;
-    background: linear-gradient(to bottom, #0a0a0a, #050505);
-}
+        .neon-text { background: linear-gradient(to right, var(--primary), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 210, 255, 0.5); font-weight: 800; }
 
-.faq-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 210, 255, 0.1);
-    border-radius: 12px;
-    margin-bottom: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.faq-question {
-    padding: 22px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.faq-question:hover {
-    background: rgba(0, 210, 255, 0.05);
-}
-
-.faq-question h4 {
-    margin: 0;
-    font-family: 'Roboto', sans-serif; /* По-чист шрифт за въпросите */
-    font-size: 1.05rem;
-    color: #fff;
-    text-transform: none; /* Махаме главните букви за по-добра четливост */
-    letter-spacing: 0.5px;
-}
-
-.faq-question i {
-    color: var(--primary);
-    transition: transform 0.4s ease;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.faq-answer p {
-    padding: 0 30px 22px 30px;
-    color: var(--text-dim);
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* Стил за отворен въпрос */
-.faq-item.active {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
-}
-
-.faq-item.active .faq-answer {
-    max-height: 500px; /* Достатъчно място за текста */
-    transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
-}
-
-.faq-item.active i {
-    transform: rotate(45deg); /* Плюсът става на Х */
-    color: var(--accent);
-}
-
+        .video-hero::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 3px 100%; pointer-events: none; z-index: 1; }
+        @keyframes pulse-glow { 0% { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3); } 50% { box-shadow: 0 5px 25px rgba(0, 210, 255, 0.6); } 100% { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3); } }
+        .trust-badge-container { animation: slideInLeft 1s ease-out, pulse-glow 3s infinite ease-in-out; position: absolute; bottom: 30px; left: 30px; display: flex; align-items: center; gap: 15px; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(5px); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.1); border-left: 3px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 10; }
         
-        /* Персонализиран скролер */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--primary);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #fff;
-}
-
-
-        .card:hover i, .product-card:hover i {
-    transform: scale(1.2) rotate(5deg);
-    color: #fff !important;
-    text-shadow: 0 0 15px var(--primary);
-}
-
-.card i, .product-card i {
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-
-        .neon-text {
-    background: linear-gradient(to right, var(--primary), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.5); /* Фино сияние */
-    font-weight: 800;
-}
-
-
-        
-        /* Ефект на сканиращи линии върху видеото */
-.video-hero::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 4px, 3px 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Светеща анимация за баджа */
-@keyframes pulse-glow {
-    0% { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3); }
-    50% { box-shadow: 0 5px 25px rgba(0, 210, 255, 0.6); }
-    100% { box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3); }
-}
-.trust-badge-container {
-    animation: slideInLeft 1s ease-out, pulse-glow 3s infinite ease-in-out;
-}
-        
-/* --- КОМПАКТЕН GOOGLE BADGE --- */
-.trust-badge-container {
-    position: absolute;
-    bottom: 30px;           /* Позиция от дъното */
-    left: 30px;             /* Позиция от ляво */
-    
-    display: flex;          /* Подрежда всичко на един ред */
-    align-items: center;    /* Центрира вертикално */
-    gap: 15px;              /* Разстояние между цифрата и текста */
-    
-    background: rgba(10, 10, 10, 0.85); /* По-плътен черен фон */
-    backdrop-filter: blur(5px);
-    padding: 10px 20px;     /* Малко разстояние вътре, за да е тясно */
-    
-    border-radius: 6px;     /* Почти правоъгълно (малко заобляне) */
-    border-left: 3px solid var(--primary); /* Синя линия само отляво */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left-width: 3px;
-    border-left-color: var(--primary);
-    
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    z-index: 10;
-    animation: slideInLeft 1s ease-out;
-}
-
-.badge-rating {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-right: 1px solid rgba(255,255,255,0.2); /* Разделителна линия */
-    padding-right: 15px;
-}
-
-.badge-rating i.fa-google {
-    color: #fff;
-    font-size: 1rem;
-}
-
-.badge-rating .score {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.2rem;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.badge-rating .stars {
-    color: #ffd700;
-    font-size: 0.8rem;
-    display: flex;
-    gap: 2px;
-}
-
-/* Добави този нов блок тук: */
-.badge-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Центрира съдържанието вертикално */
-    align-items: flex-start; /* Подравнява текста наляво (към линията) */
-    align-self: stretch;     /* Разпъва се, за да заеме цялата височина на контейнера */
-    gap: 0;                  /* Премахва автоматичното разстояние между елементите */
-}
-
-.badge-text p {
-    margin: 0 !important;    /* Премахва системния маржин на параграфа */
-    padding: 0;
-    font-size: 0.75rem;
-    color: #bbb;
-    line-height: 1;          /* Залепва текста плътно */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.badge-text span {
-    margin: 0 !important;    /* Премахва маржина на спана */
-    padding: 0;
-    color: var(--primary);
-    font-weight: bold;
-    display: block;
-    line-height: 1;          /* Залепва текста плътно */
-    margin-top: 2px !important; /* ТУК контролираш разстоянието между двата реда */
-}
-
-/* Анимация */
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* --- ФИНАЛНА КОРЕКЦИЯ ЗА ТЕЛЕФОН --- */
-@media (max-width: 768px) {
-    /* 1. Центриране на баджа долу */
-    .trust-badge-container {
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: auto;
-        white-space: nowrap;
-        padding: 8px 15px;
-        gap: 0; /* Махаме разстоянието тук, за да го контролираме с padding долу */
-    }
-
-    /* 2. Линията и звездите */
-    .badge-rating {
-        padding-right: 15px; /* Разстояние от звездите до чертата */
-        border-right: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* 3. ТУК Е ПРОМЯНАТА: Още по-голямо изместване надясно */
-    .badge-text {
-        padding-left: 25px !important; /* Беше 25px, сега е 40px за по-голям ефект */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    /* 4. Допълнително изместване само на долния ред */
-    .badge-text span {
-        margin-left: 5px !important; 
-    }
-    
-    /* Анимация */
-    @keyframes slideInLeft {
-        from { opacity: 0; transform: translate(-50%, 20px); }
-        to { opacity: 1; transform: translate(-50%, 0); }
-    }
-
-    /* Оправяне на заглавието */
-    .hero h1 {
-        font-size: 2.2rem !important;
-        letter-spacing: 1px;
-    }
-    .hero p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-}
-        
-        /* --- НОВ ДИЗАЙН: ХОЛОГРАМНИ РЕВЮТА --- */
-.reviews-section {
-    padding: 100px 5%;
-    /* Тъмен фон с лек градиент за дълбочина */
-    background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Декоративен светещ елемент зад ревютата */
-.reviews-section::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 60%;
-    background: var(--primary);
-    filter: blur(150px);
-    opacity: 0.15; /* Много слабо синьо сияние в центъра */
-    pointer-events: none;
-}
-
-.review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-/* --- ФИНАЛНА КИБЕР ХОЛОГРАМА ЗА РЕВЮТА --- */
-.review-card {
-    background: rgba(255, 255, 255, 0.05); /* Малко по-плътно, за да се вижда стъклото */
-    backdrop-filter: blur(15px);           /* Силно замъгляване */
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(0, 210, 255, 0.2); /* По-видима неонова рамка */
-    border-radius: 20px;
-    padding: 35px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
-                inset 0 0 15px rgba(0, 210, 255, 0.05); /* Вътрешно сияние */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Светещият технологичен ъгъл */
-.review-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 60px; height: 60px;
-    background: linear-gradient(225deg, var(--primary) 0%, transparent 70%);
-    opacity: 0.4;
-    z-index: 1;
-}
-
-/* Ефект при посочване с мишката */
-.review-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2), 
-                0 0 20px rgba(0, 210, 255, 0.1);
-}
-
-.review-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.reviewer-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    box-shadow: 0 0 10px var(--primary);
-    font-family: 'Orbitron', sans-serif;
-}
-
-.stars {
-    color: #ffcc00; /* Звездите е по-добре да са златисто-жълти за контраст */
-    font-size: 0.9rem;
-    margin-top: 5px;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
-}
-
-.review-text {
-    color: #ddd;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    font-style: italic;
-    position: relative;
-    z-index: 2;
-}
-
-.google-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.5);
-    z-index: 2;
-}
-
-
-        
-
-        
-        /* --- ПОПРАВКА ЗА КОНТАКТНАТА СЕКЦИЯ --- */
-#contacts {
-    padding: 80px 5%;
-    background: transparent; /* Или цвета на фона на сайта */
-}
-
-.contact-wrap {
-    display: flex;             /* Това подрежда инфото и картата едно до друго */
-    flex-wrap: wrap;           /* Позволява да падат едно под друго на телефон */
-    gap: 50px;                 /* Разстояние между двете колони */
-    background: #111;          /* Тъмен фон на самата кутия */
-    padding: 50px;
-    border-radius: 20px;       /* Заоблени ъгли */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Тънка рамка */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Сянка за обем */
-}
-
-.contact-info {
-    flex: 1;                   /* Заема половината място */
-    min-width: 300px;          /* Не става прекалено тясно */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.contact-info h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
-
-.contact-info > p {
-    color: #b3b3b3;
-    margin-bottom: 30px;
-}
-
-.contact-info div {
-    margin-bottom: 25px;       /* Разстояние между редовете с телефон/мейл */
-}
-
-.contact-info h4 {
-    color: #00d2ff;            /* Неоново синьо за заглавията (Телефон, Имейл) */
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.contact-info h4 i {
-    font-size: 1.2rem;
-}
-
-.contact-info p {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-left: 30px;         /* Леко изместване на текста под иконата */
-}
-
-/* Настройки за картата */
-.map-container {
-    flex: 1;
-    min-height: 350px;
-    background: #222;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 2px solid rgba(0, 210, 255, 0.2); /* Тънка синя рамка около картата */
-}
-
-/* Мобилна версия */
-@media (max-width: 768px) {
-    .contact-wrap {
-        flex-direction: column; /* На телефон стават едно под друго */
-        padding: 30px;
-    }
-    .contact-info h2 {
-        font-size: 1.5rem;
-    }
-}
-        
-        /* --- ГЛОБАЛЕН КИБЕР ФУТЪР --- */
-.main-footer {
-    background: #050505;
-    color: var(--text-main);
-    padding: 60px 0 20px 0;
-    border-top: 1px solid rgba(0, 210, 255, 0.1);
-    position: relative;
-    margin-top: 100px; /* По-голямо разстояние от съдържанието */
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 5%;
-    gap: 40px;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 250px;
-}
-
-.footer-col h3 {
-    color: var(--primary);
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.footer-col h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 40px;
-    height: 2px;
-    background: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
-}
-
-.footer-col p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    width: 35px;
-    height: 35px;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #333;
-    transition: 0.3s;
-    color: #fff;
-}
-
-.social-icons a:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: var(--text-dim);
-    transition: 0.3s;
-    font-size: 0.95rem;
-}
-
-.footer-links a:hover {
-    color: var(--primary);
-    padding-left: 10px;
-}
-
-.contact-details {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-details li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
-
-.contact-details i {
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 40px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.85rem;
-    color: #555;
-}
-
-@media (max-width: 768px) {
-    .footer-container { flex-direction: column; text-align: center; }
-    .footer-col h3::after { left: 50%; transform: translateX(-50%); }
-    .contact-details li { justify-content: center; }
-    .social-icons { justify-content: center; }
-}
-        
-        /* --- CSS ЗА ВАРИАНТ 2 (ВИДЕО) --- */
-.video-hero {
-    height: 100vh; width: 100%;
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    position: relative; overflow: hidden;
-}
-
-.back-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Това е магията - реже видеото равно от всички страни */
-    object-position: center; /* Гарантира центрирането */
-    z-index: -1;
-}
-
-.video-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(10,10,10,0.7); /* Тъмен слой над видеото */
-}
-
-.hero h1 {
-    /* Използваме clamp, за да кажем: минимума е 2rem, оптималното е 8vw, максимума е 3.5rem */
-    font-size: clamp(2rem, 8vw, 3.5rem); 
-    margin-bottom: 20px;
-    line-height: 1.1;
-    text-shadow: 0 0 20px rgba(0,0,0,0.8);
-    word-wrap: break-word; /* Гарантира, че ако все пак е дълга, ще се пренесе */
-}
-.neon-pink { color: var(--accent); text-shadow: 0 0 20px var(--accent); }
-
-/* Група от бутони */
-.btn-group { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
-
-.neon-blue-btn {
-    background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); border: none;
-}
-.neon-blue-btn:hover { background: #fff; box-shadow: 0 0 40px var(--primary); }
-
-.glass-btn {
-    background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); border: 2px solid rgba(255,255,255,0.3); color: #fff;
-}
-.glass-btn:hover { background: rgba(255,255,255,0.2); border-color: var(--primary); }
-
-/* Анимация при зареждане */
-.animate-up { animation: fadeInUp 1s ease-out; }
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .badge-rating { display: flex; align-items: center; gap: 8px; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 15px; }
+        .badge-rating i.fa-google { color: #fff; font-size: 1rem; }
+        .badge-rating .score { color: #fff; font-weight: bold; font-size: 1.2rem; font-family: 'Orbitron', sans-serif; }
+        .badge-rating .stars { color: #ffd700; font-size: 0.8rem; display: flex; gap: 2px; }
+        .badge-text { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; align-self: stretch; gap: 0; }
+        .badge-text p { margin: 0 !important; padding: 0; font-size: 0.75rem; color: #bbb; line-height: 1; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-text span { margin: 0 !important; padding: 0; color: var(--primary); font-weight: bold; display: block; line-height: 1; margin-top: 2px !important; }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+
+        @media (max-width: 768px) {
+            .trust-badge-container { bottom: 20px; left: 50%; transform: translateX(-50%); width: auto; white-space: nowrap; padding: 8px 15px; gap: 0; }
+            .badge-rating { padding-right: 15px; border-right: 1px solid rgba(255,255,255,0.2); }
+            .badge-text { padding-left: 25px !important; display: flex; flex-direction: column; align-items: flex-start; }
+            .badge-text span { margin-left: 5px !important; }
+            @keyframes slideInLeft { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+            .hero h1 { font-size: 2.2rem !important; letter-spacing: 1px; }
+            .hero p { font-size: 1rem; padding: 0 10px; }
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
+        .reviews-section { padding: 100px 5%; background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); position: relative; overflow: hidden; }
+        .reviews-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 60%; background: var(--primary); filter: blur(150px); opacity: 0.15; pointer-events: none; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        .review-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 20px; padding: 35px; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 210, 255, 0.05); display: flex; flex-direction: column; }
+        .review-card::before { content: ''; position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: linear-gradient(225deg, var(--primary) 0%, transparent 70%); opacity: 0.4; z-index: 1; }
+        .review-card:hover { transform: translateY(-12px) scale(1.02); border-color: var(--primary); background: rgba(255, 255, 255, 0.08); box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2), 0 0 20px rgba(0, 210, 255, 0.1); }
+        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; position: relative; z-index: 2; }
+        .reviewer-img { width: 50px; height: 50px; border-radius: 50%; background: #111; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); border: 2px solid var(--primary); box-shadow: 0 0 10px var(--primary); font-family: 'Orbitron', sans-serif; }
+        .stars { color: #ffcc00; font-size: 0.9rem; margin-top: 5px; text-shadow: 0 0 8px rgba(255, 204, 0, 0.4); }
+        .review-text { color: #ddd; line-height: 1.6; font-size: 0.95rem; font-style: italic; position: relative; z-index: 2; }
+        .google-badge { position: absolute; top: 20px; right: 20px; font-size: 1.2rem; color: rgba(255, 255, 255, 0.5); z-index: 2; }
 
+        #contacts { padding: 80px 5%; background: transparent; }
+        .contact-wrap { display: flex; flex-wrap: wrap; gap: 50px; background: #111; padding: 50px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        .contact-info { flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; }
+        .contact-info h2 { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 10px; letter-spacing: 2px; }
+        .contact-info > p { color: #b3b3b3; margin-bottom: 30px; }
+        .contact-info div { margin-bottom: 25px; }
+        .contact-info h4 { color: #00d2ff; margin-bottom: 5px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+        .contact-info h4 i { font-size: 1.2rem; }
+        .contact-info p { color: #fff; font-size: 1.1rem; margin-left: 30px; }
+        .map-container { flex: 1; min-height: 350px; background: #222; border-radius: 15px; overflow: hidden; border: 2px solid rgba(0, 210, 255, 0.2); }
+        @media (max-width: 768px) { .contact-wrap { flex-direction: column; padding: 30px; } .contact-info h2 { font-size: 1.5rem; } }
+
+        .main-footer { background: #050505; color: var(--text-main); padding: 60px 0 20px 0; border-top: 1px solid rgba(0, 210, 255, 0.1); position: relative; margin-top: 100px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%; gap: 40px; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 25px; position: relative; font-family: 'Orbitron', sans-serif; }
+        .footer-col h3::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .footer-col p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a { width: 35px; height: 35px; background: #111; display: flex; align-items: center; justify-content: center; border-radius: 5px; border: 1px solid #333; transition: 0.3s; color: #fff; }
+        .social-icons a:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-dim); transition: 0.3s; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--primary); padding-left: 10px; }
+        .contact-details { list-style: none; padding: 0; }
+        .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); font-size: 0.95rem; }
+        .contact-details i { color: var(--primary); font-size: 1.1rem; }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; } .footer-col h3::after { left: 50%; transform: translateX(-50%); } .contact-details li { justify-content: center; } .social-icons { justify-content: center; } }
+
+        .video-hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+        .back-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -1; }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,10,10,0.7); }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text-main); overflow-x: hidden; }
         a { text-decoration: none; transition: 0.3s; color: inherit; }
         ul { list-style: none; }
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Специален шрифт за заглавията (Геймърски стил) */
-        h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        header { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(10, 10, 10, 0.75) !important; backdrop-filter: blur(15px) saturate(180%); -webkit-backdrop-filter: blur(15px) saturate(180%); border-bottom: 1px solid rgba(0, 210, 255, 0.2); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; }
+        .logo { position: relative; z-index: 1001; cursor: pointer; text-decoration: none; color: #fff; font-size: 24px; font-weight: 700; }
+        .logo span { color: var(--primary); }
+        nav { flex-grow: 1; display: flex; justify-content: center; }
+        nav ul { display: flex; gap: 30px; margin: 0; padding: 0; list-style: none; }
+        nav a { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; transition: 0.3s; }
+        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .btn-call { white-space: nowrap; padding: 10px 20px; border: 2px solid var(--primary); color: var(--primary); border-radius: 5px; font-weight: bold; font-family: 'Roboto', sans-serif; transition: 0.3s; }
+        .btn-call:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.6); }
+        .mobile-menu-btn { display: none; color: var(--primary); font-size: 24px; cursor: pointer; transition: 0.3s; }
+        .header-right { display: flex; align-items: center; gap: 15px; }
+        @media (max-width: 980px) { header { padding: 0 20px; } .mobile-menu-btn { display: block; } nav { position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px); background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px); transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important; padding-top: 50px; z-index: 999; } nav.active { left: 0; } nav ul { flex-direction: column; gap: 30px !important; align-items: center; } nav a { font-size: 20px !important; width: 100%; text-align: center; } }
 
-        /* --- ФИКСИРАН И ЦЕНТРИРАН ХЕДЪР (УЕДНАКВЕН) --- */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    /* Ето промяната тук: */
-    background: rgba(10, 10, 10, 0.75) !important; /* Леко прозрачно */
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    
-    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%; 
-}
+        .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,1)), url('assets/images/pcpic1.png'); background-size: cover; background-position: center; margin-top: 0; }
+        .hero-content { max-width: 800px; padding: 20px; z-index: 2; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        .hero h1 span { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; }
+        .cta-btn { padding: 15px 40px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; font-weight: bold; font-size: 16px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4); }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.6); }
 
-.logo {
-    /* Тези редове са задължителни, за да се клика: */
-    position: relative; 
-    z-index: 1001;      /* Гарантира, че е над всичко друго */
-    cursor: pointer;    /* Прави мишката на ръчичка */
-    text-decoration: none; /* Маха подчертаването */
-    
-    /* Твоите стари стилове си остават тук (цвят, шрифт и т.н.) */
-    color: #fff; 
-    font-size: 24px;
-    font-weight: 700;
-}
-.logo span { color: var(--primary); }
-
-nav {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul {
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav a {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-nav a:hover, nav a.active {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary);
-}
-
-.btn-call {
-    white-space: nowrap;
-    padding: 10px 20px;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    transition: 0.3s;
-}
-
-.btn-call:hover {
-    background: var(--primary);
-    color: #000;
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
-}
-
-/* --- СТИЛОВЕ ЗА МОБИЛНОТО МЕНЮ --- */
-.mobile-menu-btn {
-    display: none; /* Скрито на компютър */
-    color: var(--primary);
-    font-size: 24px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-@media (max-width: 980px) {
-    header { padding: 0 20px; }
-
-    /* Показваме иконата на "чертичките" */
-    .mobile-menu-btn { display: block; }
-
-    /* Превръщаме навигацията в падащ панел */
-    nav {
-        position: fixed;
-        top: 80px;
-        left: -100%; /* Скрито извън екрана вляво */
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(15px);
-        transition: 0.4s ease-in-out;
-        flex-direction: column;
-        justify-content: flex-start !important;
-        padding-top: 50px;
-        z-index: 999;
-    }
-
-    /* Когато добавим клас .active чрез JS, менюто се плъзва на екрана */
-    nav.active {
-        left: 0;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 30px !important;
-        align-items: center;
-    }
-
-    nav a {
-        font-size: 20px !important;
-        width: 100%;
-        text-align: center;
-    }
-}
-        
-        /* --- 3. HERO СЕКЦИЯ (БАНЕР) --- */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            /* Фонов градиент + Снимка */
-            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,1)), url('assets/images/pcpic1.png');
-            background-size: cover;
-            background-position: center;
-            margin-top: 0;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-
-        .hero h1 span {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            margin-bottom: 40px;
-        }
-
-        .cta-btn {
-            padding: 15px 40px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.6);
-        }
-
-        /* --- 4. УСЛУГИ (GRID) --- */
-        .section {
-            padding: 80px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-title h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #fff;
-    text-shadow: 2px 2px 0px var(--accent), -2px -2px 0px var(--primary);
-    letter-spacing: 4px;
-}
+        .section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; color: #fff; text-shadow: 2px 2px 0px var(--accent), -2px -2px 0px var(--primary); letter-spacing: 4px; }
         .section-title p { color: var(--primary); letter-spacing: 3px; }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .card i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); padding: 40px 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
         .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
         .card p { color: var(--text-dim); line-height: 1.6; }
 
-        /* --- 5. ПРОДУКТИ (СНИМКИ) --- */
-        .product-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
+        /* ПРОМЯНА ЗА ЛИНКОВЕТЕ - КАРТИ */
+        .product-card { 
+            background: var(--card-bg); border-radius: 15px; overflow: hidden; transition: 0.3s; 
+            display: block; /* Важно, за да работи като линк */
+            text-decoration: none; /* Маха подчертаването */
+            color: inherit; /* Запазва цвета на текста */
         }
-        
-        .product-card:hover { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); }
-
-        .prod-img {
-            height: 200px;
-            background-color: #222; /* Цвят, ако няма снимка */
-            background-size: cover;
-            background-position: center;
-        }
-
+        .product-card:hover { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); transform: translateY(-5px); }
+        .prod-img { height: 200px; background-color: #222; background-size: cover; background-position: center; }
         .prod-info { padding: 25px; }
         .prod-info h3 { margin-bottom: 10px; font-size: 1.2rem; }
         .prod-info p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px; }
-        .price-btn {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            border: 1px solid var(--text-dim);
-            border-radius: 5px;
-            color: var(--text-main);
-        }
-        .price-btn:hover {
-            background: var(--text-main);
-            color: #000;
-        }
+        .price-btn { display: block; text-align: center; padding: 10px; border: 1px solid var(--text-dim); border-radius: 5px; color: var(--text-main); }
+        .price-btn:hover { background: var(--text-main); color: #000; }
 
-        @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.2rem !important; /* Твърдо зададен по-малък размер за телефони */
-        letter-spacing: 1px;         /* Намаляваме разстоянието между буквите, за да се събере думата */
-    }
-    
-    .hero p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-}
-
-
-        /* --- ПОПРАВКА ЗА КАРТАТА --- */
-.map-box {
-    flex: 1;
-    background: #222;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative; /* Важно за позиционирането */
-    min-height: 400px;  /* Височина за компютър */
-}
-
-.map-box iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* Специална настройка за телефон */
-@media (max-width: 768px) {
-    .map-box {
-        min-height: 350px; /* Фиксирана височина за мобилни */
-        width: 100%;
-        display: block; /* Гарантира, че заема целия ред */
-    }
-}
-        
-    </style>
+        .map-box { flex: 1; background: #222; border-radius: 15px; overflow: hidden; position: relative; min-height: 400px; }
+        .map-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        @media (max-width: 768px) { .map-box { min-height: 350px; width: 100%; display: block; } }
+    </style>
 </head>
 <body>
 
 <div id="header-placeholder"></div>
 
 <section class="hero video-hero">
-    <video autoplay muted loop playsinline class="back-video">
-        <source src="video.mp4" type="video/mp4">
-    </video>
-    
-    <div class="video-overlay"></div>
+    <video autoplay muted loop playsinline class="back-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    
+    <div class="video-overlay"></div>
 
-    <div class="hero-content">
-       <h1>ТЕХНИЧЕСКА <br><span class="neon-text">ПРЕЦИЗНОСТ</span></h1>
-       <p>Професионални хардуерни решения от Smartland.</p>
-        <a href="#products" class="cta-btn">УСЛУГИ</a>
-    </div>
+    <div class="hero-content">
+       <h1>ТЕХНИЧЕСКА <br><span class="neon-text">ПРЕЦИЗНОСТ</span></h1>
+       <p>Професионални хардуерни решения от Smartland.</p>
+        <a href="#products" class="cta-btn">УСЛУГИ</a>
+    </div>
 
-    <div class="trust-badge-container">
-        <div class="badge-rating">
-            <i class="fab fa-google"></i>
-            <span class="score">4.9</span>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i> </div>
-        </div>
-        
-        <div class="badge-text">
-    <p>Доверено качество</p>
-    <span>32 Google Отзива</span>
+    <div class="trust-badge-container">
+        <div class="badge-rating">
+            <i class="fab fa-google"></i>
+            <span class="score">4.9</span>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i> </div>
+        </div>
+        
+        <div class="badge-text">
+    <p>Доверено качество</p>
+    <span>32 Google Отзива</span>
 </div>
-    </div>
+    </div>
 
 </section>
 
 
-   <section id="why-us" class="section" style="background: rgba(255,255,255,0.02);">
-        <div class="section-title">
-            <p>ДОВЕРЕТЕ СЕ НА ОПИТА</p>
-            <h2>ЗАЩО SMARTLAND?</h2>
-        </div>
-        
-        <div class="grid-container">
-            <div class="card" style="text-align: center; padding: 30px;">
-                <i class="fas fa-user-check" style="color: var(--primary); font-size: 3rem;"></i>
-                <h3 style="margin-top: 15px;">Доказан опит</h3>
-                <p>Дългогодишна практика в диагностиката и ремонта на сложни хардуерни проблеми.</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 30px;">
-                <i class="fas fa-bolt" style="color: var(--primary); font-size: 3rem;"></i>
-                <h3 style="margin-top: 15px;">Безплатна консултация</h3>
-                <p>Диагностика до 24 часа. Знаем, че техниката Ви е необходима за работа и забавление.</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 30px;">
-                <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 3rem;"></i>
-                <h3 style="margin-top: 15px;">Гаранция</h3>
-                <p>Използваме само качествени части и предлагаме гаранция за всеки извършен ремонт.</p>
-            </div>
-        </div>
-    </section>
+   <section id="why-us" class="section" style="background: rgba(255,255,255,0.02);">
+        <div class="section-title">
+            <p>ДОВЕРЕТЕ СЕ НА ОПИТА</p>
+            <h2>ЗАЩО SMARTLAND?</h2>
+        </div>
+        
+        <div class="grid-container">
+            <div class="card" style="text-align: center; padding: 30px;">
+                <i class="fas fa-user-check" style="color: var(--primary); font-size: 3rem;"></i>
+                <h3 style="margin-top: 15px;">Доказан опит</h3>
+                <p>Дългогодишна практика в диагностиката и ремонта на сложни хардуерни проблеми.</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 30px;">
+                <i class="fas fa-bolt" style="color: var(--primary); font-size: 3rem;"></i>
+                <h3 style="margin-top: 15px;">Безплатна консултация</h3>
+                <p>Диагностика до 24 часа. Знаем, че техниката Ви е необходима за работа и забавление.</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 30px;">
+                <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 3rem;"></i>
+                <h3 style="margin-top: 15px;">Гаранция</h3>
+                <p>Използваме само качествени части и предлагаме гаранция за всеки извършен ремонт.</p>
+            </div>
+        </div>
+    </section>
 
 <section id="products" class="section">
-        <div class="section-title">
-            <p>ВСИЧКО ЗА ВАШАТА ТЕХНИКА</p>
-            <h2>ПЪЛНО ОБСЛУЖВАНЕ</h2>
-        </div>
+        <div class="section-title">
+            <p>ВСИЧКО ЗА ВАШАТА ТЕХНИКА</p>
+            <h2>ПЪЛНО ОБСЛУЖВАНЕ</h2>
+        </div>
 
-       <div class="grid-container">
-            <div class="product-card">
-                <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600');"></div>
-                <div class="prod-info">
-                    <h3><i class="fas fa-tools" style="color: var(--primary); margin-right: 10px;"></i>Експертен Сервиз</h3>
-                    <p>Бърза диагностика и ремонт на компютри и лаптопи. Професионално почистване, смяна на термопаста и софтуерна поддръжка.</p>
-                </div>
-            </div>
+       <div class="grid-container">
+                        <a href="services.html#service-repair" class="product-card">
+                <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="prod-info">
+                    <h3><i class="fas fa-tools" style="color: var(--primary); margin-right: 10px;"></i>Експертен Сервиз</h3>
+                    <p>Бърза диагностика и ремонт на компютри и лаптопи. Професионално почистване, смяна на термопаста и софтуерна поддръжка.</p>
+                </div>
+            </a>
 
-            <div class="product-card">
-                <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=600');"></div>
-                <div class="prod-info">
-                    <h3><i class="fas fa-laptop" style="color: var(--primary); margin-right: 10px;"></i>Компютри & Лаптопи</h3>
-                    <p>Продажба на нови машини и проверена техника втора употреба с гаранция. Сглобяване на конфигурации по индивидуален проект.</p>
-                </div>
-            </div>
+                        <a href="services.html#service-computers" class="product-card">
+                <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="prod-info">
+                    <h3><i class="fas fa-laptop" style="color: var(--primary); margin-right: 10px;"></i>Компютри & Лаптопи</h3>
+                    <p>Продажба на нови машини и проверена техника втора употреба с гаранция. Сглобяване на конфигурации по индивидуален проект.</p>
+                </div>
+            </a>
 
-            <div class="product-card">
-                <div class="prod-img" style="background-image: url('https://images.pexels.com/photos/2041005/pexels-photo-2041005.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
-                <div class="prod-info">
-                    <h3><i class="fas fa-print" style="color: var(--primary); margin-right: 10px;"></i>Принтери & Тонери</h3>
-                    <p>Продажба на принтери и копирна техника. Предлагаме нови тонер касети и презареждане на стари касети.</p>
-                </div>
-            </div>
+                        <a href="services.html#service-printers" class="product-card">
+                <div class="prod-img" style="background-image: url('https://images.pexels.com/photos/2041005/pexels-photo-2041005.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="prod-info">
+                    <h3><i class="fas fa-print" style="color: var(--primary); margin-right: 10px;"></i>Принтери & Тонери</h3>
+                    <p>Продажба на принтери и копирна техника. Предлагаме нови тонер касети и презареждане на стари касети.</p>
+                </div>
+            </a>
 
-            <div class="product-card">
-                <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&q=80&w=600');"></div>
-                <div class="prod-info">
-                    <h3><i class="fas fa-mouse" style="color: var(--primary); margin-right: 10px;"></i>Аксесоари</h3>
-                    <p>Всичко необходимо за вашето бюро – мишки, механични клавиатури, геймърски слушалки, монитори и кабели.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <a href="services.html#service-accessories" class="product-card">
+                <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="prod-info">
+                    <h3><i class="fas fa-mouse" style="color: var(--primary); margin-right: 10px;"></i>Аксесоари</h3>
+                    <p>Всичко необходимо за вашето бюро – мишки, механични клавиатури, геймърски слушалки, монитори и кабели.</p>
+                </div>
+            </a>
+        </div>
+    </section>
 
 <section class="reviews-section">
-    <div class="section-title">
-        <p style="color: var(--text-dim);">ДОВЕРЕТЕ СЕ НА ДРУГИТЕ</p>
-        <h2>ОТЗИВИ ОТ КЛИЕНТИ</h2>
-    </div>
+    <div class="section-title">
+        <p style="color: var(--text-dim);">ДОВЕРЕТЕ СЕ НА ДРУГИТЕ</p>
+        <h2>ОТЗИВИ ОТ КЛИЕНТИ</h2>
+    </div>
 
-    <div class="review-grid">
-        <div class="review-card">
-            <i class="fab fa-google google-badge"></i>
-            <div class="review-header">
-                <div class="reviewer-img">К</div>
-                <div class="reviewer-info">
-                    <h4>Костадин Спасов</h4>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <p class="review-text">Уникално обслужване, професионални умения и съвети. Неоспорима компетентност и гарантирано качество на услугите! Препоръчвам!</p>
-        </div>
+    <div class="review-grid">
+        <div class="review-card">
+            <i class="fab fa-google google-badge"></i>
+            <div class="review-header">
+                <div class="reviewer-img">К</div>
+                <div class="reviewer-info">
+                    <h4>Костадин Спасов</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">Уникално обслужване, професионални умения и съвети. Неоспорима компетентност и гарантирано качество на услугите! Препоръчвам!</p>
+        </div>
 
-        <div class="review-card">
-            <i class="fab fa-google google-badge"></i>
-            <div class="review-header">
-                <div class="reviewer-img" style="color: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px var(--accent);">Г</div>
-                <div class="reviewer-info">
-                    <h4>Георги Димитров</h4>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <p class="review-text">Изключително добро обслужване! Бързо диагностициране и решаване на проблема! Препоръчвам!</p>
-        </div>
+        <div class="review-card">
+            <i class="fab fa-google google-badge"></i>
+            <div class="review-header">
+                <div class="reviewer-img" style="color: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px var(--accent);">Г</div>
+                <div class="reviewer-info">
+                    <h4>Георги Димитров</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">Изключително добро обслужване! Бързо диагностициране и решаване на проблема! Препоръчвам!</p>
+        </div>
 
-        <div class="review-card">
-            <i class="fab fa-google google-badge"></i>
-            <div class="review-header">
-                <div class="reviewer-img">С</div>
-                <div class="reviewer-info">
-                    <h4>Сергей Караджов</h4>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <p class="review-text">Страхотен сервиз и магазин, културно и качествено обслужване, конкурентни цени.</p>
-        </div>
-    </div>
+        <div class="review-card">
+            <i class="fab fa-google google-badge"></i>
+            <div class="review-header">
+                <div class="reviewer-img">С</div>
+                <div class="reviewer-info">
+                    <h4>Сергей Караджов</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">Страхотен сервиз и магазин, културно и качествено обслужване, конкурентни цени.</p>
+        </div>
+    </div>
 </section>
 
 <section class="faq-section">
-    <div class="section-title">
-        <p>ИМАТЕ ВЪПРОСИ?</p>
-        <h2>ЧЕСТО ЗАДАВАНИ</h2>
-    </div>
+    <div class="section-title">
+        <p>ИМАТЕ ВЪПРОСИ?</p>
+        <h2>ЧЕСТО ЗАДАВАНИ</h2>
+    </div>
 
-    <div class="faq-container">
-        <div class="faq-item">
-            <div class="faq-question">
-                <h4>Колко време отнема диагностиката на компютър или лаптоп?</h4>
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-answer">
-                <p>Стандартната диагностика при нас се извършва в рамките на 24 часа. След нея се свързваме с Вас, за да обясним проблема и да съгласуваме цената за ремонта.</p>
-            </div>
-        </div>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Колко време отнема диагностиката на компютър или лаптоп?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Стандартната диагностика при нас се извършва в рамките на 24 часа. След нея се свързваме с Вас, за да обясним проблема и да съгласуваме цената за ремонта.</p>
+            </div>
+        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <h4>Предлагате ли гаранция за извършените ремонти?</h4>
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-answer">
-                <p>Да, предлагаме гаранция за всеки извършен хардуерен ремонт. Срокът зависи от вложените части (обикновено между 6 и 24 месеца).</p>
-            </div>
-        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Предлагате ли гаранция за извършените ремонти?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Да, предлагаме гаранция за всеки извършен хардуерен ремонт. Срокът зависи от вложените части (обикновено между 6 и 24 месеца).</p>
+            </div>
+        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <h4>Мога ли да донеса собствени части за сглобяване на компютър?</h4>
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-answer">
-                <p>Разбира се. Можем да асемблираме конфигурация с Ваши части или да Ви предложим такива на конкурентни цени с пълна гаранция за съвместимост.</p>
-            </div>
-        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Мога ли да донеса собствени части за сглобяване на компютър?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Разбира се. Можем да асемблираме конфигурация с Ваши части или да Ви предложим такива на конкурентни цени с пълна гаранция за съвместимост.</p>
+            </div>
+        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <h4>Колко често трябва да почиствам лаптопа си от прах?</h4>
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-answer">
-                <p>За оптимална работа и дълъг живот на хардуера, препоръчваме професионално почистване и смяна на термопаста веднъж на 12 месеца.</p>
-            </div>
-        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Колко често трябва да почиствам лаптопа си от прах?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>За оптимална работа и дълъг живот на хардуера, препоръчваме професионално почистване и смяна на термопаста веднъж на 12 месеца.</p>
+            </div>
+        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <h4>Извършвате ли софтуерни услуги като преинсталация на Windows?</h4>
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-answer">
-                <p>Да, предлагаме пълно софтуерно обслужване: инсталация на операционни системи, драйвери, почистване от вируси и оптимизация на скоростта.</p>
-            </div>
-        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Извършвате ли софтуерни услуги като преинсталация на Windows?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Да, предлагаме пълно софтуерно обслужване: инсталация на операционни системи, драйвери, почистване от вируси и оптимизация на скоростта.</p>
+            </div>
+        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <h4>Работите ли с корпоративни клиенти и офиси?</h4>
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-answer">
-                <p>Да, предлагаме поддръжка в гр. Панагюрище, включваща поддръжка на компютри/лаптопи, принтери и софтуер.</p>
-            </div>
-        </div>
-    </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h4>Работите ли с корпоративни клиенти и офиси?</h4>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Да, предлагаме поддръжка в гр. Панагюрище, включваща поддръжка на компютри/лаптопи, принтери и софтуер.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-    
-    <section id="contacts" class="section">
-        <div class="contact-wrap">
-            <div class="contact-info">
-                <h2>СВЪРЖЕТЕ СЕ С НАС</h2>
-                <p>Имате проблем с компютъра? Обадете ни се или заповядайте на място.</p>
-                <br>
-                <div>
-                    <h4><i class="fas fa-phone"></i> Телефон</h4>
-                    <p>098 883 5555</p>
-                </div>
-                <div>
-                    <h4><i class="fas fa-envelope"></i> Имейл</h4>
-                    <p>thilsey13542@gmail.com</p>
-                </div>
-                <div>
-                    <h4><i class="fas fa-map-marker-alt"></i> Адрес</h4>
-                    <p>ул. „Цар Освободител“ 43, Панагюрище</p>
-                </div>
-            </div>
-            
-            <div style="flex: 1; min-height: 400px; position: relative; background: #222; border-radius: 15px; overflow: hidden;">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4105.804305274418!2d24.1793804!3d42.50278019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa0317db701641%3A0x213c3e47891a0a6!2z0KHQvNCw0YDRgtCb0LXQvdC0INCe0J7QlA!5e1!3m2!1sbg!2sbg!4v1771197333894!5m2!1sbg!2sbg" 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
+    
+    <section id="contacts" class="section">
+        <div class="contact-wrap">
+            <div class="contact-info">
+                <h2>СВЪРЖЕТЕ СЕ С НАС</h2>
+                <p>Имате проблем с компютъра? Обадете ни се или заповядайте на място.</p>
+                <br>
+                <div>
+                    <h4><i class="fas fa-phone"></i> Телефон</h4>
+                    <p>098 883 5555</p>
+                </div>
+                <div>
+                    <h4><i class="fas fa-envelope"></i> Имейл</h4>
+                    <p>thilsey13542@gmail.com</p>
+                </div>
+                <div>
+                    <h4><i class="fas fa-map-marker-alt"></i> Адрес</h4>
+                    <p>ул. „Цар Освободител“ 43, Панагюрище</p>
+                </div>
+            </div>
+            
+            <div style="flex: 1; min-height: 400px; position: relative; background: #222; border-radius: 15px; overflow: hidden;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4105.804305274418!2d24.1793804!3d42.50278019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa0317db701641%3A0x213c3e47891a0a6!2z0KHQvNCw0YDRgtCb0LXQvdC0INCe0J7QlA!5e1!3m2!1sbg!2sbg!4v1771197333894!5m2!1sbg!2sbg" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
-   <footer class="main-footer">
-    <div class="footer-container">
-        <div class="footer-col">
-            <a href="/" class="logo">SMART<span>LAND</span></a>
-            <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </div>
-        </div>
+   <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <a href="/" class="logo">SMART<span>LAND</span></a>
+            <p>Вашият надежден партньор за конфигурации, професионален сервиз и качествена поддръжка в Панагюрище и региона.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
 
-       <div class="footer-col">
-    <h3>Навигация</h3>
-    <ul class="footer-links">
-        <li><a href="/">Начало</a></li>
-        
-        <li><a href="services.html">Услуги</a></li>
-        <li><a href="shop.html">Магазин</a></li>
-        
-        <li><a href="contacts.html">Контакти</a></li>
-    </ul>
+       <div class="footer-col">
+    <h3>Навигация</h3>
+    <ul class="footer-links">
+        <li><a href="/">Начало</a></li>
+        
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="shop.html">Магазин</a></li>
+        
+        <li><a href="/#contacts">Контакти</a></li>
+    </ul>
 </div>
 
-        <div class="footer-col">
-            <h3>Контакти</h3>
-            <ul class="contact-details">
-                <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
-                <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
-                <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
-                <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2026 Smartland. Всички права запазени. | Дизайн и разработка: Smartland</p>
-    </div>
+        <div class="footer-col">
+            <h3>Контакти</h3>
+            <ul class="contact-details">
+                <li><i class="fas fa-phone-alt"></i> <a href="tel:0988835555">098 883 5555</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:thilsey13542@gmail.com">thilsey13542@gmail.com</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> ул. „Цар Освободител“ 43, Панагюрище</li>
+                <li><i class="fas fa-clock"></i> Пон - Пет: 09:00 - 17:30</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Smartland. Всички права запазени. | Дизайн и разработка: Smartland</p>
+        </div>
 </footer>
 
-    
+    
 
 <script>
-    // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И МОБИЛНО МЕНЮ
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-            
-            // Намираме елементите СЛЕД като хедърът е зареден в страницата
-            const menuBtn = document.getElementById('mobile-menu-trigger');
-            const navMenu = document.getElementById('nav-menu');
+    // 1. ЗАРЕЖДАНЕ НА ХЕДЪРА И МОБИЛНО МЕНЮ
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            
+            // Намираме елементите СЛЕД като хедърът е зареден в страницата
+            const menuBtn = document.getElementById('mobile-menu-trigger');
+            const navMenu = document.getElementById('nav-menu');
 
-            if(menuBtn && navMenu) {
-                menuBtn.addEventListener('click', () => {
-                    navMenu.classList.toggle('active'); // Отваря панела
-                    
-                    // Сменя иконата (чертички към Х)
-                    const icon = menuBtn.querySelector('i');
-                    if(icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
-                });
-            }
+            if(menuBtn && navMenu) {
+                menuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active'); // Отваря панела
+                    
+                    // Сменя иконата (чертички към Х)
+                    const icon = menuBtn.querySelector('i');
+                    if(icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
 
-            // --- ТУК СЛАГАМЕ И ЛОГИКАТА ЗА СВЕТЕНЕТО НА БУТОНИТЕ ---
-            const currentPath = window.location.pathname;
-            const navLinks = document.querySelectorAll('nav ul li a');
+            // --- ТУК СЛАГАМЕ И ЛОГИКАТА ЗА СВЕТЕНЕТО НА БУТОНИТЕ ---
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav ul li a');
 
-            navLinks.forEach(link => {
-                if ((currentPath === "/" || currentPath.includes("index.html")) && link.getAttribute('href') === "/") {
-                    link.classList.add('active');
-                } else if (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== "/") {
-                    link.classList.add('active');
-                }
-            });
-        });
+            navLinks.forEach(link => {
+                if ((currentPath === "/" || currentPath.includes("index.html")) && link.getAttribute('href') === "/") {
+                    link.classList.add('active');
+                } else if (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== "/") {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-    // 2. ЗАРЕЖДАНЕ НА ФУТЪРА
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
+    // 2. ЗАРЕЖДАНЕ НА ФУТЪРА
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
 
-    // ЛОГИКА ЗА FAQ АКОРДЕОН
+    // ЛОГИКА ЗА FAQ АКОРДЕОН
 document.addEventListener('click', function (e) {
-    if (e.target.closest('.faq-question')) {
-        const item = e.target.closest('.faq-item');
-        const isActive = item.classList.contains('active');
-        
-        // Затваряме всички други отворени въпроси (опционално)
-        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-        
-        // Ако не е бил активен, го отваряме
-        if (!isActive) {
-            item.classList.add('active');
-        }
-    }
+    if (e.target.closest('.faq-question')) {
+        const item = e.target.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        // Затваряме всички други отворени въпроси (опционално)
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+        
+        // Ако не е бил активен, го отваряме
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    }
 });
 
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
