@@ -276,21 +276,32 @@
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* Мобилна версия */
+/* Мобилна версия - КОРИГИРАНА */
 @media (max-width: 768px) {
     .trust-badge-container {
         bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%); /* Центрирано долу */
+        left: 53%; /* Беше 50% - преместихме го леко надясно */
+        transform: translateX(-50%); /* Запазваме центрирането спрямо новата точка */
         width: auto;
-        white-space: nowrap; /* Да не пренася текста */
-        padding: 8px 15px;
+        white-space: nowrap;
+        padding: 8px 18px; /* Малко повече въздух отстрани */
+        gap: 20px; /* Повече разстояние между звездите и текста */
     }
     
     /* Коригираме анимацията за мобилни */
     @keyframes slideInLeft {
         from { opacity: 0; transform: translate(-50%, 20px); }
         to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    .hero h1 {
+        font-size: 2.2rem !important;
+        letter-spacing: 1px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 }
         
@@ -1347,6 +1358,7 @@ document.addEventListener('click', function (e) {
 
 </body>
 </html>
+
 
 
 
