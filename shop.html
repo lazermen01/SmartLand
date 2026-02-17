@@ -123,6 +123,11 @@
             .footer-col h3::after { left: 50%; transform: translateX(-50%); }
             .contact-details li, .social-icons { justify-content: center; }
         }
+
+        header { z-index: 9999 !important; }
+nav { z-index: 10000 !important; }
+
+    
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -250,12 +255,24 @@
                 });
             });
 
-        // ФУТЪР
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.querySelector('.main-footer').innerHTML = data;
-            });
+        // 2. ЗАРЕЖДАНЕ НА ФУТЪРА И СМЯНА НА ЛИНКА
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+        
+        // Изчакваме малко, за да е сигурно, че HTML-ът е зареден
+        setTimeout(() => {
+            // Намираме първия линк в социалните икони (Facebook)
+            const fbLink = document.querySelector('.social-icons a');
+            
+            // Ако го намерим, сменяме адреса му
+            if(fbLink) {
+                fbLink.href = 'https://www.facebook.com/p/SmartLand-Ltd-100054295717126/';
+                fbLink.target = '_blank'; // Отваряне в нов прозорец
+            }
+        }, 100);
+    });
     </script>
 </body>
 </html>
