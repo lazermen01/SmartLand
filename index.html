@@ -193,8 +193,10 @@
 
         /* Стил за бутона "Разгледай" */
 .read-more-btn {
-    margin-top: auto; /* НОВО: Това "избутва" бутона най-долу */
+    margin-top: auto;
     display: inline-block;
+    align-self: flex-start;   /* 🔥 Това спира разтягането */
+    width: fit-content;       /* 🔥 Ширината става колкото текста */
     padding-top: 15px;
     color: var(--primary);
     font-weight: bold;
@@ -204,6 +206,7 @@
     border-bottom: 2px solid transparent;
     transition: 0.3s;
 }
+
 
 .read-more-btn i {
     margin-left: 8px;
@@ -646,6 +649,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
