@@ -206,11 +206,7 @@
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); font-size: 0.95rem; }
         .contact-details i { color: var(--primary); font-size: 1.1rem; }
         .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
-        /* --- СТАРИЯТ КОД (който не работи както трябва) --- */
-        @media (max-width: 768px) { 
-        .footer-container { flex-direction: column; text-align: center; } 
-        .footer-col h3::after { left: 50%; transform: translateX(-50%); } 
-      }
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; } .footer-col h3::after { left: 50%; transform: translateX(-50%); } }
     </style>
 
 
@@ -249,8 +245,7 @@
     }
     </script>
     
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E857EJ237H"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E857EJ237H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -482,12 +477,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
