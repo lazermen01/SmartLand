@@ -435,8 +435,10 @@ nav { z-index: 10000 !important; }
 <div id="header-placeholder"></div>
 
 <section class="hero video-hero">
-    <video autoplay muted loop playsinline class="back-video">
-        <source src="video.mp4" type="video/mp4">
+    <video autoplay loop muted playsinline poster="video-placeholder.jpg" class="hero-video">
+    <source src="video.webm" type="video/webm">
+    <source src="video.mp4" type="video/mp4">
+    Вашият браузър не поддържа видео елемент.
     </video>
     <div class="video-overlay"></div>
     <div class="hero-content">
@@ -674,6 +676,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
