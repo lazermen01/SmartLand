@@ -67,11 +67,23 @@
         @media (max-width: 980px) {
             header { padding: 0 20px; }
             .mobile-menu-btn { display: block; }
-            nav {
-                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
-                background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important; padding-top: 50px; z-index: 999;
-            }
+           /* Намери това в @media (max-width: 980px) и го замени */
+nav {
+    position: fixed; 
+    top: 80px; 
+    left: -100%; 
+    width: 100%; 
+    height: calc(100vh - 80px);
+    background: rgba(10, 10, 10, 0.98); 
+    backdrop-filter: blur(15px);
+    transition: 0.4s ease-in-out; 
+    flex-direction: column; 
+    justify-content: flex-start !important; 
+    padding-top: 50px; 
+    
+    /* ТОВА Е ВАЖНИЯТ РЕД ЗА ПОПРАВКАТА: */
+    z-index: 9999 !important; 
+}
             nav.active { left: 0; }
             nav ul { flex-direction: column; gap: 30px !important; align-items: center; }
             nav a { font-size: 20px !important; width: 100%; text-align: center; }
@@ -335,12 +347,24 @@
                 });
             });
 
-        // 2. ЗАРЕЖДАНЕ НА ФУТЪРА
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+        // 2. ЗАРЕЖДАНЕ НА ФУТЪРА И СМЯНА НА ЛИНКА
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+        
+        // Изчакваме малко, за да е сигурно, че HTML-ът е зареден
+        setTimeout(() => {
+            // Намираме първия линк в социалните икони (Facebook)
+            const fbLink = document.querySelector('.social-icons a');
+            
+            // Ако го намерим, сменяме адреса му
+            if(fbLink) {
+                fbLink.href = 'https://www.facebook.com/p/SmartLand-Ltd-100054295717126/';
+                fbLink.target = '_blank'; // Отваряне в нов прозорец
+            }
+        }, 100);
+    });
     </script>
 </body>
 </html>
