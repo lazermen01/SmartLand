@@ -114,12 +114,46 @@
         
         @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
         @media (max-width: 768px) {
-            .trust-badge-container { bottom: 20px; left: 50%; transform: translateX(-50%); width: auto; white-space: nowrap; padding: 8px 15px; gap: 0; }
-            .badge-text { padding-left: 25px !important; }
-            @keyframes slideInLeft { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
-            .hero h1 { font-size: 2.2rem !important; letter-spacing: 1px; }
-            .hero p { font-size: 1rem; padding: 0 10px; }
-        }
+
+    .trust-badge-container {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        padding: 8px 15px;
+        gap: 10px;
+        white-space: nowrap;
+    }
+
+    /* Премахваме изместването */
+    .badge-text {
+        padding-left: 0 !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .badge-text p,
+    .badge-text span {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    @keyframes slideInLeft {
+        from { opacity: 0; transform: translate(-50%, 20px); }
+        to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    .hero h1 {
+        font-size: 2.2rem !important;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+}
+
 
         /* --- SERVICES & PRODUCTS (GRID) --- */
         .section { padding: 80px 5%; }
@@ -612,6 +646,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
