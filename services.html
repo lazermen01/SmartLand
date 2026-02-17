@@ -122,6 +122,75 @@
         .footer-links a:hover { color: var(--primary); padding-left: 10px; }
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); }
         .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #555; }
+    
+
+        /* --- ЗАМЕНИ ПОСЛЕДНАТА ЧАСТ (MEDIA QUERY) С ТОЗИ КОД --- */
+
+@media (max-width: 768px) {
+    /* Центриране на основния контейнер */
+    .footer-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    /* Центриране на всяка колона */
+    .footer-col {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Това центрира заглавията и чертите под тях */
+        margin-bottom: 40px !important;
+        text-align: center !important;
+    }
+
+    /* Центриране на чертичката под заглавията */
+    .footer-col h3::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* ВАЖНО: Центриране на описанието под логото */
+    .footer-col p {
+        text-align: center !important;
+        width: 90% !important; /* Малко отстъп от краищата */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* ВАЖНО: Центриране на списъка с контакти (икони + текст) */
+    .contact-details {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .contact-details li {
+        display: flex !important;
+        justify-content: center !important; /* ТОВА центрира иконата и текста хоризонтално */
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Допълнително центриране на линковете (Навигация) */
+    .footer-links {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    
+    .footer-links li {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* Центриране на социалните икони (Facebook бутона) */
+    .social-icons {
+        justify-content: center !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+}
     </style>
 
 
