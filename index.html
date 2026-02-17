@@ -75,12 +75,31 @@
             header { padding: 0 20px; }
             .mobile-menu-btn { display: block; }
             nav {
-                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
-                background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px);
-                transition: 0.4s ease-in-out; flex-direction: column; justify-content: flex-start !important; padding-top: 50px; z-index: 999;
-            }
-            nav.active { left: 0; }
-            nav ul { flex-direction: column; gap: 30px !important; align-items: center; }
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transform: translateY(-120%);
+    transition: transform 0.4s ease;
+    
+    z-index: 999;
+    padding: 30px 0;
+}
+
+nav.active {
+    transform: translateY(0);
+}
+
+            nav ul {
+    flex-direction: column;
+    gap: 30px !important;
+    align-items: center;
+}
+
             nav a { font-size: 20px !important; width: 100%; text-align: center; }
         }
 
@@ -649,6 +668,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
