@@ -79,25 +79,26 @@
         display: block; 
     }
 
-    /* 3. Настройки за ОТВАРЯЩОТО СЕ МЕНЮ */
-    nav {
-        position: fixed; 
-        top: 80px; 
-        left: -100%; 
-        width: 100%; 
-        height: calc(100vh - 80px);
-        
-        /* ВАЖНО: Плътен черен фон и за менюто */
-        background: #0a0a0a !important; 
-        
-        transition: 0.4s ease-in-out; 
-        flex-direction: column; 
-        justify-content: flex-start !important; 
-        padding-top: 50px; 
-        
-        /* Гарантираме, че менюто е най-отгоре */
-        z-index: 9999 !important; 
-    }
+/* Сложи това в @media (max-width: 980px), на мястото на сегашния nav */
+nav {
+    position: fixed; 
+    top: 80px; 
+    left: -100%; 
+    width: 100%; 
+    height: calc(100vh - 80px);
+    
+    /* ПРОМЯНАТА: Плътен цвят (без rgba) и махане на замъгляването */
+    background: #0a0a0a !important; 
+    backdrop-filter: none !important;
+    
+    transition: 0.4s ease-in-out; 
+    flex-direction: column; 
+    justify-content: flex-start !important; 
+    padding-top: 50px; 
+    
+    /* ПРОМЯНАТА: По-висок индекс от логото (което е 1001) */
+    z-index: 2000 !important; 
+}
 
     /* Активно състояние на менюто */
     nav.active { left: 0; }
