@@ -206,7 +206,41 @@
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: var(--text-dim); font-size: 0.95rem; }
         .contact-details i { color: var(--primary); font-size: 1.1rem; }
         .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; color: #555; }
-        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; } .footer-col h3::after { left: 50%; transform: translateX(-50%); } }
+        /* --- НОВИЯТ ПОДОБРЕН КОД ЗА МОБИЛНИ --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center; /* Центрира контейнерите хоризонтално */
+    }
+    
+    .footer-col {
+        width: 100%; /* Заема цялата ширина */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрира съдържанието вътре в колоната */
+        margin-bottom: 30px;
+    }
+
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Специално центриране за списъците с контакти и линкове */
+    .contact-details li, 
+    .footer-links li {
+        justify-content: center; /* Центрира текста и иконите */
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Ако социалните икони са в ляво, ги центрираме */
+    .social-icons {
+        justify-content: center;
+        width: 100%;
+    }
+}
     </style>
 
 
@@ -478,6 +512,7 @@
 
 </body>
 </html>
+
 
 
 
