@@ -147,6 +147,36 @@
         .prod-img { height: 200px; background-color: #222; background-size: cover; background-position: center; }
         .prod-info { padding: 25px; }
 
+        /* Стил за бутона "Разгледай" */
+.read-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent; /* Скрита линия */
+    transition: 0.3s;
+}
+
+.read-more-btn i {
+    margin-left: 8px;
+    transition: 0.3s;
+}
+
+/* Ефект при посочване на цялата карта */
+.product-card:hover .read-more-btn {
+    color: #fff;
+    text-shadow: 0 0 8px var(--primary);
+    border-bottom: 2px solid var(--primary); /* Появява се линия */
+}
+
+.product-card:hover .read-more-btn i {
+    transform: translateX(5px); /* Стрелката мърда на дясно */
+}
+
         /* --- REVIEWS --- */
         .reviews-section { padding: 100px 5%; background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); position: relative; overflow: hidden; }
         .reviews-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 60%; background: var(--primary); filter: blur(150px); opacity: 0.15; pointer-events: none; }
@@ -383,31 +413,38 @@ nav { z-index: 10000 !important; }
     </div>
     <div class="grid-container">
         <a href="services.html#service-repair" class="product-card">
-              <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-tools" style="color: var(--primary); margin-right: 10px;"></i>Експертен Сервиз</h3>
                 <p>Бърза диагностика и ремонт на компютри и лаптопи. Професионално почистване, смяна на термопаста и софтуерна поддръжка.</p>
+                <span class="read-more-btn">Разгледай <i class="fas fa-arrow-right"></i></span>
             </div>
         </a>
+
         <a href="services.html#service-computers" class="product-card">
             <div class="prod-img" style="background-image: url('pic13.webp');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-laptop" style="color: var(--primary); margin-right: 10px;"></i>Компютри & Лаптопи</h3>
                 <p>Продажба на нови машини и проверена техника втора употреба с гаранция. Сглобяване на конфигурации по индивидуален проект.</p>
+                <span class="read-more-btn">Разгледай <i class="fas fa-arrow-right"></i></span>
             </div>
         </a>
+
         <a href="services.html#service-printers" class="product-card">
             <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=compress&cs=tinysrgb&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-print" style="color: var(--primary); margin-right: 10px;"></i>Принтери & Тонери</h3>
                 <p>Продажба на принтери и копирна техника. Предлагаме нови тонер касети и презареждане на стари касети.</p>
+                <span class="read-more-btn">Разгледай <i class="fas fa-arrow-right"></i></span>
             </div>
         </a>
+
         <a href="services.html#service-accessories" class="product-card">
             <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-mouse" style="color: var(--primary); margin-right: 10px;"></i>Аксесоари</h3>
                 <p>Всичко необходимо за вашето бюро – мишки, механични клавиатури, геймърски слушалки, монитори и кабели.</p>
+                <span class="read-more-btn">Разгледай <i class="fas fa-arrow-right"></i></span>
             </div>
         </a>
     </div>
@@ -565,6 +602,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
