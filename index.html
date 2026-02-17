@@ -83,16 +83,21 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 
-    transform: translateY(-120%);
-    transition: transform 0.4s ease;
-    
-    z-index: 999;
+    transform: translateY(-20px); /* леко нагоре, но не напълно */
+    opacity: 0;                   /* скрива менюто */
+    pointer-events: none;          /* не може да се кликва докато е скрито */
+    transition: all 0.35s ease;
+
+    z-index: 900;
     padding: 30px 0;
 }
 
 nav.active {
-    transform: translateY(0);
+    transform: translateY(0);     /* пада надолу */
+    opacity: 1;                   /* става видимо */
+    pointer-events: auto;          /* активира кликовете */
 }
+
 
             nav ul {
     flex-direction: column;
@@ -668,6 +673,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
