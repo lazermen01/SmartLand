@@ -381,7 +381,78 @@ nav.active {
 nav { z-index: 10000 !important; }
 
         html { scroll-behavior: smooth; }
-    
+
+
+        .video-hero {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Височина на секцията */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+.back-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Видеото отива най-отзад */
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затъмнява видеото, за да се чете текста */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Текстът застава над видеото и овърлея */
+}
+
+.neon-text {
+    color: #00d2ff;
+    text-shadow: 0 0 10px #00d2ff;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #00d2ff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.trust-badge-container {
+    position: relative;
+    z-index: 1;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+        
     </style>
 
 
@@ -434,16 +505,31 @@ nav { z-index: 10000 !important; }
 
 <div id="header-placeholder"></div>
 
-<section class="shop-hero">
-    <video autoplay loop muted playsinline class="hero-video">
+<section class="hero video-hero">
+    <video autoplay muted loop playsinline class="back-video">
         <source src="video.mp4" type="video/mp4">
     </video>
     
-    <div class="shop-hero-content">
+    <div class="video-overlay"></div>
+    
+    <div class="hero-content">
         <h1>МАГАЗИН И РЕМОНТ НА <br>КОМПЮТРИ И ЛАПТОПИ <br><span class="neon-text">SMARTLAND</span></h1>
         <p>Професионални хардуерни решения в Панагюрище.</p>
-        <br>
-        <a href="#products" class="btn-call" style="padding: 15px 30px;">УСЛУГИ</a>
+        <a href="#products" class="cta-btn">УСЛУГИ</a>
+    </div>
+
+    <div class="trust-badge-container">
+        <div class="badge-rating">
+            <i class="fab fa-google"></i>
+            <span class="score">4.9</span>
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        <div class="badge-text">
+            <p>Доверено качество</p>
+            <span>32 Google Отзива</span>
+        </div>
     </div>
 </section>
 
@@ -667,6 +753,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
