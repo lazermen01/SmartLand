@@ -64,34 +64,48 @@
         /* --- ТОВА Е ЛИПСВАЩИЯТ РЕД, КОЙТО ОПРАВЯ ПОДРЕДБАТА --- */
         .header-right { display: flex; align-items: center; gap: 15px; }
 
-        @media (max-width: 980px) {
-            header { padding: 0 20px; }
-            .mobile-menu-btn { display: block; }
-           /* Намери това в @media (max-width: 980px) и го замени */
+        /* --- ЗАМЕНИ СТАРИЯ БЛОК @media (max-width: 980px) С ТОЗИ --- */
+@media (max-width: 980px) {
+    /* 1. Настройки за ХЕДЪРА на мобилни */
+    header { 
+        padding: 0 20px; 
+        /* ВАЖНО: Правим фона плътно черен, за да не се вижда нищо отдолу */
+        background: #0a0a0a !important; 
+        backdrop-filter: none !important; /* Махаме замъгляването */
+    }
 
-            /* --- ЗАМЕНИ СТАРИЯ NAV БЛОК С ТОЗИ --- */
-nav {
-    position: fixed; 
-    top: 80px; 
-    left: -100%; 
-    width: 100%; 
-    height: calc(100vh - 80px);
+    /* 2. Показваме хамбургер бутона */
+    .mobile-menu-btn { 
+        display: block; 
+    }
+
+    /* 3. Настройки за ОТВАРЯЩОТО СЕ МЕНЮ */
+    nav {
+        position: fixed; 
+        top: 80px; 
+        left: -100%; 
+        width: 100%; 
+        height: calc(100vh - 80px);
+        
+        /* ВАЖНО: Плътен черен фон и за менюто */
+        background: #0a0a0a !important; 
+        
+        transition: 0.4s ease-in-out; 
+        flex-direction: column; 
+        justify-content: flex-start !important; 
+        padding-top: 50px; 
+        
+        /* Гарантираме, че менюто е най-отгоре */
+        z-index: 9999 !important; 
+    }
+
+    /* Активно състояние на менюто */
+    nav.active { left: 0; }
     
-    /* ПРОМЯНАТА Е ТУК: Слагаме плътен цвят без прозрачност */
-    background: #0a0a0a !important; 
-    
-    transition: 0.4s ease-in-out; 
-    flex-direction: column; 
-    justify-content: flex-start !important; 
-    padding-top: 50px; 
-    
-    /* Гарантираме, че е най-отгоре */
-    z-index: 9999 !important; 
+    /* Подредба на линковете */
+    nav ul { flex-direction: column; gap: 30px !important; align-items: center; }
+    nav a { font-size: 20px !important; width: 100%; text-align: center; }
 }
-            nav.active { left: 0; }
-            nav ul { flex-direction: column; gap: 30px !important; align-items: center; }
-            nav a { font-size: 20px !important; width: 100%; text-align: center; }
-        }
 
         /* --- 3. СЪДЪРЖАНИЕ УСЛУГИ --- */
         .page-banner {
