@@ -135,7 +135,12 @@
             transition: 0.4s; position: relative; overflow: hidden; display: block; text-decoration: none; color: inherit; 
             height: 100%; /* Гарантира еднаква височина */
         }
-        .product-card { padding: 0; /* Продуктовите карти нямат вътрешен padding, защото имат картинка */ }
+        .product-card { 
+    padding: 0; /* Остава си 0, за да се вижда картинката до края */
+    display: flex; /* НОВО */
+    flex-direction: column; /* НОВО: Подрежда нещата вертикално */
+    height: 100%; /* НОВО: Гарантира, че картата е висока колкото съседа си */
+}
         
         .card:hover, .product-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
         .card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; transition: 0.4s; }
@@ -145,19 +150,24 @@
         .card p, .prod-info p { color: var(--text-dim); line-height: 1.6; }
 
         .prod-img { height: 200px; background-color: #222; background-size: cover; background-position: center; }
-        .prod-info { padding: 25px; }
+        .prod-info { 
+    padding: 25px; 
+    flex-grow: 1; /* НОВО: Това е тайната! Казва на текста да заеме цялото свободно място */
+    display: flex; /* НОВО */
+    flex-direction: column; /* НОВО */
+}
 
         /* Стил за бутона "Разгледай" */
 .read-more-btn {
+    margin-top: auto; /* НОВО: Това "избутва" бутона най-долу */
     display: inline-block;
-    margin-top: 20px;
-    padding: 8px 0;
+    padding-top: 15px;
     color: var(--primary);
     font-weight: bold;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 2px solid transparent; /* Скрита линия */
+    border-bottom: 2px solid transparent;
     transition: 0.3s;
 }
 
@@ -602,6 +612,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
