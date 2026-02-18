@@ -511,7 +511,50 @@ nav { z-index: 10000 !important; }
             white-space: nowrap;
         }
     }
-        
+
+        /* --- ГАЛЕРИЯ (САМО СНИМКИ) --- */
+.gallery-grid {
+    display: grid;
+    /* Автоматично подреждане: минимум 300px ширина, разтяга се */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px; /* Разстояние между снимките */
+    padding: 0 10px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 300px; /* Фиксирана височина, за да са равни всички */
+    border-radius: 12px;
+    overflow: hidden; /* Скрива снимката, ако излезе извън рамката при zoom */
+    border: 2px solid rgba(255, 255, 255, 0.05); /* Тънка рамка */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Запълва цялото квадратче без да се смачка */
+    transition: transform 0.5s ease; /* Плавен ефект при zoom */
+}
+
+/* Ефекти при минаване с мишката */
+.gallery-item:hover {
+    border-color: var(--primary); /* Рамката става синя */
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.4); /* Неоново сияние */
+    transform: translateY(-5px); /* Леко повдигане */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.15); /* Увеличаване на снимката (Zoom In) */
+}
+
+/* За мобилни устройства - да са по-високи */
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 250px;
+    }
+}
     </style>
 
 
@@ -674,6 +717,41 @@ nav { z-index: 10000 !important; }
     </div>
 </section>
 
+    <section id="gallery" class="section">
+    <div class="section-title">
+        <p>РЕАЛИЗИРАНИ ПРОЕКТИ</p>
+        <h2>ГАЛЕРИЯ</h2>
+    </div>
+
+    <div class="gallery-grid">
+        
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=800" alt="PC Build 1">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1603481588273-2f908a9a5a86?auto=format&fit=crop&q=80&w=800" alt="PC Build 2">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1626218174358-7769486c4b79?auto=format&fit=crop&q=80&w=800" alt="PC Build 3">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=800" alt="PC Build 4">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&q=80&w=800" alt="PC Build 5">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1555618568-9c19796030c6?auto=format&fit=crop&q=80&w=800" alt="PC Build 6">
+        </div>
+
+    </div>
+</section>
+    
 <section class="reviews-section">
     <div class="section-title">
         <p style="color: var(--text-dim);">ДОВЕРЕТЕ СЕ НА ДРУГИТЕ</p>
@@ -826,6 +904,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
