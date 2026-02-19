@@ -151,16 +151,22 @@
         
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
-        .card, .product-card { 
+        .card { 
             background: var(--card-bg); padding: 40px 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); 
             transition: 0.4s; position: relative; overflow: hidden; display: block; text-decoration: none; color: inherit; 
             height: 100%; 
         }
+
+        /* Промени за Expandable Уеб Услуги карти */
         .product-card { 
+            background: var(--card-bg);
+            border-radius: 15px; 
+            border: 1px solid rgba(255,255,255,0.05); 
             padding: 0; 
             display: flex; 
             flex-direction: column; 
             height: 100%; 
+            transition: 0.4s; position: relative; overflow: hidden; color: inherit; 
         }
         
         .card:hover, .product-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
@@ -170,7 +176,7 @@
         .card h3, .prod-info h3 { margin-bottom: 15px; font-size: 1.4rem; }
         .card p, .prod-info p { color: var(--text-dim); line-height: 1.6; }
 
-        .prod-img { height: 200px; background-color: #222; background-size: cover; background-position: center; }
+        .prod-img { height: 200px; background-color: #222; background-size: cover; background-position: center; flex-shrink: 0; }
         .prod-info { 
             padding: 25px; 
             flex-grow: 1; 
@@ -178,12 +184,37 @@
             flex-direction: column; 
         }
 
+        /* --- НОВИ КЛАСОВЕ ЗА READ MORE АНИМАЦИЯТА --- */
+        .extra-text {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+        }
+
+        .extra-text p {
+            color: #fff !important; /* Леко по-светъл текст за допълнителната информация */
+            border-left: 3px solid var(--primary);
+            padding-left: 15px;
+            font-size: 0.95rem;
+        }
+
+        .product-card.expanded .extra-text {
+            max-height: 400px; /* Достатъчно високо, за да побере текста */
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        /* Бутонът става <button>, затова изчистваме стиловете по подразбиране */
         .read-more-btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
             margin-top: auto;
             display: inline-block;
             align-self: flex-start;  
-            width: fit-content;      
-            padding-top: 15px;
+            padding-top: 20px;
             color: var(--primary);
             font-weight: bold;
             font-size: 0.9rem;
@@ -191,11 +222,17 @@
             letter-spacing: 1px;
             border-bottom: 2px solid transparent;
             transition: 0.3s;
+            font-family: 'Roboto', sans-serif;
         }
 
-        .read-more-btn i { margin-left: 8px; transition: 0.3s; }
-        .product-card:hover .read-more-btn { color: #fff; text-shadow: 0 0 8px var(--primary); border-bottom: 2px solid var(--primary); }
-        .product-card:hover .read-more-btn i { transform: translateX(5px); }
+        .read-more-btn i { margin-left: 8px; transition: transform 0.4s ease; }
+        
+        .product-card:hover .read-more-btn { color: #fff; text-shadow: 0 0 8px var(--primary); }
+        
+        /* Завъртане на стрелката при отваряне */
+        .product-card.expanded .read-more-btn i {
+            transform: rotate(180deg);
+        }
 
         /* --- FAQ --- */
         .faq-section { padding: 80px 5%; background: linear-gradient(to bottom, #0a0a0a, #050505); }
@@ -325,41 +362,63 @@
         <h2>УЕБ РЕШЕНИЯ ЗА ВАС</h2>
     </div>
     <div class="grid-container">
-        <a href="#contacts" class="product-card">
+        
+        <div class="product-card">
             <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-laptop-code" style="color: var(--primary); margin-right: 10px;"></i>Фирмени сайтове</h3>
-                <p>Представителни уеб сайтове (Landing Pages, корпоративни блогове и портфолиа), които грабват вниманието и представят вашия бранд.</p>
-                <span class="read-more-btn">Направи запитване <i class="fas fa-arrow-right"></i></span>
-            </div>
-        </a>
+                <p>Представителни уеб сайтове, които грабват вниманието и представят професионално вашия бранд.</p>
+                
+                <div class="extra-text">
+                    <p>Изработваме персонализиран дизайн, съобразен с вашата марка. Интегрираме удобни контактни форми, галерии и лесен панел за управление (CMS), с който сами да променяте съдържанието си. Осигуряваме бързо зареждане и високо ниво на сигурност.</p>
+                </div>
 
-        <a href="#contacts" class="product-card">
+                <button class="read-more-btn">Прочети повече <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
             <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-shopping-cart" style="color: var(--primary); margin-right: 10px;"></i>Онлайн магазини</h3>
-                <p>Изграждане на електронни магазини с модерни платформи. Интеграция с куриери, разплащателни системи и складов софтуер.</p>
-                <span class="read-more-btn">Направи запитване <i class="fas fa-arrow-right"></i></span>
-            </div>
-        </a>
+                <p>Изграждане на електронни магазини с модерни платформи за лесни и сигурни продажби.</p>
+                
+                <div class="extra-text">
+                    <p>Създаваме магазини, които продават. Включваме интуитивни филтри за продукти, бърз чекаут, управление на складови наличности и интеграция с водещи куриерски фирми и разплащателни системи (Stripe, PayPal, myPOS).</p>
+                </div>
 
-        <a href="#contacts" class="product-card">
+                <button class="read-more-btn">Прочети повече <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
             <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-search" style="color: var(--primary); margin-right: 10px;"></i>SEO Оптимизация</h3>
-                <p>Вътрешна (On-Page) и външна (Off-Page) оптимизация за търсачки. Излезте пред конкуренцията и привлечете повече органичен трафик.</p>
-                <span class="read-more-btn">Направи запитване <i class="fas fa-arrow-right"></i></span>
-            </div>
-        </a>
+                <p>Вътрешна (On-Page) и външна (Off-Page) оптимизация за по-добро класиране в Google.</p>
+                
+                <div class="extra-text">
+                    <p>Правим пълен технически одит на сайта ви, проучваме най-търсените ключови думи във вашата ниша, подобряваме структурата на съдържанието и изграждаме качествени външни връзки (link building) за дългосрочни резултати.</p>
+                </div>
 
-        <a href="#contacts" class="product-card">
+                <button class="read-more-btn">Прочети повече <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
             <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="prod-info">
                 <h3><i class="fas fa-cogs" style="color: var(--primary); margin-right: 10px;"></i>Поддръжка & Хостинг</h3>
-                <p>Цялостно управление на вашия сайт – ъпдейти, защита от атаки, бекъпи (архивиране) и надежден хостинг.</p>
-                <span class="read-more-btn">Направи запитване <i class="fas fa-arrow-right"></i></span>
+                <p>Цялостно управление на вашия сайт – ъпдейти, защита от атаки и надежден хостинг.</p>
+                
+                <div class="extra-text">
+                    <p>Осигуряваме 24/7 мониторинг, редовно обновяване на плъгини и системни файлове, сигурна защита от малуер (malware) и автоматични дневни архиви (backups), за да бъде информацията ви винаги защитена.</p>
+                </div>
+
+                <button class="read-more-btn">Прочети повече <i class="fas fa-chevron-down"></i></button>
             </div>
-        </a>
+        </div>
+
     </div>
 </section>
 
@@ -450,13 +509,33 @@
             }, 100);
         });
 
-    // Логика за FAQ секцията
+    // Логика за интеракциите (FAQ + READ MORE бутони)
     document.addEventListener('click', function (e) {
+        
+        // 1. FAQ Логика
         if (e.target.closest('.faq-question')) {
             const item = e.target.closest('.faq-item');
             const isActive = item.classList.contains('active');
             document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
             if (!isActive) { item.classList.add('active'); }
+        }
+
+        // 2. READ MORE Логика (за картите с услуги)
+        const readMoreBtn = e.target.closest('.read-more-btn');
+        if (readMoreBtn) {
+            e.preventDefault(); // За всеки случай, ако се кликне върху бутона
+            const card = readMoreBtn.closest('.product-card');
+            
+            // Превключваме класа за разпъване
+            card.classList.toggle('expanded');
+            
+            // Сменяме текста на бутона
+            const isExpanded = card.classList.contains('expanded');
+            if (isExpanded) {
+                readMoreBtn.innerHTML = 'Скрий <i class="fas fa-chevron-up"></i>';
+            } else {
+                readMoreBtn.innerHTML = 'Прочети повече <i class="fas fa-chevron-down"></i>';
+            }
         }
     });
 </script>
