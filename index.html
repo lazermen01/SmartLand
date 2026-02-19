@@ -103,9 +103,11 @@
         }
 
         /* --- HERO ОСНОВЕН --- */
+       /* --- HERO ОСНОВЕН --- */
         .hero {
             height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center;
-            position: relative; background: var(--dark-bg);
+            position: relative; 
+            background-color: transparent; /* Премахваме черния фон, за да не крие снимката */
             margin-top: 0;
         }
         
@@ -116,19 +118,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Важно: скрива снимката, когато се увеличава */
+            overflow: hidden; 
+            background: #000; /* Резервен черен фон, докато зарежда снимката */
         }
 
-        /* НОВ КЛАС ЗА АНИМИРАНАТА СНИМКА (замества видеото) */
         .back-image {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-image: url('pic18.jpg');
+            /* ВАЖНО: Увери се, че пътят до снимката е верен! Ако е в папка, напиши напр. url('assets/images/pic18.jpg') */
+            background-image: url('pic18.jpg'); 
             background-size: cover;
             background-position: center;
-            z-index: -1;
-            /* Плавна зуум анимация: 20 секунди, редуваща се напред-назад */
+            z-index: 1; /* Вдигаме снимката един слой напред */
             animation: slowZoom 20s ease-in-out infinite alternate;
         }
 
@@ -143,12 +145,13 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.6);
-            z-index: 0;
+            z-index: 2; /* Филтърът е над снимката */
         }
 
         /* ТЕКСТ В ХИРО СЕКЦИЯТА */
         .hero-content {
-            z-index: 1;
+            position: relative;
+            z-index: 3; /* Текстът е най-отпред */
             text-align: center;
             color: white;
             margin-bottom: 50px;
@@ -691,3 +694,4 @@
 
 </body>
 </html>
+
